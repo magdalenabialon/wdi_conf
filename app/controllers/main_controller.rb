@@ -5,4 +5,9 @@ class MainController < ApplicationController
     render :index
   end
 
+  def map
+    # @speeches = Speeches.all
+    render :map
+  end
+
 end
