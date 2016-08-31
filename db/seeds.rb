@@ -21,8 +21,8 @@ u10 = User.create({ name: 'Anthonasia', password: 'anthonasia', email: 'anthonas
 u11 = User.create({ name: 'Harry', password: 'harry', email: 'harry@ga.co'})
 u12 = User.create({ name: 'DT', password: 'dt', email: 'dt@ga.co'})
 
-s1 = Speech.create( {name: 'How to retire and live on a beach', speaker: 'Dean',
-      starttime: DateTime.parse("09/01/2009 09:30"), endtime: DateTime.parse("09/01/2009 10:00")})
+s1 = Speech.create( {name: 'Welcome and Introduction', speaker: 'Dean Cooper',
+      starttime: DateTime.parse("09/01/2009 09:00"), endtime: DateTime.parse("09/01/2009 10:00")})
 
 s2 = Speech.create( {name: 'How I became a great artist', speaker: 'Magda',
       starttime: DateTime.parse("09/01/2009 10:30"), endtime: DateTime.parse("09/01/2009 11:00")})
