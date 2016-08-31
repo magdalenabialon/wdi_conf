@@ -1,0 +1,53 @@
+Speaker: Maggie McCain
+Date/Time: Saturday, 9am AEST
+Talk name: Welcome and Introduction
+Theme: General
+Description: We welcome you to the 5th Annual WDIConf.  We'll give you an overview of the conference, logistics, and some motivational nuggets of knowledge to kick off a fun, inspiring weekend of learning and connecting with your peers.
+
+Speaker: Denis Ng
+Date/Time: Saturday, 11am AEST
+Talk name: Achieving Maximum Efficiency with Agile
+Theme: Agile
+Description:  The Ultimate Scrum Master gives us a crash course in optimizing efficiency for your team by implementing Agile methodologies in your organization.  Learn how to free your team of the sequential waterfall development by improving your workflow and team reaction to unpredictability in the workplace.
+
+Speaker: Jordan Etzler
+Date/Time: Saturday, 1:30pm AEST
+Talk name: Why SASS is Replacing CSS.
+Theme: SASS/CSS
+Description: Jordan is a SASS wizard who will give us a deep dive into all the features SASS offers to make your styling that much easier.
+
+Speaker: Dean Cooper
+Date/Time: Saturday, 3:00pm AEST
+Talk name: NodeJS for Dummies
+Theme: NodeJS
+Description: Node-torious B.I.G. (street name: Dean Cooper) will be teaching Javascript newbies how to use the language beyond the browser with nodeJS, as an alternative to Sinatra and Rails.
+
+Speaker: Magda Bialon
+Date/Time: Sunday, 9am AEST
+Talk name: Harnassing the Full Power of Your API
+Theme: APIs
+Description: This session focuses on the highest performing, most reliable API's.  Magda walks us through how to cut through the noise, to serve users the most relevant data from third party API's.
+
+Speaker: Dean Cooper
+Date/Time: Sunday, 11am AEST
+Talk name: React-ing to the Market
+Theme: React
+Description: You've probably heard of Facebook's uber-popular homegrown library, but do you know how to use this library to maximum benefit?
+
+Speaker: Harry Aydin
+Date/Time: Sunday, 1:30pm AEST
+Talk name: What a-Bot it?
+Theme: Robots
+Description: Ever wondered how to better organize team communications and queues?  There's a bot for that.
+
+Speaker: Denis Ng
+Date/Time: Sunday, 3pm AEST
+Talk name: Tricks & Tools
+Theme: General
+Description: Denis is MC-ing an open floor chat for attendees to share which platforms, methods, and SOPs help teams to work collaboratively, efficiently, productively.  Sponsored by Trello, Slack, and Github.
+
+Speaker: Magda Bialon
+Date/Time: Sunday, 5pm AEST
+Talk name: Gems & Ruby
+Theme: Ruby/Rails
+Description: Magda unearths the true diamonds among the infinite list of gems available to Ruby users.
