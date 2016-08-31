@@ -1,0 +1,40 @@
+Sponsor: GA
+logo w/ name: http://static-assets.generalassemb.ly/logos/generalassembly-open-graph.png
+logo: https://pbs.twimg.com/profile_images/616323696601468930/SkNd2ppU.png
+
+Sponsor: Github
+name: https://camo.githubusercontent.com/bee74950383ddc4e236d55102a92d66356bfbecc/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f37323931392f3338313630362f66666664643239302d613565322d313165322d383039392d6531623564383238366461332e6a7067
+logo w/ name: http://docs.whitesourcesoftware.com/download/attachments/17989744/github_logo.png?version=1&modificationDate=1463491374000
+logo: https://www.doitwithwp.com/wp-content/uploads/2015/08/github-logo.png
+
+Sponsor: Trello
+logo w/ name: http://developers.marketo.com/blog/wp-content/uploads/2014/11/trello-logo-blue.png
+logo: https://pbs.twimg.com/profile_images/552177275911671808/JiszgZdZ.png
+
+Sponsor: Slack
+logo w/ name: http://goldenarmmedia.com/wp-content/uploads/2015/07/slack-logo_large.png
+logo square: https://a.slack-edge.com/0180/img/icons/app-256.png
+logo hash: http://i.yimg.jp/images/mythings/app/channel/icon/large/slack.png
+
+Sponsor: Twitter
+logo: https://www.webceo.com/blog/wp-content/uploads/2015/11/twitter.jpg
+
+Sponsor: envato
+logo:https://pbs.twimg.com/profile_images/655904741617086464/nwevoHSQ.png
+logo w/ name: https://upload.wikimedia.org/wikipedia/en/f/fe/Envato_Logo.svg
+
+Sponsor: city of melbourne
+logo: http://www.brandsoftheworld.com/sites/default/files/styles/logo-thumbnail/public/0022/6271/brand.gif?itok=Q6tWHWgY
+logo w/ name: https://upload.wikimedia.org/wikipedia/en/thumb/4/42/City_of_Melbourne_Logo.svg/640px-City_of_Melbourne_Logo.svg.png
+
+Sponsor: google
+logo:http://blogsbucket.com/wp-content/uploads/2015/09/google-dk-flat.png
+logo w/ name: https://i.kinja-img.com/gawker-media/image/upload/s--pEKSmwzm--/c_scale,fl_progressive,q_80,w_800/1414228815325188681.jpg
+
+Sponsor: LinkedIn
+logo: https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png
+logo w/ name: https://content.linkedin.com/content/dam/brand/site/img/logo/logo-tm.png
+
+Sponsor: zendesk
+logo:https://d26a57ydsghvgx.cloudfront.net/www/public/assets/images/logos/zendesk144.png
+logo w/ name: https://d16cvnquvjw7pr.cloudfront.net/www/img/p-brand/downloads/Logo/Zendesk_logo_RGB.png
