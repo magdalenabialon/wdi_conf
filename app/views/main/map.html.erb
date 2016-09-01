@@ -1,6 +1,3 @@
-<h1>Location</h1>
-
-
 <!-- ========================  MAP FROM GOOGLEMAPS-->
 <!-- <div class="distanceMap">
 
@@ -29,26 +26,93 @@
 
 
 
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.css' rel='stylesheet' />
+
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+<div id='map'></div>
+<script>
+  navigator.geolocation.watchPosition(render);
+
+  function render(pos) {
+      var lat = pos.coords.latitude;
+      var lng = pos.coords.longitude;
+      geocode(lat, lng);
+  }
+
+  function geocode(lat, lng) {
+    var geocoder = new google.maps.Geocoder();
+    var latlng = new google.maps.LatLng(lat, lng);
+    geocoder.geocode({'latLng': latlng}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        if (results[1]) {
+          address = results[1].formatted_address;
+          makeMap(lat, lng, address);
+        } else {
+          alert('No results found');
+        }
+      } else {
+        alert('Geocoder failed due to: ' + status);
+      }
+    });
+  }
+
+  function makeMap(lat, lng, address) {
+      var map = L.mapbox.map('map', 'examples.map-20v6611k')
+          .setView([lat, lng], 8);
+      geojson = {
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            // coordinates here are in longitude, latitude order because
+            // x, y is the standard for GeoJSON and many formats
+            coordinates: [lng, lat]
+        },
+        properties: {
+            title: address,
+            description: lat.toString() + ', ' + lng.toString(),
+            // one can customize markers by adding simplestyle properties
+            // http://mapbox.com/developers/simplestyle/
+            'marker-size': 'large',
+            'marker-color': '#f0a',
+        }
+      };
+      map.markerLayer.setGeoJSON(geojson).openPopup();
+  };
+</script>
+
+
+
+
+
+
+
+
 <!-- ========================  MAP FROM MAPBOX -->
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
+<!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         body { margin:0; padding:0; }
-        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #map { position:absolute; top:0; bottom:0; width:80%; height: 80% }
     </style>
 
 
-<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.js'></script>
-<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
-<div id='map'></div>
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.js'></script> -->
+  <!-- <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' /> -->
+<!-- <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' /> -->
+<!-- <div id='map'></div> -->
 
-<script>
+<!-- <script>
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    center: [-79.4512, 43.6568],
+    style: 'mapbox://styles/mapbox/basic-v9', //mapbox://styles/mapbox/streets-v9'
+    center: [144.958998, -37.818535],
     zoom: 13
 });
 
@@ -58,7 +122,7 @@ var directions = new mapboxgl.Directions({
   unit: 'metric', // Use the metric system to display distances.
   profile: 'driving', // Set the initial profile to walking.
   container: 'directions', // Specify an element thats not the map container.
-  proximity: [-79.45, 43.65] // Give search results closer to these coordinates higher priority.
+  proximity: [144.96, -37.82] // Give search results closer to these coordinates higher priority.
 });
 
 
@@ -66,15 +130,15 @@ var directions = new mapboxgl.Directions({
 map.on('load', function() {
   // directions.setOrigin([ -37.818535, 144.958998]); // On load, set the origin to "Toronto, Ontario".
   // directions.setDestination([-37.828535, 144.958998]); // On load, set the destination to "Montreal, Quebec".
-  directions.setOrigin('Melbourne, Victoria'); // On load, set the origin to "Toronto, Ontario".
-  directions.setDestination('Geelong, Victoria'); // On load, set the destination to "Montreal, Quebec".
+  directions.setOrigin([ 144.758998, -37.918535 ]); // On load, set the origin to "Toronto, Ontario".
+  directions.setDestination([ 144.958998, -37.818535 ]); // On load, set the destination to "Montreal, Quebec".
   // directions.query();
 });
 
 directions.on('route', function(e) {
   console.log(e.route); // Logs the current route shown in the interface.
 });
-</script>
+</script> -->
 
 
 
