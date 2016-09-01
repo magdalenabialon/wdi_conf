@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Wdi Conf 2016</title>
     <%= csrf_meta_tags %>
@@ -52,13 +53,13 @@
 
       <div class="nav-bottom">
 
-        <div class="nav-item">
+        <div class="nav-item no-hover">
           <i class="fa fa-circle-thin" aria-hidden="true"></i>
-          <!-- <p>Avatar</p> -->
+          <p>Welcome back, User</p>
         </div>
         <div class="nav-item">
           <i class="fa fa-user" aria-hidden="true"></i>
-          <!-- <p>Account</p> -->
+          <p>Your Account</p>
         </div>
 
       </div>
@@ -76,31 +77,35 @@
     <script>
 
     // Keeps nav buttons height and width in ratio
+
     var width = $('.nav-item').width();
     $('.nav-item').css({ 'height' : width + 'px' });
 
 
+
     // Nav mouseover and mouseout handlers
-    $('nav').mouseover(function(event) {
-      $('nav').css({ 'width' : '250px' });
-      $('nav').find('.nav-item p').css({ 'display' : 'block' });
+
+    var nav = $('nav');
+
+    nav.hover(function(event) {
+
+      nav.animate({ width : "250px" });
+      nav.find('p').delay(400).fadeIn(800);
+
+    }, function(event) {
+
+      nav.animate({ width : "70px" });
+      nav.find('p').fadeOut(1000).css({ 'display' : 'none' });
 
     });
 
-    $('nav').mouseout(function(event) {
-      $('nav').css({ 'width' : '70px' });
-      $('nav').find('.nav-item p').css({ 'display' : 'none' });
-    });
 
-    // $('nav').mouseover(function(event) {
-    //   $('nav').animate({ width: "250px" });
-    // });
-    //
-    // $('nav').mouseout(function(event) {
-    //   $('nav').animate({ width: "70px" });
-    // });
+
+
+
 
     </script>
 
   </body>
+  
 </html>

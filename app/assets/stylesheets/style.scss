@@ -44,6 +44,8 @@ nav {
   margin: 0;
   top: 0;
   left: 0;
+  box-shadow: 3px 5px 7px rgba(#000000, 0.5);
+
 }
 
 .nav-bottom {
@@ -65,11 +67,26 @@ nav {
 }
 
 .nav-item i {
-  padding-left: 22px;
+  padding-left: 25px;
+  float: left;
+}
+
+.nav-item p {
+  display: inline-block;
+  float: left;
+  line-height: 24px;
+  padding: 3px 0 0 20px;
+  margin: 0;
+  color: rgb(201, 199, 199);
 }
 
 .nav-item:hover {
   background-color: rgb(60, 60, 60);
+}
+
+.no-hover:hover {
+  background-color: rgb(32, 32, 32);
+  cursor: default;
 }
 
 .nav-item p {
