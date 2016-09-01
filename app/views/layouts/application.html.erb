@@ -79,10 +79,26 @@
     var width = $('.nav-item').width();
     $('.nav-item').css({ 'height' : width + 'px' });
 
-    // Nav hover
-    $('nav').on('hover', function(event) {
-      console.log(event.target)
-    })
+
+    // Nav mouseover and mouseout handlers
+    $('nav').mouseover(function(event) {
+      $('nav').css({ 'width' : '250px' });
+      $('nav').find('.nav-item p').css({ 'display' : 'block' });
+
+    });
+
+    $('nav').mouseout(function(event) {
+      $('nav').css({ 'width' : '70px' });
+      $('nav').find('.nav-item p').css({ 'display' : 'none' });
+    });
+
+    // $('nav').mouseover(function(event) {
+    //   $('nav').animate({ width: "250px" });
+    // });
+    //
+    // $('nav').mouseout(function(event) {
+    //   $('nav').animate({ width: "70px" });
+    // });
 
     </script>
 
