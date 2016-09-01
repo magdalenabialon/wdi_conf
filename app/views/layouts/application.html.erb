@@ -1,17 +1,69 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Wdi Conf 2016</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
   </head>
 
   <body>
-    
+
     <nav>
-      <p>hey</p>
+
+      <div class="nav-top">
+
+        <div class="nav-item">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <p>Home</p>
+        </div>
+        <div class="nav-item">
+          <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+          <p>About</p>
+        </div>
+        <div class="nav-item">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <p>Speakers</p>
+        </div>
+        <div class="nav-item">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <p>Timetable</p>
+        </div>
+        <div class="nav-item">
+          <i class="fa fa-location-arrow" aria-hidden="true"></i>
+          <p>Location Map</p>
+        </div>
+        <div class="nav-item">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <p>After Events</p>
+        </div>
+        <div class="nav-item">
+          <i class="fa fa-ticket" aria-hidden="true"></i>
+          <p>Booking</p>
+        </div>
+        <div class="nav-item">
+          <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
+          <p>Sponsors</p>
+        </div>
+
+      </div>
+
+      <div class="nav-bottom">
+
+        <div class="nav-item no-hover">
+          <i class="fa fa-circle-thin" aria-hidden="true"></i>
+          <p>Welcome back, User</p>
+        </div>
+        <div class="nav-item">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <p>Your Account</p>
+        </div>
+
+      </div>
+
     </nav>
 
     <div class="wrapper">
@@ -21,5 +73,39 @@
     </div>
 
 
+
+    <script>
+
+    // Keeps nav buttons height and width in ratio
+
+    var width = $('.nav-item').width();
+    $('.nav-item').css({ 'height' : width + 'px' });
+
+
+
+    // Nav mouseover and mouseout handlers
+
+    var nav = $('nav');
+
+    nav.hover(function(event) {
+
+      nav.animate({ width : "250px" });
+      nav.find('p').delay(400).fadeIn(800);
+
+    }, function(event) {
+
+      nav.animate({ width : "70px" });
+      nav.find('p').fadeOut(1000).css({ 'display' : 'none' });
+
+    });
+
+
+
+
+
+
+    </script>
+
   </body>
+  
 </html>
