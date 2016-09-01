@@ -1,5 +1,7 @@
 <h1>Location</h1>
 
+
+<!-- ========================  MAP FROM GOOGLEMAPS-->
 <!-- <div class="distanceMap">
 
     <div id="floating-panel">
@@ -16,24 +18,85 @@
 
 </div> -->
 
+<!-- PROBABLY NEED NEW API KEY ?? -->
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-_tjRXvZwDBMsFKx2He46Jv3MBw-_oT0&libraries=places&callback=disMap"
+        async defer></script> -->
+
+<!-- ========================  MAP FROM GOOGLEMAPS-->
 
 
 
 
+
+
+<!-- ========================  MAP FROM MAPBOX -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+    </style>
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.js'></script>
+<link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
+<div id='map'></div>
+
+<script>
+
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v9',
+    center: [-79.4512, 43.6568],
+    zoom: 13
+});
+
+map.addControl(new mapboxgl.Directions());
+
+var directions = new mapboxgl.Directions({
+  unit: 'metric', // Use the metric system to display distances.
+  profile: 'driving', // Set the initial profile to walking.
+  container: 'directions', // Specify an element thats not the map container.
+  proximity: [-79.45, 43.65] // Give search results closer to these coordinates higher priority.
+});
+
+
+
+map.on('load', function() {
+  // directions.setOrigin([ -37.818535, 144.958998]); // On load, set the origin to "Toronto, Ontario".
+  // directions.setDestination([-37.828535, 144.958998]); // On load, set the destination to "Montreal, Quebec".
+  directions.setOrigin('Melbourne, Victoria'); // On load, set the origin to "Toronto, Ontario".
+  directions.setDestination('Geelong, Victoria'); // On load, set the destination to "Montreal, Quebec".
+  // directions.query();
+});
+
+directions.on('route', function(e) {
+  console.log(e.route); // Logs the current route shown in the interface.
+});
+</script>
+
+
+
+
+
+<!-- ========================  MAP FROM MAPBOX -->
+
+
+
+
+<!-- ========================  WEATHER  -->
 <div class = "weather">
   <div id="cont_21d71ee597e69cbb9fd0e2e85960b55e"></div>
 </div>
-
-
-
-<!-- <div><iframe width="760px" title="wdi_conf" height="646px" src="https://data.melbourne.vic.gov.au/w/m4j7-darc/spy9-nmud?cur=jBdT_JGn9RO&from=root" frameborder="0"scrolling="no"><a href="https://data.melbourne.vic.gov.au/Property-Planning/wdi_conf/m4j7-darc" title="wdi_conf" target="_blank">wdi_conf</a></iframe></div> -->
-
-
-
-
-
 <script type="text/javascript" async src="https://www.theweather.com/wid_loader/21d71ee597e69cbb9fd0e2e85960b55e"></script>
+<!-- ========================  WEATHER  -->
 
-<!-- PROBABLY NEED NEW API KEY ?? -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-_tjRXvZwDBMsFKx2He46Jv3MBw-_oT0&libraries=places&callback=disMap"
-        async defer></script>
+
+
+
+
+
+<!-- ========================  PARKING MAP  -->
+<!-- <div><iframe width="760px" title="wdi_conf" height="646px" src="https://data.melbourne.vic.gov.au/w/m4j7-darc/spy9-nmud?cur=jBdT_JGn9RO&from=root" frameborder="0"scrolling="no"><a href="https://data.melbourne.vic.gov.au/Property-Planning/wdi_conf/m4j7-darc" title="wdi_conf" target="_blank">wdi_conf</a></iframe></div> -->
+<!-- ========================  PARKING MAP  -->
