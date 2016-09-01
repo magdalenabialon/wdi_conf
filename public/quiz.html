@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Editor</title>
+  <style type="text/css" media="screen">
+    body {
+        overflow: hidden;
+    }
+
+    #editorDiv {
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    #editor {
+      height: 200px;
+      width: 100%;
+    }
+    #quizResult {
+      height: 50px;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<label>The code does not execute properly. Try to figure out why</label>
+<div id="editorDiv">
+    <pre id="editor">
+      function multiply(a, b){
+        a * b
+      }
+    </pre>
+</div>
+
+<button id="submitQuizButton">submit</button>
+<div id="quizResult">ee</div>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="ace.js" type="text/javascript" charset="utf-8"></script>
+<script src="acecustom.js" type="text/javascript" charset="utf-8"></script>
+<!-- <script>
+    var editor = ace.edit("editor");
+    editor.setTheme("ace/theme/twilight");
+    editor.session.setMode("ace/mode/javascript");
+
+
+    editor.getSession().selection.on('changeSelection', function(e) {
+      console.log('text changed');
+    });
+</script> -->
+</body>
+</html>
