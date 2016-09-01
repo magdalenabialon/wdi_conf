@@ -86,6 +86,13 @@ button {
 
 }
 
+footer {
+  height: 500px;
+  background-color: grey;
+  padding: 50px 30px 50px 100px;
+
+}
+
 
 
 /* ////////////////////// NAVIGATION  ////////////////////// */
@@ -124,13 +131,14 @@ nav {
 .nav-item i {
   padding-left: 25px;
   float: left;
+  width: 70px;
 }
 
 .nav-item p {
   display: inline-block;
   float: left;
   line-height: 24px;
-  padding: 3px 0 0 20px;
+  padding: 3px 0 0 5px;
   margin: 0;
   color: rgb(201, 199, 199);
   font-size: 0.8em;
@@ -220,13 +228,6 @@ header {
 .sponsors {
   height: 500px;
   background-color: white;
-  padding: 50px 30px 50px 100px;
-
-}
-
-footer {
-  height: 500px;
-  background-color: grey;
   padding: 50px 30px 50px 100px;
 
 }
