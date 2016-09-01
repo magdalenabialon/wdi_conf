@@ -52,7 +52,8 @@ function disMap() {
 
             origin: {lat: position.coords.latitude, lng: position.coords.longitude},  // melbourne Generel Assemb.ly HARDCODED  origin: {lat: -37.818535, lng: 144.958998},
 
-            destination: {lat: -37.818535, lng: 144.958998},                  //{lat: parseFloat($('#map-lat').text(), 10), lng: parseFloat($('#map-lng').text(), 10)},  // Hair salon   // Hair salon HARDCODED > destination: {lat: -37.8156, lng: 144.9431},
+            // destination: {lat: -37.818535, lng: 144.958998},                  //{lat: parseFloat($('#map-lat').text(), 10), lng: parseFloat($('#map-lng').text(), 10)},  // Hair salon   // Hair salon HARDCODED > destination: {lat: -37.8156, lng: 144.9431},
+            destination: {lat: -37.8187765423, lng: 144.959965294},
 
             // Note that Javascript allows us to access the constant using square brackets and a string value as its "property."
             travelMode: google.maps.TravelMode[selectedMode]
