@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  resources :quizzes
   resources :bookings
   resources :speeches
   resources :users
+
+  namespace :api do
+    resources :quizzes
+  end
 
   get '/', to: 'main#index'
   get '/map', to: 'main#map'

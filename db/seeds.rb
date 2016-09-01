@@ -43,3 +43,14 @@ b4 = Booking.create({speech_id: s2.id, user_id: u4.id, seat: '1B' })
 b5 = Booking.create({speech_id: s3.id, user_id: u5.id, seat: '1A' })
 b6 = Booking.create({speech_id: s3.id, user_id: u6.id, seat: '1B' })
 b7 = Booking.create({speech_id: s3.id, user_id: u7.id, seat: '2A' })
+
+q1 = Quiz.create({prompt: 'Please correct the below code',
+                  problem: "function multiply (a,b) {\n  a * b\n}",
+                  answer1: "function multiply (a, b) { return a * b }",
+                  answer2: "function multiply (a, b) { return (a * b) } "});
+
+
+q2 = Quiz.create({prompt: 'Please correct the below code',
+                  problem: "function multiply (a,b) {\n  a * b\n}",
+                  answer1: "function multiply (a, b) { return a * b }",
+                  answer2: "function multiply (a, b) { return (a * b) } "});
