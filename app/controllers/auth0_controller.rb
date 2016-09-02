@@ -5,9 +5,11 @@ class Auth0Controller < ApplicationController
     # store the user profile in session and redirect to root
     # session[:userinfo] = request.env['omniauth.auth']
     @loginUser = User.find_by(email: request.env['omniauth.auth']["info"]["email"])
+    binding.pry
     if @loginUser
       @user = @loginUser
     else
+      binding.pry
       @user = User.new
       @user.name = request.env['omniauth.auth']["info"]["name"]
       @user.email = request.env['omniauth.auth']["info"]["email"]
