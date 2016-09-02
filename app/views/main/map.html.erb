@@ -31,13 +31,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
    var map = new mapboxgl.Map({
        container: 'map',
-       style: 'mapbox://styles/mapbox/streets-v9',
+      //  style: 'mapbox://styles/mapbox/streets-v9',
+       style: 'mapbox://styles/mapbox/dark-v9',
        center: [144.958998, -37.818535],
        zoom: 13
    });
 
 
    map.addControl(new mapboxgl.Directions());
+
 
 
    var directions = new mapboxgl.Directions({
@@ -50,20 +52,28 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
    map.on('load', function() {
      navigator.geolocation.getCurrentPosition(function(geo) {
-      console.log(geo)
+      // console.log(geo)
       $('#map').css({
         'opacity': '1'
+      });
+      $('#mapbox-directions-origin-input , #mapbox-directions-destination-input, .mapbox-form-label, .js-reverse-inputs').css({
+        'display': 'none'
       });
       // $('.mapbox-directions-component mapbox-directions-inputs').hide();
        directions.setOrigin([ geo.coords.longitude, geo.coords.latitude ]);
        directions.setDestination([144.95842859999993, -37.81884560000003]);    // On load, set the origin to GA Melbourne
+
      });
    });
 
 
    directions.on('route', function(e) {
      console.log(e.route); // Logs the current route shown in the interface.
+   map.setZoom(17);
+  // map.scrollwheel(false),
    });
+
+// document.getElementByTagName("input").value = "location";
 
 </script>
 <!-- ========================  MAP FROM MAPBOX  script-->
