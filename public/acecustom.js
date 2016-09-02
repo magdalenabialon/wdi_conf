@@ -23,6 +23,7 @@ function populateQuestion() {
   method: 'get'
   }).done(function(quiz) {
       currentQuizQuestion = quiz[0];
+      console.log(quiz[0]);
       editor.setValue(replaceAll(quiz[0].problem,'-n','\n'));
       currentQuizQuestion.answer1 = removeWhiteSpace(replaceAll(currentQuizQuestion.answer1,'-n','\n'));
       currentQuizQuestion.answer2 = removeWhiteSpace(replaceAll(currentQuizQuestion.answer2,'-n','\n'));
