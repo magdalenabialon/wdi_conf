@@ -1,14 +1,13 @@
-
 <!-- ========================  MAP FROM MAPBOX -->
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
-          <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+ <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
 
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
-     <style>
-         body { margin:0; padding:0; }
-         #map { position:absolute; top:0; bottom:0; width:100%; opacity: 0.4; transition: 1s;}
-     </style>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
 
+ <!-- /*<style>
+     body { margin:0; padding:0; }
+     #map { position:absolute; top:0; bottom:0; width:100%; opacity: 0.4; transition: 1s;}
+ </style>*/ -->
 
  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.js'></script>
  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
@@ -16,71 +15,58 @@
 
 
 
+
+
+<!-- .........................   MAP on the page-->
  <div id='map'></div>
+<!-- .........................   MAP on the page-->
 
 
 
 
 
+<!-- ========================  MAP FROM MAPBOX  script-->
 <script>
-
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
-L.mapbox.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
 
-
- var map = new mapboxgl.Map({
-     container: 'map',
-     style: 'mapbox://styles/mapbox/streets-v9',
-     center: [144.958998, -37.818535],
-     zoom: 13
- });
-
- map.addControl(new mapboxgl.Directions());
-
- var directions = new mapboxgl.Directions({
-   unit: 'metric', // Use the metric system to display distances.
-   profile: 'driving', // Set the initial profile to walking.
-   container: 'directions', // Specify an element thats not the map container.
-   proximity: [144.96, -37.82] // Give search results closer to these coordinates higher priority.
- });
-
-
-
- map.on('load', function() {
-   navigator.geolocation.getCurrentPosition(function(geo) {
-    console.log(geo)
-    $('#map').css({
-      'opacity': '1'
-    });
-    // $('.mapbox-directions-component mapbox-directions-inputs').hide();
-     directions.setOrigin([ geo.coords.longitude, geo.coords.latitude ]);
-     directions.setDestination([144.95842859999993, -37.81884560000003]);    // On load, set the origin to GA Melbourne
+   var map = new mapboxgl.Map({
+       container: 'map',
+       style: 'mapbox://styles/mapbox/streets-v9',
+       center: [144.958998, -37.818535],
+       zoom: 13
    });
 
 
- });
+   map.addControl(new mapboxgl.Directions());
 
 
- directions.on('route', function(e) {
-   console.log(e.route); // Logs the current route shown in the interface.
- });
- </script>
+   var directions = new mapboxgl.Directions({
+     unit: 'metric', // Use the metric system to display distances.
+     profile: 'driving', // Set the initial profile to walking.
+     container: 'directions', // Specify an element thats not the map container.
+     proximity: [144.96, -37.82] // Give search results closer to these coordinates higher priority.
+   });
 
 
-<!-- ========================  MAP FROM MAPBOX -->
+   map.on('load', function() {
+     navigator.geolocation.getCurrentPosition(function(geo) {
+      console.log(geo)
+      $('#map').css({
+        'opacity': '1'
+      });
+      // $('.mapbox-directions-component mapbox-directions-inputs').hide();
+       directions.setOrigin([ geo.coords.longitude, geo.coords.latitude ]);
+       directions.setDestination([144.95842859999993, -37.81884560000003]);    // On load, set the origin to GA Melbourne
+     });
+   });
 
 
+   directions.on('route', function(e) {
+     console.log(e.route); // Logs the current route shown in the interface.
+   });
 
-
-
-
-
-
-
-
-
-
-
+</script>
+<!-- ========================  MAP FROM MAPBOX  script-->
 
 
 
