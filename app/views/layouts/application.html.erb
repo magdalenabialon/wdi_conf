@@ -1,17 +1,71 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>Wdi Conf 2016</title>
     <%= csrf_meta_tags %>
 
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i|Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+
   </head>
 
   <body>
-    
+
     <nav>
-      <p>hey</p>
+
+      <div class="nav-top">
+
+        <div class="nav-item" id="hero">
+          <i class="fa fa-home" aria-hidden="true"></i>
+          <p>Home</p>
+        </div>
+        <div class="nav-item" id="about">
+          <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+          <p>About</p>
+        </div>
+        <div class="nav-item" id="speakers">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <p>Speakers</p>
+        </div>
+        <div class="nav-item" id="timetable">
+          <i class="fa fa-clock-o" aria-hidden="true"></i>
+          <p>Timetable</p>
+        </div>
+        <div class="nav-item" id="location">
+          <i class="fa fa-location-arrow" aria-hidden="true"></i>
+          <p>Location / Map</p>
+        </div>
+        <div class="nav-item" id="after-events">
+          <i class="fa fa-calendar" aria-hidden="true"></i>
+          <p>After Events</p>
+        </div>
+        <div class="nav-item" id="booking">
+          <i class="fa fa-ticket" aria-hidden="true"></i>
+          <p>Booking</p>
+        </div>
+        <div class="nav-item" id="sponsors">
+          <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
+          <p>Sponsors</p>
+        </div>
+
+      </div>
+
+      <div class="nav-bottom">
+
+        <div class="nav-item no-hover">
+          <i class="fa fa-circle-thin" aria-hidden="true"></i>
+          <p>Welcome back, User</p>
+        </div>
+        <div class="nav-item">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <p>Your Account</p>
+        </div>
+
+      </div>
+
     </nav>
 
     <div class="wrapper">
@@ -21,5 +75,62 @@
     </div>
 
 
+
+    <script>
+
+    // Keeps nav buttons height and width in ratio
+
+    var width = $('.nav-item').width();
+    $('.nav-item').css({ 'height' : width + 'px' });
+
+
+    // Nav mouseover and mouseout handlers
+
+    var nav = $('nav');
+
+    nav.hover(function(event) {
+
+      nav.animate({ width : "250px" });
+      nav.find('p').delay(400).fadeIn(800);
+
+    }, function(event) {
+
+      nav.animate({ width : "70px" });
+      nav.find('p').fadeOut(1000).css({ 'display' : 'none' });
+
+    });
+
+    //Auto Scroll
+
+    nav.on('click', function(event) {
+
+      var $clickedPos = $(event.target)
+      var buttonID = $clickedPos.closest('.nav-item').get(0).id
+
+      $('html, body').animate({
+        scrollTop: $( "." + buttonID ).offset().top
+      }, 1000);
+
+    });
+
+
+
+
+
+    </script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+
+    <script>
+
+    // Scroll magic Indicators (Can't touch this, da nah nah na)
+
+    // var controller = new ScrollMagic.Controller({addIndicators: true});
+    // new ScrollMagic.Scene().addTo(controller);
+
+    </script>
+
   </body>
+
 </html>

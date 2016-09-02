@@ -1,39 +1,218 @@
-<h1>Location</h1>
+<!-- ========================  GOOGLE_MAP AUTOLOCATION-->
+<!--
+<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
+<script>
+  navigator.geolocation.watchPosition(render);
 
-<!-- <div class="distanceMap">
+  function render(pos) {
+      var lat = pos.coords.latitude;
+      var lon = pos.coords.longitude;
+      var map = L.mapbox.map('map', 'examples.map-20v6611k')
+          .setView([lat, lon], 8);
 
-    <div id="floating-panel">
-      <b>Mode of Travel: </b>
-      <select id="mode">
-        <option value="DRIVING">Driving</option>
-        <option value="WALKING">Walking</option>
-        <option value="BICYCLING">Bicycling</option>
-        <option value="TRANSIT">Transit</option>
-      </select>
-    </div>
+      L.mapbox.markerLayer({
+          // this feature is in the GeoJSON format: see geojson.org
+          // for the full specification
+          type: 'Feature',
+          geometry: {
+              type: 'Point',
+              // coordinates here are in longitude, latitude order because
+              // x, y is the standard for GeoJSON and many formats
+              coordinates: [lon, lat]
+          },
+          properties: {
+              title: 'Your Current Location',
+              description: lat.toString() + ', ' + lon.toString(),
+              // one can customize markers by adding simplestyle properties
+              // http://mapbox.com/developers/simplestyle/
+              'marker-size': 'large',
+              'marker-color': '#f0a',
+          }
+      }).addTo(map)
+  };
+</script> -->
+<!-- ========================  GOOGLE_MAP AUTOLOCATION-->
 
-    <div id="mapDis"></div>
-
-</div> -->
 
 
 
 
 
-<div class = "weather">
+<!-- ========================  MAPBOX AUTOLOCATION -->
+<div id='map'></div>
+<a href='#' id='geolocate' class='ui-button'>Find me</a>
+
+<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
+<style>
+  body { margin:0; padding:0; }
+  #map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+
+<style>
+.ui-button {
+  background:#3887BE;
+  color:#FFF;
+  display:block;
+  position:absolute;
+  top:50%;left:50%;
+  width:160px;
+  margin:-20px 0 0 -80px;
+  z-index:100;
+  text-align:center;
+  padding:10px;
+  border:1px solid rgba(0,0,0,0.4);
+  border-radius:3px;
+  }
+  .ui-button:hover {
+    background:#3074a4;
+    color:#fff;
+    }
+</style>
+
+
+<script>
+L.mapbox.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
+var geolocate = document.getElementById('geolocate');
+var map = L.mapbox.map('map', 'mapbox.streets');
+
+var myLayer = L.mapbox.featureLayer().addTo(map);
+
+// This uses the HTML5 geolocation API, which is available on
+// most mobile browsers and modern browsers, but not in Internet Explorer
+//
+// See this chart of compatibility for details:
+// http://caniuse.com/#feat=geolocation
+if (!navigator.geolocation) {
+    geolocate.innerHTML = 'Geolocation is not available';
+} else {
+    geolocate.onclick = function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        map.locate();
+    };
+}
+
+// Once we've got a position, zoom and center the map
+// on it, and add a single marker.
+map.on('locationfound', function(e) {
+    map.fitBounds(e.bounds);
+
+    myLayer.setGeoJSON({
+        type: 'Feature',
+        geometry: {
+            type: 'Point',
+            coordinates: [e.latlng.lng, e.latlng.lat]
+        },
+        properties: {
+            'title': 'Here I am!',
+            'marker-color': '#ff8888',
+            'marker-symbol': 'star'
+        }
+    });
+
+    // And hide the geolocation button
+    geolocate.parentNode.removeChild(geolocate);
+});
+
+// If the user chooses not to allow their location
+// to be shared, display an error message.
+map.on('locationerror', function() {
+    geolocate.innerHTML = 'Position could not be found';
+});
+</script>
+<!-- ========================  MAPBOX AUTOLOCATION -->
+
+
+
+
+
+
+
+
+
+<!-- ========================  MAP FROM MAPBOX -->
+    <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
+     <style>
+         body { margin:0; padding:0; }
+         #map { position:absolute; top:0; bottom:0; width:100%; }
+     </style>
+
+
+ <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.js'></script>
+ <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
+
+ <div id='map'></div>
+
+ <script>
+
+ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
+ var map = new mapboxgl.Map({
+     container: 'map',
+     style: 'mapbox://styles/mapbox/streets-v9',
+     center: [144.958998, -37.818535],
+     zoom: 13
+ });
+
+ map.addControl(new mapboxgl.Directions());
+
+ var directions = new mapboxgl.Directions({
+   unit: 'metric', // Use the metric system to display distances.
+   profile: 'driving', // Set the initial profile to walking.
+   container: 'directions', // Specify an element thats not the map container.
+   proximity: [144.96, -37.82] // Give search results closer to these coordinates higher priority.
+ });
+
+
+
+ map.on('load', function() {
+   directions.setOrigin([ 144.948998, -37.828535 ]);
+   directions.setDestination([ 144.958998, -37.818535 ]);    // On load, set the origin to GA Melbourne
+ });
+
+
+ directions.on('route', function(e) {
+   console.log(e.route); // Logs the current route shown in the interface.
+ });
+ </script> -->
+
+
+<!-- ========================  MAP FROM MAPBOX -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ========================  WEATHER  -->
+<!-- <div class = "weather">
   <div id="cont_21d71ee597e69cbb9fd0e2e85960b55e"></div>
 </div>
+<script type="text/javascript" async src="https://www.theweather.com/wid_loader/21d71ee597e69cbb9fd0e2e85960b55e"></script> -->
+<!-- ========================  WEATHER  -->
 
 
 
+
+
+<!-- ========================  PARKING MAP  -->
 <!-- <div><iframe width="760px" title="wdi_conf" height="646px" src="https://data.melbourne.vic.gov.au/w/m4j7-darc/spy9-nmud?cur=jBdT_JGn9RO&from=root" frameborder="0"scrolling="no"><a href="https://data.melbourne.vic.gov.au/Property-Planning/wdi_conf/m4j7-darc" title="wdi_conf" target="_blank">wdi_conf</a></iframe></div> -->
+<!-- ========================  PARKING MAP  -->
 
-
-
-
-
-<script type="text/javascript" async src="https://www.theweather.com/wid_loader/21d71ee597e69cbb9fd0e2e85960b55e"></script>
-
-<!-- PROBABLY NEED NEW API KEY ?? -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-_tjRXvZwDBMsFKx2He46Jv3MBw-_oT0&libraries=places&callback=disMap"
-        async defer></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-_tjRXvZwDBMsFKx2He46Jv3MBw-_oT0"
+        async defer></script> -->

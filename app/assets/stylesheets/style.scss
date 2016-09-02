@@ -1,16 +1,20 @@
 
+
 /* ////////////////////// VARIABLES ////////////////////// */
 
+// Fonts
+$serif: 'Lora', serif;
+$sans-serif: 'Roboto', sans-serif;
 
+// Colours
 $bg-grey: #f3f3f3;
 $dark-grey: #4a4a4a;
 $light-grey: #848484;
 $gold: #b09e82;
 $white: white;
 
+// Background Patterns (Not Sure if we will actually implement these)
 $dot-pattern: url('/images/patterns/subtle_dots.png');
-
-
 
 
 
@@ -20,6 +24,14 @@ $dot-pattern: url('/images/patterns/subtle_dots.png');
 
 * {
   box-sizing: border-box;
+  font-family: $sans-serif;
+}
+
+//TEMP
+.style-guide {
+  height: 500px;
+  background-color: white;
+  padding: 50px 30px 50px 100px;
 }
 
 html {
@@ -34,24 +46,120 @@ body {
   margin: 0;
   padding: 0;
   background: $dot-pattern;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0px 0px 0px 70px;
+}
+
+h1 {
 
 }
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+p {
+
+}
+
+a {
+
+}
+
+button {
+
+}
+
+footer {
+  height: 500px;
+  background-color: grey;
+  padding: 50px 30px 50px 100px;
+
+}
+
+
+
+/* ////////////////////// NAVIGATION  ////////////////////// */
 
 nav {
   display: block;
   position: fixed;
-  width: 5%;
+  width: 70px;
   height: 100%;
-  background-color: blue;
+  background-color: rgb(32, 32, 32);
   margin: 0;
   top: 0;
   left: 0;
+  box-shadow: 3px 0px 7px rgba(#000000, 0.5);
+  z-index: 5000;
 }
 
-.wrapper {
-  width: 95%;
-  height: 100%;
-  margin: 0% 0% 0% 5%;
+.nav-bottom {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+.nav-item {
+  width: 100%;
+  text-align: left;
+  padding: 20px 0px 0px 0px;
+  color: white;
+  background-color: rgb(32, 32, 32);
+  transition: 0.5s;
+  cursor: pointer;
+  border-bottom: 1px solid rgb(59, 59, 59);
+
+}
+
+.nav-item i {
+  padding-left: 25px;
+  float: left;
+  width: 70px;
+}
+
+.nav-item p {
+  display: inline-block;
+  float: left;
+  line-height: 24px;
+  padding: 3px 0 0 5px;
+  margin: 0;
+  color: rgb(201, 199, 199);
+  font-size: 0.8em;
+
+}
+
+.nav-item:hover {
+  background-color: rgb(60, 60, 60);
+}
+
+.no-hover:hover {
+  background-color: rgb(32, 32, 32);
+  cursor: default;
+}
+
+.nav-item p {
+  display: none;
+}
+
+nav i {
+  font-size: 1.5em !important;
 }
 
 
@@ -78,6 +186,48 @@ header {
 .about {
   height: 500px;
   background-color: green;
-  padding: 30px;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.speakers {
+  height: 500px;
+  background-color: blue;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.timetable {
+  height: 500px;
+  background-color: plum;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.location {
+  height: 500px;
+  background-color: orange;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.after-events {
+  height: 500px;
+  background-color: mistyrose;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.booking {
+  height: 500px;
+  background-color: violet;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.sponsors {
+  height: 500px;
+  background-color: white;
+  padding: 50px 30px 50px 100px;
 
 }
