@@ -70,10 +70,10 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
    directions.on('route', function(e) {
      console.log(e.route); // Logs the current route shown in the interface.
    map.setZoom(17);
-  // map.scrollwheel(false),
+   map.scrollZoom.disable();
    });
+   map.addControl(new mapboxgl.Navigation());
 
-// document.getElementByTagName("input").value = "location";
 
 </script>
 <!-- ========================  MAP FROM MAPBOX  script-->
