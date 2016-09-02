@@ -1,4 +1,4 @@
-class DashboardController < SecuredController
+class DashboardController < ApplicationController
   def show
     @user = session[:userinfo]
   end
