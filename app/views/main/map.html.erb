@@ -41,7 +41,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
    map.addControl(new mapboxgl.Directions());
 
 
-
    var directions = new mapboxgl.Directions({
      unit: 'metric', // Use the metric system to display distances.
      profile: 'driving', // Set the initial profile to walking.
@@ -50,7 +49,74 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
    });
 
 
-   map.on('load', function() {
+
+
+
+// ===========================  parking locations
+
+  map.on('load', function() {
+
+    $.ajax({
+      url: "https://data.melbourne.vic.gov.au/resource/9xmh-yeh2.json",
+      type: "GET",
+      data: {
+        "$limit" : 1000,
+        "$$app_token" : "q0QvItQ7Te62kF5Yr2ebfoeNs"
+      }
+    }).done(function(data) {
+
+
+        var geojson = {
+          type: 'FeatureCollection',
+          features: []
+        };
+
+        data.forEach(function(e) {
+          geojson.features.push({
+            type: 'Feature',
+            properties: {
+              "parking_type": e.parking_type,
+              "number_of_spaces": e.parking_spaces,
+              "iconSize": [20, 20]
+            },
+            geometry: {
+              "type": "Point",
+              "coordinates": [
+                e.x_coordinate.coordinates[0],
+                e.x_coordinate.coordinates[1],
+              ]
+            }
+          });
+        // console.log(e.x_coordinate.coordinates)
+        });
+
+        geojson.features.forEach(function(marker) {
+
+            // create a DOM element for the marker
+            var el = document.createElement('div');
+
+            el.className = 'marker';
+            el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+            el.style.width = marker.properties.iconSize[0] + 'px';
+            el.style.height = marker.properties.iconSize[1] + 'px';
+
+            el.addEventListener('click', function() {
+                window.alert(marker.properties.parking_type);
+                window.alert(marker.properties.number_of_spaces);
+            });
+
+          // add marker to map
+          new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
+              .setLngLat(marker.geometry.coordinates)
+              .addTo(map);
+      });
+    })
+// ===========================  parking location
+
+
+
+
+// ===========================  autolocation
      navigator.geolocation.getCurrentPosition(function(geo) {
       // console.log(geo)
       $('#map').css({
@@ -64,14 +130,18 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
        directions.setDestination([144.95842859999993, -37.81884560000003]);    // On load, set the origin to GA Melbourne
 
      });
-   });
+  });
 
 
+
+// ===========================  directions
    directions.on('route', function(e) {
      console.log(e.route); // Logs the current route shown in the interface.
    map.setZoom(17);
    map.scrollZoom.disable();
    });
+
+
    map.addControl(new mapboxgl.Navigation());
 
 
