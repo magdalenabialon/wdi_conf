@@ -52,15 +52,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
 
 
-// ===========================  parking locations
-
+  // ===========================  parking locations
   map.on('load', function() {
 
     $.ajax({
       url: "https://data.melbourne.vic.gov.au/resource/9xmh-yeh2.json",
       type: "GET",
       data: {
-        "$limit" : 1000,
+        "$limit" : 700,
         "$$app_token" : "q0QvItQ7Te62kF5Yr2ebfoeNs"
       }
     }).done(function(data) {
@@ -77,7 +76,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
             properties: {
               "parking_type": e.parking_type,
               "number_of_spaces": e.parking_spaces,
-              "iconSize": [20, 20]
+              "iconSize": [10, 10]
             },
             geometry: {
               "type": "Point",
@@ -94,11 +93,13 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
             // create a DOM element for the marker
             var el = document.createElement('div');
+            el.className = 'my-icon icon-dc';
 
-            el.className = 'marker';
-            el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
-            el.style.width = marker.properties.iconSize[0] + 'px';
-            el.style.height = marker.properties.iconSize[1] + 'px';
+            var t = document.createTextNode("p");
+            el.appendChild(t);
+            // el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+            // el.style.width = marker.properties.iconSize[0] + 'px';
+            // el.style.height = marker.properties.iconSize[1] + 'px';
 
             el.addEventListener('click', function() {
                 window.alert(marker.properties.parking_type);
@@ -111,12 +112,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
               .addTo(map);
       });
     })
-// ===========================  parking location
 
 
 
 
-// ===========================  autolocation
+     // ===========================  autolocation
      navigator.geolocation.getCurrentPosition(function(geo) {
       // console.log(geo)
       $('#map').css({
@@ -137,8 +137,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 // ===========================  directions
    directions.on('route', function(e) {
      console.log(e.route); // Logs the current route shown in the interface.
-   map.setZoom(17);
-   map.scrollZoom.disable();
+  //  map.setZoom(13);
+     map.scrollZoom.disable();
+
+     function flyToLocation(currentFeature) {
+        map.flyTo({
+          center: currentFeature.geometry.coordinates,
+          zoom: 15
+        });
+      }
    });
 
 
