@@ -1,153 +1,33 @@
-<!-- ========================  GOOGLE_MAP AUTOLOCATION-->
-<!--
-<script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.1/mapbox.js'></script>
-<script>
-  navigator.geolocation.watchPosition(render);
-
-  function render(pos) {
-      var lat = pos.coords.latitude;
-      var lon = pos.coords.longitude;
-      var map = L.mapbox.map('map', 'examples.map-20v6611k')
-          .setView([lat, lon], 8);
-
-      L.mapbox.markerLayer({
-          // this feature is in the GeoJSON format: see geojson.org
-          // for the full specification
-          type: 'Feature',
-          geometry: {
-              type: 'Point',
-              // coordinates here are in longitude, latitude order because
-              // x, y is the standard for GeoJSON and many formats
-              coordinates: [lon, lat]
-          },
-          properties: {
-              title: 'Your Current Location',
-              description: lat.toString() + ', ' + lon.toString(),
-              // one can customize markers by adding simplestyle properties
-              // http://mapbox.com/developers/simplestyle/
-              'marker-size': 'large',
-              'marker-color': '#f0a',
-          }
-      }).addTo(map)
-  };
-</script> -->
-<!-- ========================  GOOGLE_MAP AUTOLOCATION-->
-
-
-
-
-
-
-<!-- ========================  MAPBOX AUTOLOCATION -->
-<div id='map'></div>
-<a href='#' id='geolocate' class='ui-button'>Find me</a>
-
-<script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
-<link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' />
-<style>
-  body { margin:0; padding:0; }
-  #map { position:absolute; top:0; bottom:0; width:100%; }
-</style>
-
-<style>
-.ui-button {
-  background:#3887BE;
-  color:#FFF;
-  display:block;
-  position:absolute;
-  top:50%;left:50%;
-  width:160px;
-  margin:-20px 0 0 -80px;
-  z-index:100;
-  text-align:center;
-  padding:10px;
-  border:1px solid rgba(0,0,0,0.4);
-  border-radius:3px;
-  }
-  .ui-button:hover {
-    background:#3074a4;
-    color:#fff;
-    }
-</style>
-
-
-<script>
-L.mapbox.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
-var geolocate = document.getElementById('geolocate');
-var map = L.mapbox.map('map', 'mapbox.streets');
-
-var myLayer = L.mapbox.featureLayer().addTo(map);
-
-// This uses the HTML5 geolocation API, which is available on
-// most mobile browsers and modern browsers, but not in Internet Explorer
-//
-// See this chart of compatibility for details:
-// http://caniuse.com/#feat=geolocation
-if (!navigator.geolocation) {
-    geolocate.innerHTML = 'Geolocation is not available';
-} else {
-    geolocate.onclick = function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        map.locate();
-    };
-}
-
-// Once we've got a position, zoom and center the map
-// on it, and add a single marker.
-map.on('locationfound', function(e) {
-    map.fitBounds(e.bounds);
-
-    myLayer.setGeoJSON({
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [e.latlng.lng, e.latlng.lat]
-        },
-        properties: {
-            'title': 'Here I am!',
-            'marker-color': '#ff8888',
-            'marker-symbol': 'star'
-        }
-    });
-
-    // And hide the geolocation button
-    geolocate.parentNode.removeChild(geolocate);
-});
-
-// If the user chooses not to allow their location
-// to be shared, display an error message.
-map.on('locationerror', function() {
-    geolocate.innerHTML = 'Position could not be found';
-});
-</script>
-<!-- ========================  MAPBOX AUTOLOCATION -->
-
-
-
-
-
-
-
-
 
 <!-- ========================  MAP FROM MAPBOX -->
-    <!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
-     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+          <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
      <style>
          body { margin:0; padding:0; }
-         #map { position:absolute; top:0; bottom:0; width:100%; }
+         #map { position:absolute; top:0; bottom:0; width:100%; opacity: 0.4; transition: 1s;}
      </style>
 
 
  <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.js'></script>
  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
 
+
+
+
  <div id='map'></div>
 
- <script>
 
- mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
+
+
+
+<script>
+
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
+L.mapbox.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
+
+
  var map = new mapboxgl.Map({
      container: 'map',
      style: 'mapbox://styles/mapbox/streets-v9',
@@ -167,15 +47,24 @@ map.on('locationerror', function() {
 
 
  map.on('load', function() {
-   directions.setOrigin([ 144.948998, -37.828535 ]);
-   directions.setDestination([ 144.958998, -37.818535 ]);    // On load, set the origin to GA Melbourne
+   navigator.geolocation.getCurrentPosition(function(geo) {
+    console.log(geo)
+    $('#map').css({
+      'opacity': '1'
+    });
+    // $('.mapbox-directions-component mapbox-directions-inputs').hide();
+     directions.setOrigin([ geo.coords.longitude, geo.coords.latitude ]);
+     directions.setDestination([144.95842859999993, -37.81884560000003]);    // On load, set the origin to GA Melbourne
+   });
+
+
  });
 
 
  directions.on('route', function(e) {
    console.log(e.route); // Logs the current route shown in the interface.
  });
- </script> -->
+ </script>
 
 
 <!-- ========================  MAP FROM MAPBOX -->
