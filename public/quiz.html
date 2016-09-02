@@ -9,7 +9,8 @@
         overflow: hidden;
     }
     #editorDiv {
-      width: 70%;
+      width: 500px;
+      height: 500px;
       margin: 0 auto;
     }
 
@@ -21,32 +22,27 @@
       height: 50px;
       width: 100%;
     }
+    #submitQuizButton {
+      margin: 0 auto;
+    }
   </style>
 </head>
 <body>
 
-<label>The code does not execute properly. Try to figure out why</label>
+
 <div id="editorDiv">
+  <label id="instructionLabel"></label>
     <pre id="editor">
 
     </pre>
+    <button id="submitQuizButton">submit</button>
+    <div id="quizResult"></div>
 </div>
 
-<button id="submitQuizButton">submit</button>
-<div id="quizResult"></div>
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="ace.js" type="text/javascript" charset="utf-8"></script>
-<script src="acecustom.js" type="text/javascript" charset="utf-8"></script>
-<!-- <script>
-    var editor = ace.edit("editor");
-    editor.setTheme("ace/theme/twilight");
-    editor.session.setMode("ace/mode/javascript");
 
 
-    editor.getSession().selection.on('changeSelection', function(e) {
-      console.log('text changed');
-    });
-</script> -->
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="acecustom.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>

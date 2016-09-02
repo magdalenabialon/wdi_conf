@@ -1,51 +1,58 @@
 
-var quizQuestion1 = "function multiply (a,b) {\n  a * b\n}";
-var quizAnswer1 = 'function multiply (a, b) { return a * b } '
-var quizAnswer2 = 'function multiply (a, b) { return (a * b) } '
-
 var $quizResult = $('#quizResult');
+var $instructionLabel = $('#instructionLabel')
 
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/twilight");
 editor.session.setMode("ace/mode/javascript");
+var numberOfQuestions = 0;
+var maxQuestions = 2;
+var currentQuizQuestion;
 
-$( document ).ready(function() {
+function replaceAll(str, find, replace) {
+  return string =  str.replace(new RegExp(find, 'g'), replace);
+}
 
-  //get the first question
+function removeWhiteSpace(string) {
+  return string.replace(/\s\s+/g, ' ').replace(/\s+/g, '')
+}
 
+function populateQuestion() {
   $.ajax({
-  url: 'http://www.omdbapi.com/?t=' + text.value,
+  url: 'api/quizzes',
   method: 'get'
-}).done(function(movie) {
-  // console.log(movie);
-  label.innerHTML = movie.Title;
-  $('#movie-info').html(movie.Title);
+  }).done(function(quiz) {
+      currentQuizQuestion = quiz[0];
+      editor.setValue(replaceAll(quiz[0].problem,'-n','\n'));
+      currentQuizQuestion.answer1 = removeWhiteSpace(replaceAll(currentQuizQuestion.answer1,'-n','\n'));
+      currentQuizQuestion.answer2 = removeWhiteSpace(replaceAll(currentQuizQuestion.answer2,'-n','\n'));
+      $instructionLabel.text(quiz[0].prompt);
+      numberOfQuestions += 1;
 });
+}
 
+function questionOver() {
+  console.log('maxQuestions ',maxQuestions);
+  console.log('numberOfQuestions ', numberOfQuestions);
+  $quizResult.text('');
+  populateQuestion();
+}
 
-
-
-    editor.setValue(quizQuestion1);
+$(document).ready(function() {
+  populateQuestion();
 });
 
 
 $('#submitQuizButton').on('click', function() {
-    //look at the code
-    console.log('Submitting');
     var text = editor.getValue();
-    text = text.replace(/\s\s+/g, ' ');
-    text = text.replace(/\s+/g, '');
-    quizAnswer1 = quizAnswer1.replace(/\s+/g, '');
-
-    console.log(text);
-    var result;
-
-    console.log('result was ' + result);
-
-    if (text == quizAnswer1){
+    text = removeWhiteSpace(text);
+    if ((text == currentQuizQuestion.answer1) || (text == currentQuizQuestion.answer2)) {
       $quizResult.text('correct')
     }
     else {
       $quizResult.text('incorrect')
     }
+
+    //set a timeout so they can see the result then move onto showing a new question.
+     ticket = setTimeout(questionOver, 2000);
 });
