@@ -49,7 +49,9 @@ body {
 }
 
 .wrapper {
-  width: 100%;
+  width: -webkit-calc(100% - 70px);
+  width:    -moz-calc(100% - 70px);
+  width:         calc(100% - 70px);
   height: 100%;
   margin: 0px 0px 0px 70px;
 }
@@ -168,13 +170,57 @@ nav i {
 
 /* ////////////////////// INDEX ////////////////////// */
 
+.video-background {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-foreground {
+  height: 100%;
+  width: 100%;
+  z-index: 1
+}
+
+.video-foreground > iframe {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  z-index: 1
+}
+
+// @media (min-aspect-ratio: 16/9) {
+//     .video-foreground { height: 300%; top: -100%; }
+// }
+// @media (max-aspect-ratio: 16/9) {
+//     .video-foreground { width: 300%; left: -100%; }
+// }
+
+.overlay {
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  background-color: red;
+  color: red;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
 header {
   display: block;
   width: 100%;
   height: 100%;
-  background: url("https://www.bhmpics.com/walls/melbourne_at_night-wide.jpg");
-  background-size: cover;;
-  background-repeat: no-repeat;
+  // background: url("https://www.bhmpics.com/walls/melbourne_at_night-wide.jpg");
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  background-color: grey;
 }
 
 .overlay {
