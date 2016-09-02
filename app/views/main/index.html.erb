@@ -1,13 +1,19 @@
-<header class="hero">
+<div class="video-background">
 
-  <div class="overlay">
-
+  <div class="video-foreground">
+      <iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=0&playlist=W0LHTWG-UmQ?modestbranding=1" allowfullscreen>
+      </iframe>
   </div>
 
-</header>
+  <div class="overlay">
+    <p>hey</p>
+  </div>
+
+</div>
 
 <div class="about">
   <p>About Us</p>
+
 </div>
 
 <div class="speakers">
@@ -54,6 +60,10 @@
   <p>Style Guide</p>
 </div>
 
-<footer>
-  <p>Footer</p>
-</footer>
+
+<script>
+
+  iframeMute = $('.video-foreground')
+  iframeMute.muted = true;
+
+</script>
