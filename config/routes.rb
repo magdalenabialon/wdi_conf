@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :afterevents
   resources :bookings
   resources :speeches
   resources :users

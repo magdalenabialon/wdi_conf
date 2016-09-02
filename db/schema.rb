@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160831140918) do
+ActiveRecord::Schema.define(version: 20160902031304) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "afterevents", force: :cascade do |t|
+    t.string   "name"
+    t.string   "location"
+    t.string   "lat"
+    t.string   "long"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_afterevents_on_user_id", using: :btree
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.string   "seat"
@@ -40,8 +51,9 @@ ActiveRecord::Schema.define(version: 20160831140918) do
     t.datetime "endtime"
     t.string   "speaker"
     t.string   "theme"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.string   "description"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,8 +63,10 @@ ActiveRecord::Schema.define(version: 20160831140918) do
     t.integer  "quizscore"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "imageurl"
   end
 
+  add_foreign_key "afterevents", "users"
   add_foreign_key "bookings", "speeches"
   add_foreign_key "bookings", "users"
 end
