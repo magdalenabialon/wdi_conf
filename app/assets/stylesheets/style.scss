@@ -1,13 +1,19 @@
 
+
 /* ////////////////////// VARIABLES ////////////////////// */
 
+// Fonts
+$serif: 'Lora', serif;
+$sans-serif: 'Roboto', sans-serif;
 
+// Colours
 $bg-grey: #f3f3f3;
 $dark-grey: #4a4a4a;
 $light-grey: #848484;
 $gold: #b09e82;
 $white: white;
 
+// Background Patterns (Not Sure if we will actually implement these)
 $dot-pattern: url('/images/patterns/subtle_dots.png');
 
 
@@ -18,6 +24,14 @@ $dot-pattern: url('/images/patterns/subtle_dots.png');
 
 * {
   box-sizing: border-box;
+  font-family: $sans-serif;
+}
+
+//TEMP
+.style-guide {
+  height: 500px;
+  background-color: white;
+  padding: 50px 30px 50px 100px;
 }
 
 html {
@@ -32,8 +46,58 @@ body {
   margin: 0;
   padding: 0;
   background: $dot-pattern;
+}
+
+.wrapper {
+  width: -webkit-calc(100% - 70px);
+  width:    -moz-calc(100% - 70px);
+  width:         calc(100% - 70px);
+  height: 100%;
+  margin: 0px 0px 0px 70px;
+}
+
+h1 {
 
 }
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+h5 {
+
+}
+
+p {
+
+}
+
+a {
+
+}
+
+button {
+
+}
+
+footer {
+  height: 500px;
+  background-color: grey;
+  padding: 50px 30px 50px 100px;
+
+}
+
+
+
+/* ////////////////////// NAVIGATION  ////////////////////// */
 
 nav {
   display: block;
@@ -44,7 +108,7 @@ nav {
   margin: 0;
   top: 0;
   left: 0;
-  box-shadow: 3px 5px 7px rgba(#000000, 0.5);
+  box-shadow: 3px 0px 7px rgba(#000000, 0.5);
   z-index: 5000;
 }
 
@@ -69,15 +133,18 @@ nav {
 .nav-item i {
   padding-left: 25px;
   float: left;
+  width: 70px;
 }
 
 .nav-item p {
   display: inline-block;
   float: left;
   line-height: 24px;
-  padding: 3px 0 0 20px;
+  padding: 3px 0 0 5px;
   margin: 0;
   color: rgb(201, 199, 199);
+  font-size: 0.8em;
+
 }
 
 .nav-item:hover {
@@ -98,25 +165,95 @@ nav i {
 }
 
 
-.wrapper {
-  width: 100%;
-  height: 100%;
-  margin: 0px 0px 0px 70px;
-}
-
-
 
 
 
 /* ////////////////////// INDEX ////////////////////// */
 
+.video-background {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-foreground {
+  height: 100%;
+  width: 100%;
+  z-index: 1
+}
+
+.video-foreground > iframe {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  z-index: 1
+}
+
+// @media (min-aspect-ratio: 16/9) {
+//     .video-foreground { height: 300%; top: -100%; }
+// }
+// @media (max-aspect-ratio: 16/9) {
+//     .video-foreground { width: 300%; left: -100%; }
+// }
+
+.overlay {
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  text-align: center;
+  border: 10px solid white;
+  width: 230px;
+  height: 350px;
+  margin-top: -200px;
+
+  * {
+    display: block;
+  }
+
+  h1 {
+    font-family: $sans-serif;
+    // font-style: italic;
+    font-size: 5em;
+    margin: 0px;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-family: $sans-serif;
+    font-style: italic;
+    font-size: 2.2em;
+    margin: 0px;
+  }
+
+  h3 {
+    font-family: $serif;
+    font-style: italic;
+    font-size: 7em;
+    margin: 0px;
+  }
+
+}
+
+
 header {
   display: block;
   width: 100%;
   height: 100%;
-  background: url("https://www.bhmpics.com/walls/melbourne_at_night-wide.jpg");
-  background-size: cover;;
-  background-repeat: no-repeat;
+  // background: url("https://www.bhmpics.com/walls/melbourne_at_night-wide.jpg");
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  background-color: grey;
 }
 
 .overlay {
@@ -128,6 +265,48 @@ header {
 .about {
   height: 500px;
   background-color: green;
-  padding: 30px;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.speakers {
+  height: 500px;
+  background-color: blue;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.timetable {
+  height: 500px;
+  background-color: plum;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.location {
+  height: 500px;
+  background-color: orange;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.after-events {
+  height: 500px;
+  background-color: mistyrose;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.booking {
+  height: 500px;
+  background-color: violet;
+  padding: 50px 30px 50px 100px;
+
+}
+
+.sponsors {
+  height: 500px;
+  background-color: white;
+  padding: 50px 30px 50px 100px;
 
 }
