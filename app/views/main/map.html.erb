@@ -93,7 +93,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
       gaConf.features.forEach(function(marker_ga) {
         // Create a div element for the marker_ga
         var ga_logo = document.createElement('div');
-        // Add a class called 'marker_ga' to each div
+        // Add a class called 'marker_ga' ga_icon to each div
         ga_logo.className = 'ga_icon popup';
         // By default the image for your custom marker_ga will be anchored by its top left corner. Adjust the position accordingly
         ga_logo.style.left='-28px';
@@ -115,7 +115,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
             span.className = 'popuptext';
             span.id = 'myPopup';
 
-            var t = document.createTextNode("WDI Conference" + "\n" + "date: " + marker_ga.properties.date_of_conf);
+            var t = document.createTextNode("WDI Conference " + marker_ga.properties.date_of_conf + " " + marker_ga.properties.address);
             span.appendChild(t)
 
 
