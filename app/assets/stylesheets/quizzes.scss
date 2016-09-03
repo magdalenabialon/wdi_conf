@@ -1,3 +1,44 @@
 // Place all the styles related to the quizzes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// 
+// <%= render "partials/quiz" %>
+
+.macbookImage {
+  width: 100%;
+}
+
+.quizmodal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+}
+
+.quizmodal-info {
+    border-radius: 10px;
+    width: 500px;
+    height: 400px;
+    background-color: #f3f3f3;
+}
+
+.close-modal {
+  background-color: rgb(230, 230, 230);
+  width: 45px;
+  height: 45px;
+  float: right;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
