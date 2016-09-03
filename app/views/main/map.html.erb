@@ -180,6 +180,10 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
               el.appendChild(t);
 
 
+              // $('el').hover(func1, func2)
+
+
+              // el.addEventListener('mouseenter', function(event) {
               el.addEventListener('click', function() {
                   //window.alert("Parking type: " + marker.properties.parking_type + " | Number of spaces: " + marker.properties.number_of_spaces);
 
@@ -194,15 +198,12 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
 
                   el.appendChild(span)
-                  console.log(span)
+                  // console.log(span)
 
                   //once ga_logo was clicked toggle popup and show it
-                  var popup = document.getElementById('myPopupParking');
+                  var popupPrk = document.getElementById('myPopupParking');
 
-
-                  popup.classList.toggle('show');
-
-                  // popup.classList.toggle('show').remove();
+                  popupPrk.classList.toggle('show');
 
               });
 

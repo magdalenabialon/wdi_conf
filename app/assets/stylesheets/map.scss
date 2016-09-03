@@ -181,6 +181,12 @@ body {
    animation: fadeIn 1s;
 }
 
+.popupParking .hide {
+   visibility: hidden;;
+   -webkit-animation: fadeIn 1s;
+   animation: fadeIn 1s;
+}
+
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
    from {opacity: 0;}
