@@ -107,7 +107,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
             .addTo(map);
 
 
-        ga_logo.addEventListener('click', function(e) {
+        ga_logo.addEventListener('mouseenter', function(e) {
           //  window.alert("Website: " + marker_ga.properties.website + " | Conference date: " + marker_ga.properties.date_of_conf);
 
             //create span with the message inside the popup
@@ -127,6 +127,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
             popup.classList.toggle('show');
 
         });
+
+        ga_logo.addEventListener('mouseout', function(e) {
+          var popup = document.getElementById('myPopup');
+          popup.classList.toggle('show').remove();
+        })
 
 
       });
@@ -180,13 +185,11 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
               el.appendChild(t);
 
 
-              // $('el').hover(func1, func2)
 
-
-              // el.addEventListener('mouseenter', function(event) {
-              el.addEventListener('click', function() {
+              el.addEventListener('mouseenter', function(event) {
+              // el.addEventListener('click', function() {
                   //window.alert("Parking type: " + marker.properties.parking_type + " | Number of spaces: " + marker.properties.number_of_spaces);
-
+               console.log(event.target)
 
                   //create span with the message inside the popup
                   var span = document.createElement('span');
@@ -201,11 +204,20 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                   // console.log(span)
 
                   //once ga_logo was clicked toggle popup and show it
-                  var popupPrk = document.getElementById('myPopupParking');
+                  var $popupPrk = $(event.target);
+                  $popupPrk.find('#myPopupParking').addClass('show')
 
-                  popupPrk.classList.toggle('show');
+                  // $popupPrk.addClass('show');
+                  // var popupPrk = document.getElementById('myPopupParking');
+                  //
+                  // popupPrk.classList.toggle('show');
 
               });
+
+              el.addEventListener('mouseout', function(event) {
+                var $popupPrk = $(event.target);
+                $popupPrk.find('#myPopupParking').removeClass('show')
+              })
 
             // add marker to map
             new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
