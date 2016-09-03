@@ -212,14 +212,13 @@ nav i {
 
 .title {
   text-align: center;
-  border: 10px solid white;
-  width: 230px;
-  height: 350px;
+  width: 330px;
+  height: 330px;
   margin-top: -200px;
+  padding: 5px;
+  // background-color: rgba(0, 0, 0, 0.5);
 
-  * {
-    display: block;
-  }
+
 
   h1 {
     font-family: $sans-serif;
@@ -241,6 +240,10 @@ nav i {
     font-style: italic;
     font-size: 7em;
     margin: 0px;
+  }
+
+  img {
+    width: 100%;
   }
 
 }
