@@ -28,22 +28,30 @@ body {
 
 
 
-.my-icon {
+.parking-icon {
   border-radius: 100%;
   width: 17px;
   height: 17px;
   text-align: center;
   line-height: 20px;
-  color: white;
+  color: orange;
 }
 .icon-dc {
-  background: #FF836D;
-  opacity: 0.4;
+  background: yellow;
+  opacity: 0.2;
   cursor: pointer;
 }
 
 
-
+.ga_icon {
+  border: none;
+  cursor: pointer;
+  height: 33px;
+  width: 33px;
+  background-image: url(/images/ga_logo.png);
+  background-color: rgba(0, 0, 0, 0);
+  // transform: translate(28px, 56px, 0);
+}
 
 
 
