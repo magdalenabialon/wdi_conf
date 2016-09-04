@@ -1,6 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # auth_o_clientid= Rails.application.secrets.auth_o_clientid
+  # ENV["AUTH_0_SECRETKEY"]
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
