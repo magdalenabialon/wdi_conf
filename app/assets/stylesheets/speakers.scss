@@ -1,0 +1,75 @@
+.leftHeader {
+    background-color: red;
+    width: 100px;
+    height: 130px;
+    margin: auto;
+    position:relative;
+    display:inline-block;
+    vertical-align: top;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    transition: all 0.8s ease;
+}
+
+.speakerWrapper {
+  //cursor: pointer;
+  border: .2em solid rgba(0, 0, 0, 0);
+  border-radius: 5px;
+}
+
+.speakerWrapper:hover {
+  //cursor: pointer;
+  border: .2em solid black;
+}
+
+.rightHeader {
+  background-color: pink;
+  width: 200px;
+  height: 130px;
+  display: inline-block;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  transition: all 0.8s ease;
+}
+
+.speakerName {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+  padding-bottom: .75em;
+  font-size: 1em;
+  text-transform: uppercase;
+  transition: all 0.8s ease;
+}
+
+.speakerDescription {
+  font-style: italic;
+
+}
+.speakerPic {
+  position: absolute;
+   margin: auto;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+     border-radius: 50%;
+     width: 100px;
+     height: 100px;
+}
+
+.speakerContainer {
+    display:flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.speakerWrapper {
+  // flex: 1 0 30%;
+  max-width: 350px;
+  object-fit: contain;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  color: black;
+box-sizing: border-box;
+}

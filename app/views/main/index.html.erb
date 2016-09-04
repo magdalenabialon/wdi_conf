@@ -1,3 +1,5 @@
+
+
 <div class="video-background">
 
   <div class="video-foreground">
@@ -7,11 +9,7 @@
 
   <div class="overlay">
     <div class="title">
-      <h1>WDI</h1>
-      <h2>CONFERENCE</h2>
-      <h3>2016</h3>
-      <h2>Technology, Coding, Engineering</h2>
-      <p>hey</p>
+      <img src="images/logo.png" alt="">
     </div>
   </div>
 
@@ -24,6 +22,7 @@
 
 <div class="speakers">
   <p>Speakers</p>
+  <%= render "partials/speakers" %>
 </div>
 
 <div class="timetable">
@@ -31,7 +30,28 @@
 </div>
 
 <div class="location">
-  <p>Location</p>
+  <div class="map-holder">
+    <div class="map-left">
+      <div id='map-jordan'></div>
+    </div>
+    <div class="map-right">
+      <div class="map-nav">
+
+      </div>
+      <section class="map-information active" id="event-location">
+        <h3>Location</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium doloremque reprehenderit modi libero ratione. Consectetur sit architecto sed dignissimos laudantium fuga sapiente molestias doloremque distinctio, esse, quos odio aliquam pariatur.</p>
+      </section>
+      <section class="map-information" id="route">
+        <h3>Routes</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eius quia eum quidem provident recusandae neque ut, a soluta harum quod repellendus magni consequuntur, laboriosam eaque officia ea necessitatibus accusamus.</p>
+      </section>
+      <section class="map-information" id="parking">
+        <h3>Parking</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis aut nam, adipisci laborum amet libero. Eligendi error consectetur molestias sit vel voluptates autem officia tempore dicta, odit. Iure, maxime, ea.</p>
+      </section>
+    </div>
+  </div>
 </div>
 
 <div class="after-events">
@@ -45,6 +65,25 @@
 <div class="sponsors">
   <p>Sponsors</p>
 </div>
+
+<footer>
+  <div class="container">
+    <div class="info">
+
+    </div>
+    <div class="disclaimer">
+      <div class="left50">
+        <img src="images/temp logo.png" alt="" id='footer-logo'>
+        <p>&copy; 2016 All rights reservered by the <span>HTML5's</span></p>
+      </div>
+      <div class="right50">
+        <img src="images/social/social-facebook.png" alt="">
+        <img src="images/social/social-twitter.png" alt="">
+        <img src="images/social/social-meetup.png" alt="">
+      </div>
+    </div>
+  </div>
+</footer>
 
 <div class="style-guide">
   <h1>Lorem Ipsum</h1>
@@ -66,10 +105,39 @@
   <p>Style Guide</p>
 </div>
 
+<%= render "partials/quiz" %>
+
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
 
 <script>
 
+  // Mute Header Video
   iframeMute = $('.video-foreground')
   iframeMute.muted = true;
 
+  // Map Container, same height as information div
+  $(".map-left").css("height", $(".map-right").height());
+
+  // Map becomes fixed for period during scroll
+  var mapSticky = document.getElementById('map-jordan');
+  Stickyfill.add(mapSticky);
+
 </script>
+
+
+
+<!-- MAP SCRIPT -->
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+
+ <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
+
+ <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.js'></script>
+
+ <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
+
+<script src="map_index.js"></script>

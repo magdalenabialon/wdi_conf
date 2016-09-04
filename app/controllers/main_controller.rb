@@ -1,7 +1,8 @@
 class MainController < ApplicationController
 
   def index
-    # @speeches = Speeches.all
+    # separate speeches and speakers? (maybe later..)
+    @speeches = Speech.all
     render :index
   end
 
