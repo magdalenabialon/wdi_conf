@@ -130,15 +130,16 @@
 
     });
 
-
     </script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 
-<!-- auth0 scripts-->
+    <!-- auth0 scripts-->
     <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+
     <script type="text/javascript">
+
       var lock = new Auth0Lock("<%=Rails.application.secrets.auth_o_clientid%>", 'maggiemccain.au.auth0.com', {
         auth: {
           redirectUrl: 'http://localhost:3000/auth/auth0/callback',
@@ -148,6 +149,7 @@
           }
         }
       });
+      
     </script>
 
     <script>

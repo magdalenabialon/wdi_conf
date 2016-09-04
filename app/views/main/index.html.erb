@@ -30,7 +30,28 @@
 </div>
 
 <div class="location">
-  <p>Locaiton</p>
+  <div class="map-holder">
+    <div class="map-left">
+      <div id='map-jordan'></div>
+    </div>
+    <div class="map-right">
+      <div class="map-nav">
+
+      </div>
+      <section class="map-information active" id="event-location">
+        <h3>Location</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium doloremque reprehenderit modi libero ratione. Consectetur sit architecto sed dignissimos laudantium fuga sapiente molestias doloremque distinctio, esse, quos odio aliquam pariatur.</p>
+      </section>
+      <section class="map-information" id="route">
+        <h3>Routes</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eius quia eum quidem provident recusandae neque ut, a soluta harum quod repellendus magni consequuntur, laboriosam eaque officia ea necessitatibus accusamus.</p>
+      </section>
+      <section class="map-information" id="parking">
+        <h3>Parking</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis aut nam, adipisci laborum amet libero. Eligendi error consectetur molestias sit vel voluptates autem officia tempore dicta, odit. Iure, maxime, ea.</p>
+      </section>
+    </div>
+  </div>
 </div>
 
 <div class="after-events">
@@ -86,9 +107,37 @@
 
 <%= render "partials/quiz" %>
 
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
+
 <script>
 
+  // Mute Header Video
   iframeMute = $('.video-foreground')
   iframeMute.muted = true;
 
+  // Map Container, same height as information div
+  $(".map-left").css("height", $(".map-right").height());
+
+  // Map becomes fixed for period during scroll
+  var mapSticky = document.getElementById('map-jordan');
+  Stickyfill.add(mapSticky);
+
 </script>
+
+
+
+<!-- MAP SCRIPT -->
+
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+
+ <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
+
+ <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.js'></script>
+
+ <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
+
+<script src="map_index.js"></script>
