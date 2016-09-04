@@ -52,19 +52,22 @@ body {
   opacity: 0.4;
   border: none;
   cursor: pointer;
-  height: 25px;
-  width: 25px;
-  background-image: url(/images/ga_logo.png);
+  // height: 25px;
+  // width: 25px;
+  // background-image: url(/images/ga_logo.png);
+  background-image: url(/images/event_icon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
   background-color: rgba(0, 0, 0, 0);
   // transform: translate(28px, 56px, 0);
 }
 .ga_icon:hover {
-  opacity: 0.9;
+  opacity: 0.95;
   border: none;
   cursor: pointer;
-  height: 25px;
-  width: 25px;
-  background-image: url(/images/ga_logo.png);
+  // height: 25px;
+  // width: 25px;
+  // background-image: url(/images/ga_logo.png);
   background-color: rgba(0, 0, 0, 0);
   // transform: translate(28px, 56px, 0);
 }

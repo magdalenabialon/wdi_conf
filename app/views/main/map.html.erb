@@ -79,7 +79,10 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                   "city": "Melbourne Vic",
                   "country": "Australia",
                   "date_of_conf": "19 Dec 2017",
-                  "time": "10am - 6pm"
+                  "time": "10am - 6pm",
+                  "iconSize": [25, 25],
+                  "iconImage":"url(https://placekitten.com/g/"
+                  // "iconImage":"url(/images/ga_logo.png)"
                 }
               },
 
@@ -99,7 +102,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                   "city": "Melbourne Vic",
                   "country": "Australia",
                   "date_of_conf": "19 Dec 2017",
-                  "time": "7pm - 10pm"
+                  "time": "7pm - 10pm",
+                  "iconSize": [25, 25],
+                  "iconImage":"url(https://placekitten.com/g/"
                 }
               },
 
@@ -119,7 +124,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                   "city": "Melbourne Vic",
                   "country": "Australia",
                   "date_of_conf": "19 Dec 2017",
-                  "time": "7pm - 11pm"
+                  "time": "7pm - 11pm",
+                  "iconSize": [25, 25],
+                  "iconImage":"url(https://placekitten.com/g/"
                 }
               },
 
@@ -139,7 +146,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                   "city": "Melbourne Vic",
                   "country": "Australia",
                   "date_of_conf": "19 Dec 2017",
-                  "time": "10pm - up to 6am"
+                  "time": "10pm - up to 6am",
+                  "iconSize": [25, 25],
+                  // "iconImage":"url(https://placekitten.com/g/"
                 }
               },
 
@@ -155,18 +164,38 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
       gaConf.features.forEach(function(marker_ga) {
         // Create a div element for the marker_ga
         var ga_logo = document.createElement('div');
+
+
+
         // Add a class called 'marker_ga' ga_icon to each div
         ga_logo.className = 'ga_icon popup';
-        // By default the image for your custom marker_ga will be anchored by its top left corner. Adjust the position accordingly
+        // // By default the image for your custom marker_ga will be anchored by its top left corner. Adjust the position accordingly
         ga_logo.style.left='-28px';
-        ga_logo.style.top='-46px';
+        ga_logo.style.top='-6px';
+
+        ga_logo.style.backgroundImage = marker_ga.properties.iconImage + marker_ga.properties.iconSize.join('/') + '/)';
+        ga_logo.style.width = marker_ga.properties.iconSize[0] + 'px';
+        ga_logo.style.height = marker_ga.properties.iconSize[1] + 'px';
 
 
 
-        // Create the custom marker_gas, set their position, and add to map
+
+
+
+        // Create the custom marker_ga, set their position, and add to map
         var markerGA = new mapboxgl.Marker(ga_logo)
             .setLngLat(marker_ga.geometry.coordinates)
             .addTo(map);
+
+        // map.addLayer({
+        //   "id": "locations",
+        //   "type": "symbol",
+        //   "source": "places",
+        //   "layout": {
+        //     "icon-image": "restaurant-15",
+        //     "icon-allow-overlap": true,
+        //   }
+        // });
 
 
         ga_logo.addEventListener('mouseenter', function(event) {
