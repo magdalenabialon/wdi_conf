@@ -57,11 +57,15 @@
 
         <div class="nav-item no-hover">
           <i class="fa fa-circle-thin" aria-hidden="true"></i>
-          <p>Welcome back, User</p>
+          <%if @user %>
+            <p>Welcome, <%=@user.name%></p>
+          <% else %>
+            <p>Welcome back, User</p>
+          <% end %>
         </div>
         <div class="nav-item">
           <i class="fa fa-user" aria-hidden="true"></i>
-          <p>Your Account</p>
+          <p onclick="lock.show();">Your Account</p>
         </div>
 
       </div>
@@ -115,7 +119,7 @@
       var buttonID = $clickedPos.closest('.nav-item').get(0).id
 
       if ( buttonID === "booking" ) {
-        
+
       } else {
         $('html, body').animate({
           scrollTop: $( "." + buttonID ).offset().top
@@ -127,13 +131,24 @@
     });
 
 
-
-
-
     </script>
 
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
+
+<!-- auth0 scripts-->
+    <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
+    <script type="text/javascript">
+      var lock = new Auth0Lock("<%=Rails.application.secrets.auth_o_clientid%>", 'maggiemccain.au.auth0.com', {
+        auth: {
+          redirectUrl: 'http://localhost:3000/auth/auth0/callback',
+          responseType: 'code',
+          params: {
+            scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+          }
+        }
+      });
+    </script>
 
     <script>
 
