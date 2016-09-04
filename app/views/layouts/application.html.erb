@@ -119,7 +119,7 @@
       var buttonID = $clickedPos.closest('.nav-item').get(0).id
 
       if ( buttonID === "booking" ) {
-        
+
       } else {
         $('html, body').animate({
           scrollTop: $( "." + buttonID ).offset().top
@@ -139,7 +139,7 @@
 <!-- auth0 scripts-->
     <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
     <script type="text/javascript">
-      var lock = new Auth0Lock(Rails.application.secrets.auth_o_clientid, 'maggiemccain.au.auth0.com', {
+      var lock = new Auth0Lock("<%=Rails.application.secrets.auth_o_clientid%>", 'maggiemccain.au.auth0.com', {
         auth: {
           redirectUrl: 'http://localhost:3000/auth/auth0/callback',
           responseType: 'code',
