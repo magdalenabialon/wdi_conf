@@ -16,17 +16,22 @@
 </div>
 
 <div class="about">
-  <p>About Us</p>
-
+  <div class="container">
+    <p>About Us</p>
+  </div>
 </div>
 
 <div class="speakers">
-  <p>Speakers</p>
-  <%= render "partials/speakers" %>
+  <div class="container">
+    <p>Speakers</p>
+    <%= render "partials/speakers" %>
+  </div>
 </div>
 
-<div class="timetable">
-  <p>Timetable</p>
+<div class="timetable" id="default">
+  <div class="container">
+    <p>Timetable</p>
+  </div>
 </div>
 
 <div class="location">
@@ -35,8 +40,10 @@
       <div id='map-jordan'></div>
     </div>
     <div class="map-right">
-      <div class="map-nav">
+      <div class="map-nav-holder">
+        <div class="map-nav" id="map-nav">
 
+        </div>
       </div>
       <section class="map-information active" id="event-location">
         <h3>Location</h3>
@@ -54,16 +61,20 @@
   </div>
 </div>
 
-<div class="after-events">
-  <p>After Events</p>
+<div class="after-events" id="default">
+  <div class="container">
+    <p>After Events</p>
+  </div>
 </div>
 
-<div class="booking">
+<!-- <div class="booking">
   <p>Booking</p>
-</div>
+</div> -->
 
 <div class="sponsors">
-  <p>Sponsors</p>
+  <div class="container">
+    <p>Sponsors</p>
+  </div>
 </div>
 
 <footer>
@@ -120,9 +131,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js">
   // Map Container, same height as information div
   $(".map-left").css("height", $(".map-right").height());
 
-  // Map becomes fixed for period during scroll
+  // Map / Map Nav becomes fixed for period during scroll
   var mapSticky = document.getElementById('map-jordan');
+  var mapNavSticky = document.getElementById('map-nav');
   Stickyfill.add(mapSticky);
+  Stickyfill.add(mapNavSticky);
 
 </script>
 

@@ -259,8 +259,9 @@ footer {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0px auto 0px auto;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 
@@ -349,8 +350,32 @@ footer {
     .map-information {
       padding: 20px;
       border-top: 1px solid black;
-      height: 100vh;
+      height: -webkit-calc(100vh - 60px);
+      height:    -moz-calc(100vh - 60px);
+      height:         calc(100vh - 60px);
       padding: 50px;
+    }
+
+    #event-location {
+      margin-top: 60px;
+    }
+
+    .map-nav-holder {
+      height: -webkit-calc(200vh - 60px);
+      height:    -moz-calc(200vh - 60px);
+      height:         calc(200vh - 60px);
+      width: 100%;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .map-nav {
+      height: 60px;
+      background-color: green;
+      position: -webkit-sticky;
+      position: sticky;
+      top: 0;
     }
 
   }

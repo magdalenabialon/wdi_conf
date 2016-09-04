@@ -28,7 +28,7 @@ var chapters = {
       center: [144.958998, -37.818535],
       pitch: 0,
       bearing: -20,
-      zoom: 16
+      zoom: 17
   },
   'route': {
       duration: 6000,
@@ -42,8 +42,14 @@ var chapters = {
       center: [144.958998, -37.818535],
       zoom: 15,
       speed: 0.6,
-      pitch: 15
+      pitch: 35
   },
+  'default': {
+    center: [144.958998, -37.818535],
+    pitch: 60,
+    zoom: 13
+  },
+
 };
 
 function isOnScreen(element){
@@ -71,7 +77,7 @@ map.on('load', function() {
 // ========================= Map View on Scroll :)
 
   $(window).scroll(function() {
-    var mapStates = ['event-location', 'route', 'parking'];
+    var mapStates = ['event-location', 'route', 'parking', 'default'];
 
     for(var g = 0; g < mapStates.length; g++) {
 
