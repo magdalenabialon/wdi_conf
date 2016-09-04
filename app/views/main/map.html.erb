@@ -60,29 +60,91 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
     //========================= GA-conf logo / location
     var gaConf =
 
-      {
-        type: "FeatureCollection",
-        features: [
           {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                144.958998,
-                -37.818535
-              ]
-            },
-            "properties": {
-              "website": "https://generalassemb.ly/",
-              "address": "12A/Williams St CBD",
-              "city": "Melbourne Vic",
-              "country": "Australia",
-              "date_of_conf": "19 Feb 2017",
-              "time": "10am - 6pm"
-            }
-          },
-        ]
-      }
+            type: "FeatureCollection",
+            features: [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    144.958998,
+                    -37.818535
+                  ]
+                },
+                "properties": {
+                  "event": "WDI Conference 2016",
+                  "website": "https://generalassemb.ly/",
+                  "address": "12A/Williams St",
+                  "city": "Melbourne Vic",
+                  "country": "Australia",
+                  "date_of_conf": "19 Dec 2017",
+                  "time": "10am - 6pm"
+                }
+              },
+
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    144.997320,
+                    -37.876840
+                  ]
+                },
+                "properties": {
+                  "event": "After Conference Dinner",
+                  "website": "http://www.attica.com.au",
+                  "address": "74 Glen Eira Rd",
+                  "city": "Melbourne Vic",
+                  "country": "Australia",
+                  "date_of_conf": "19 Dec 2017",
+                  "time": "7pm - 10pm"
+                }
+              },
+
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    144.957268,
+                    -37.823716
+                  ]
+                },
+                "properties": {
+                  "event": "After Conference Dinner",
+                  "website": "https://www.crownmelbourne.com.au/",
+                  "address": "130/8 Whiteman St",
+                  "city": "Melbourne Vic",
+                  "country": "Australia",
+                  "date_of_conf": "19 Dec 2017",
+                  "time": "7pm - 11pm"
+                }
+              },
+
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    144.963095,
+                    -37.818055
+                  ]
+                },
+                "properties": {
+                  "event": "After Conference Party",
+                  "website": "http://www.bondmelbourne.com.au/",
+                  "address": "24 Bond St",
+                  "city": "Melbourne Vic",
+                  "country": "Australia",
+                  "date_of_conf": "19 Dec 2017",
+                  "time": "10pm - up to 6am"
+                }
+              },
+
+            ]
+          }
 
       map.addSource("places", {
         "type": "geojson",
@@ -107,7 +169,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
             .addTo(map);
 
 
-        ga_logo.addEventListener('mouseenter', function(e) {
+        ga_logo.addEventListener('mouseenter', function(event) {
           //  window.alert("Website: " + marker_ga.properties.website + " | Conference date: " + marker_ga.properties.date_of_conf);
 
             //create span with the message inside the popup
@@ -115,7 +177,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
             span.className = 'popuptext';
             span.id = 'myPopup';
 
-            var t = document.createTextNode("WDI Conference ⏳ " + marker_ga.properties.date_of_conf + " 🏢 " + marker_ga.properties.address);
+            var t = document.createTextNode(marker_ga.properties.event + " ⏳ " + marker_ga.properties.time + " 📅 " + marker_ga.properties.date_of_conf + " 🏢 " + marker_ga.properties.address);
             span.appendChild(t)
 
 
@@ -123,18 +185,154 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
             // console.log(span)
 
             //once ga_logo was clicked toggle popup and show it
-            var popup = document.getElementById('myPopup');
-            popup.classList.toggle('show');
+            var $popup = $(event.target);
+            $popup.find('#myPopup').addClass('show');
 
         });
 
-        ga_logo.addEventListener('mouseout', function(e) {
-          var popup = document.getElementById('myPopup');
-          popup.classList.toggle('show').remove();
+        ga_logo.addEventListener('mouseout', function(event) {
+          var $popup = $(event.target);
+           $popup.find('#myPopup').removeClass('show')
         })
 
 
       });
+
+
+
+
+
+      //========================= AfterEvents locations
+      // var afterEvents =
+
+        // {
+        //   type: "FeatureCollection",
+        //   features: [
+        //     {
+        //       "type": "Feature",
+        //       "geometry": {
+        //         "type": "Point",
+        //         "coordinates": [
+        //           144.957455,
+        //           -37.814398
+        //
+        //         ]
+        //       },
+        //       "properties": {
+        //         "event": "Dinner",
+        //         "website": "http://www.vuedemonde.com.au/",
+        //         "address": "Rialto Towers, 525 Collins St",
+        //         "city": "Melbourne Vic",
+        //         "country": "Australia",
+        //         "date_of_conf": "19 Dec 2017",
+        //         "time": "7pm - 10pm"
+        //       }
+        //     },
+        //
+        //     {
+        //       "type": "Feature",
+        //       "geometry": {
+        //         "type": "Point",
+        //         "coordinates": [
+        //           144.959495,
+        //           -37.819297
+        //         ]
+        //       },
+        //       "properties": {
+        //         "event": "Dinner",
+        //         "website": "https://www.crownmelbourne.com.au/restaurants/premium/dinner-by-heston-blumenthal?utm_source=google&utm_medium=organic&utm_content=dinner%20by%20heston%20blumenthal&utm_campaign=Google%20Places",
+        //         "address": "Crown, 130/8 Whiteman St, Southbank",
+        //         "city": "Melbourne Vic",
+        //         "country": "Australia",
+        //         "date_of_conf": "19 Dec 2017",
+        //         "time": "7pm - 11pm"
+        //       }
+        //     },
+        //
+        //     {
+        //       "type": "Feature",
+        //       "geometry": {
+        //         "type": "Point",
+        //         "coordinates": [
+        //           144.963095,
+        //           -37.818055
+        //         ]
+        //       },
+        //       "properties": {
+        //         "event": "After Party",
+        //         "website": "http://www.bondmelbourne.com.au/",
+        //         "address": "24 Bond St,",
+        //         "city": "Melbourne Vic",
+        //         "country": "Australia",
+        //         "date_of_conf": "19 Dec 2017",
+        //         "time": "10pm - up to 6am"
+        //       }
+        //     },
+        //
+        //   ]
+        // }
+
+        // map.addSource("places", {
+        //   "type": "geojson",
+        //   "data": afterEvents
+        // });
+
+
+        // afterEvents.features.forEach(function(marker_event) {
+        //   // Create a div element for the after_events
+        //   var after_events = document.createElement('div');
+        //   // Add a class called 'marker_event' ga_icon to each div
+        //   after_events.className = 'event_icon popupEvent';
+        //   // By default the image for your custom marker_event will be anchored by its top left corner. Adjust the position accordingly
+        //   after_events.style.left='-28px';
+        //   after_events.style.top='-46px';
+        //
+        //
+        //
+        //   // Create the custom marker_events, set their position, and add to map
+        //   var markerEvent = new mapboxgl.Marker(after_events)
+        //       .setLngLat(marker_event.geometry.coordinates)
+        //       .addTo(map);
+        //
+        //
+        //   after_events.addEventListener('mouseenter', function(event) {
+        //     //  window.alert("Website: " + marker_event.properties.website + " | Conference date: " + marker_event.properties.date_of_conf);
+        //
+        //       //create span with the message inside the popup
+        //       var span = document.createElement('span');
+        //       span.className = 'popuptextEvent';
+        //       span.id = 'myPopupEvent';
+        //
+        //       var t = document.createTextNode("After Event:  " + marker_event.properties.date + "  " + marker_event.properties.time + " " + marker_event.properties.website);
+        //       span.appendChild(t)
+        //
+        //
+        //       after_events.appendChild(span)
+        //       // console.log(span)
+        //
+        //       //once after_events was clicked toggle popup and show it
+        //       var $popupEvent = $(event.target);
+        //       $popupEvent.find('#myPopupEvent').addClass('show');
+        //
+        //   });
+        //
+        //   after_events.addEventListener('mouseout', function(event) {
+        //     var $popupEvent = $(event.target);
+        //     $popupEvent.find('#myPopupEvent').removeClass('show')
+        //   })
+        //
+        //
+        // });
+        //
+        //
+
+
+        //
+        //
+        // el.addEventListener('mouseout', function(event) {
+        //   var $popupPrk = $(event.target);
+        //   $popupPrk.find('#myPopupParking').removeClass('show')
+        // });
 
 
 
@@ -187,37 +385,27 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
 
               el.addEventListener('mouseenter', function(event) {
-              // el.addEventListener('click', function() {
-                  //window.alert("Parking type: " + marker.properties.parking_type + " | Number of spaces: " + marker.properties.number_of_spaces);
-               console.log(event.target)
 
-                  //create span with the message inside the popup
+              //create span with the message inside the popup
                   var span = document.createElement('span');
                   span.className = 'popuptextParking';
                   span.id = 'myPopupParking';
 
                   var t = document.createTextNode("Parking type: " + marker.properties.parking_type + " 🚗 . Number of spaces: " + marker.properties.number_of_spaces);
                   span.appendChild(t)
-
-
                   el.appendChild(span)
-                  // console.log(span)
 
-                  //once ga_logo was clicked toggle popup and show it
+                  //once parking logo was hovered toggle popup and show it  //1.find the mouse event - div, go down and find element with id, add to this particular one class
                   var $popupPrk = $(event.target);
-                  $popupPrk.find('#myPopupParking').addClass('show')
-
-                  // $popupPrk.addClass('show');
-                  // var popupPrk = document.getElementById('myPopupParking');
-                  //
-                  // popupPrk.classList.toggle('show');
-
+                  $popupPrk.find('#myPopupParking').addClass('show');
               });
+
 
               el.addEventListener('mouseout', function(event) {
                 var $popupPrk = $(event.target);
                 $popupPrk.find('#myPopupParking').removeClass('show')
-              })
+              });
+
 
             // add marker to map
             new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
@@ -245,9 +433,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
        });
 
   });
-
-
-
 
 
 
@@ -286,14 +471,3 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 </div>
 <script type="text/javascript" async src="https://www.theweather.com/wid_loader/21d71ee597e69cbb9fd0e2e85960b55e"></script> -->
 <!-- ========================  WEATHER  -->
-
-
-
-
-
-<!-- ========================  PARKING MAP  -->
-<!-- <div><iframe width="760px" title="wdi_conf" height="646px" src="https://data.melbourne.vic.gov.au/w/m4j7-darc/spy9-nmud?cur=jBdT_JGn9RO&from=root" frameborder="0"scrolling="no"><a href="https://data.melbourne.vic.gov.au/Property-Planning/wdi_conf/m4j7-darc" title="wdi_conf" target="_blank">wdi_conf</a></iframe></div> -->
-<!-- ========================  PARKING MAP  -->
-
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-_tjRXvZwDBMsFKx2He46Jv3MBw-_oT0"
-        async defer></script> -->

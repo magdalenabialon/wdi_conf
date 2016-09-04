@@ -71,6 +71,29 @@ body {
 
 
 
+// .event_icon {
+//   opacity: 0.4;
+//   border: none;
+//   cursor: pointer;
+//   height: 25px;
+//   width: 25px;
+//   background-image: url(/images/event_icon.png);
+//   background-color: rgba(0, 0, 0, 0);
+//   // transform: translate(28px, 56px, 0);
+// }
+// .event_icon:hover {
+//   opacity: 0.9;
+//   border: none;
+//   cursor: pointer;
+//   height: 25px;
+//   width: 25px;
+//   background-image: url(/images/ga_logo.png);
+//   background-color: rgba(0, 0, 0, 0);
+//   // transform: translate(28px, 56px, 0);
+// }
+
+
+
 
 /* ======================  Popup container - for wdi cong and GA logo */
 .popup {
@@ -85,10 +108,11 @@ body {
 
 /* The actual popup */
 .popup .popuptext {
+  font-size: 1.4em;
    visibility: hidden;
-   width: 180px;
+   width: 450px;
    background-color: tomato;
-   color: #fff;
+   color: black;
    text-align: center;
    border-radius: 6px;
    padding: 8px 0;
@@ -192,6 +216,71 @@ body {
    from {opacity: 0;}
    to {opacity:1 ;}
 }
+
+
+
+/* ======================  Popup container - for events */
+// .popupEvent {
+//    position: relative;
+//    display: inline-block;
+//    cursor: pointer;
+//    -webkit-user-select: none;
+//    -moz-user-select: none;
+//    -ms-user-select: none;
+//    user-select: none;
+// }
+//
+// /* The actual popup */
+// .popupEvent .popuptextEvent {
+//    visibility: hidden;
+//    width: 180px;
+//    background-color: tomato;
+//    color: #fff;
+//    text-align: center;
+//    border-radius: 6px;
+//    padding: 8px 0;
+//    position: absolute;
+//    z-index: 1;
+//    bottom: 125%;
+//    left: 50%;
+//    margin-left: -80px;
+// }
+//
+// /* Popup arrow */
+// .ppopupEvent .popuptextEvent::after {
+//    content: "";
+//    position: absolute;
+//    top: 100%;
+//    left: 50%;
+//    margin-left: -5px;
+//    border-width: 5px;
+//    border-style: solid;
+//    border-color: #555 transparent transparent transparent;
+// }
+//
+// /* Toggle this class - hide and show the popup */
+// .popupEvent .show {
+//    visibility: visible;
+//    -webkit-animation: fadeIn 1s;
+//    animation: fadeIn 1s;
+// }
+//
+// /* Add animation (fade in the popup) */
+// @-webkit-keyframes fadeIn {
+//    from {opacity: 0;}
+//    to {opacity: 1;}
+// }
+//
+// @keyframes fadeIn {
+//    from {opacity: 0;}
+//    to {opacity:1 ;}
+// }
+
+
+
+
+
+
 
 
 
