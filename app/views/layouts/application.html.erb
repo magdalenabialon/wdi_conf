@@ -110,12 +110,19 @@
 
     nav.on('click', function(event) {
 
+
       var $clickedPos = $(event.target)
       var buttonID = $clickedPos.closest('.nav-item').get(0).id
 
-      $('html, body').animate({
-        scrollTop: $( "." + buttonID ).offset().top
-      }, 1000);
+      if ( buttonID === "booking" ) {
+        
+      } else {
+        $('html, body').animate({
+          scrollTop: $( "." + buttonID ).offset().top
+        }, 1000);
+      }
+
+
 
     });
 

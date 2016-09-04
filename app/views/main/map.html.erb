@@ -16,9 +16,9 @@
 
 
 
-
 <!-- .........................   MAP on the page-->
- <div id='map'></div>
+ <div id='map' class='map pad2'></div>
+
 <!-- .........................   MAP on the page-->
 
 
@@ -57,7 +57,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
 
 
-    //========================= GA-cong logo
+    //========================= GA-conf logo / location
     var gaConf =
 
       {
@@ -72,7 +72,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                 -37.818535
               ]
             },
-            properties: {
+            "properties": {
               "website": "https://generalassemb.ly/",
               "address": "12A/Williams St CBD",
               "city": "Melbourne Vic",
@@ -93,21 +93,47 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
       gaConf.features.forEach(function(marker_ga) {
         // Create a div element for the marker_ga
         var ga_logo = document.createElement('div');
-        // Add a class called 'marker_ga' to each div
-        ga_logo.className = 'ga_icon';
-        // By default the image for your custom marker_ga will be anchored
-        // by its top left corner. Adjust the position accordingly
+        // Add a class called 'marker_ga' ga_icon to each div
+        ga_logo.className = 'ga_icon popup';
+        // By default the image for your custom marker_ga will be anchored by its top left corner. Adjust the position accordingly
         ga_logo.style.left='-28px';
         ga_logo.style.top='-46px';
 
-        ga_logo.addEventListener('click', function() {
-            window.alert("Website: " + marker_ga.properties.website + " | Conference date: " + marker_ga.properties.date_of_conf);
-        });
+
 
         // Create the custom marker_gas, set their position, and add to map
-        new mapboxgl.Marker(ga_logo)
+        var markerGA = new mapboxgl.Marker(ga_logo)
             .setLngLat(marker_ga.geometry.coordinates)
             .addTo(map);
+
+
+        ga_logo.addEventListener('mouseenter', function(e) {
+          //  window.alert("Website: " + marker_ga.properties.website + " | Conference date: " + marker_ga.properties.date_of_conf);
+
+            //create span with the message inside the popup
+            var span = document.createElement('span');
+            span.className = 'popuptext';
+            span.id = 'myPopup';
+
+            var t = document.createTextNode("WDI Conference ⏳ " + marker_ga.properties.date_of_conf + " 🏢 " + marker_ga.properties.address);
+            span.appendChild(t)
+
+
+            ga_logo.appendChild(span)
+            // console.log(span)
+
+            //once ga_logo was clicked toggle popup and show it
+            var popup = document.getElementById('myPopup');
+            popup.classList.toggle('show');
+
+        });
+
+        ga_logo.addEventListener('mouseout', function(e) {
+          var popup = document.getElementById('myPopup');
+          popup.classList.toggle('show').remove();
+        })
+
+
       });
 
 
@@ -153,21 +179,52 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
               // create a DOM element for the marker
               var el = document.createElement('div');
-              el.className = 'parking-icon icon-dc';
+              el.className = 'parking-icon icon-dc popupParking';
 
               var t = document.createTextNode("p");
               el.appendChild(t);
 
 
-              el.addEventListener('click', function() {
-                  window.alert("Parking type: " + marker.properties.parking_type + " | Number of spaces: " + marker.properties.number_of_spaces);
+
+              el.addEventListener('mouseenter', function(event) {
+              // el.addEventListener('click', function() {
+                  //window.alert("Parking type: " + marker.properties.parking_type + " | Number of spaces: " + marker.properties.number_of_spaces);
+               console.log(event.target)
+
+                  //create span with the message inside the popup
+                  var span = document.createElement('span');
+                  span.className = 'popuptextParking';
+                  span.id = 'myPopupParking';
+
+                  var t = document.createTextNode("Parking type: " + marker.properties.parking_type + " 🚗 . Number of spaces: " + marker.properties.number_of_spaces);
+                  span.appendChild(t)
+
+
+                  el.appendChild(span)
+                  // console.log(span)
+
+                  //once ga_logo was clicked toggle popup and show it
+                  var $popupPrk = $(event.target);
+                  $popupPrk.find('#myPopupParking').addClass('show')
+
+                  // $popupPrk.addClass('show');
+                  // var popupPrk = document.getElementById('myPopupParking');
+                  //
+                  // popupPrk.classList.toggle('show');
+
               });
+
+              el.addEventListener('mouseout', function(event) {
+                var $popupPrk = $(event.target);
+                $popupPrk.find('#myPopupParking').removeClass('show')
+              })
 
             // add marker to map
             new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
                 .setLngLat(marker.geometry.coordinates)
                 .addTo(map);
         });
+
       })
 
 
@@ -191,9 +248,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
 
 
+
+
+
+
+
 // ===========================  directions
    directions.on('route', function(e) {
-     console.log(e.route); // Logs the current route shown in the interface.
+    //  console.log(e.route); // Logs the current route shown in the interface.
   //  map.setZoom(13);
      map.scrollZoom.disable();
 
