@@ -5,21 +5,25 @@ class Auth0Controller < ApplicationController
     # store the user profile in session and redirect to root
     # session[:userinfo] = request.env['omniauth.auth']
     @loginUser = User.find_by(email: request.env['omniauth.auth']["info"]["email"])
-    binding.pry
     if @loginUser
       @user = @loginUser
+      render "dashboard/show.html.erb"
     else
-      binding.pry
-      @user = User.new
-      @user.name = request.env['omniauth.auth']["info"]["name"]
-      @user.email = request.env['omniauth.auth']["info"]["email"]
-      @user.image_url = request.env['omniauth.auth']["info"]["image"]
-      if @user.save
-      else
+      if request.env['omniauth.auth']["info"]["email"] == nil
         render "dashboard/error.html.erb"
+      else
+        @user = User.new
+        @user.name = request.env['omniauth.auth']["info"]["name"]
+        @user.email = request.env['omniauth.auth']["info"]["email"]
+        @user.image_url = request.env['omniauth.auth']["info"]["image"]
+        if @user.save
+          render "dashboard/show.html.erb"
+        else
+          render "dashboard/error.html.erb"
+        end
       end
     end
-    render "dashboard/show.html.erb"
+    # render "dashboard/show.html.erb"
   end
 
   def failure
