@@ -2,11 +2,87 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-// 
+//
 // <%= render "partials/quiz" %>
+//
+// body {
+//     overflow: hidden;
+// }
 
-.macbookImage {
-  width: 100%;
+//doesnt seem to work...
+.ace_editor {
+  font-size: '12px';
+   font-family: 'Monaco, Menlo, "Ubuntu Mono", Consolas, source-code-pro, monospace;'
+}
+
+.quizFinished {
+  position: absolute;
+  left: 250px;
+  top: 300px;
+}
+
+//
+// #editforDiv {
+//   width: 300px;
+//   height: 200px;
+//   // margin: 0 auto;
+//   left: 100px;
+//   position: absolute;
+// }
+
+#submitQuizButton {
+  position: relative;
+  top: 300px;
+  left: 100px;
+  font-size: 0.5em;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #EEEEEE;
+}
+
+#instructionLabelHeader {
+  left: 30px;
+  position: absolute;
+  top: -25px;
+}
+
+ #newBooking {
+   font-size: 0.6em;
+ }
+
+#quizResult {
+  font-size: 0.8em;
+  position: absolute;
+  left: 250px;
+  top: 280px;
+
+}
+#instructionLabel {
+  font-size: 0.45em;
+  margin: 0 auto;
+}
+
+#editor {
+  width: 320px;
+  height: 200px;
+  left: 90px;
+  top: 35px;
+  position: absolute;
+  font-family:monospace
+}
+
+.quizSection {
+  width: 500px;
+  height: 300px;
+  display: inline-block;
+  vertical-align: bottom;
+  background-image: url("../images/macbookpro.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .quizmodal-overlay {
@@ -32,7 +108,7 @@
 .close-modal {
   background-color: rgb(230, 230, 230);
   width: 45px;
-  height: 45px;
+  // height: 45px;
   float: right;
   margin: 0;
   padding: 0;
@@ -42,3 +118,28 @@
   border-radius: 5px;
   font-size: 0.8em;
 }
+
+
+//typed .js styling
+
+// .typed-cursor{
+//     opacity: 1;
+//     -webkit-animation: blink 0.7s infinite;
+//     -moz-animation: blink 0.7s infinite;
+//     animation: blink 0.7s infinite;
+// }
+// @keyframes blink{
+//     0% { opacity:1; }
+//     50% { opacity:0; }
+//     100% { opacity:1; }
+// }
+// @-webkit-keyframes blink{
+//     0% { opacity:1; }
+//     50% { opacity:0; }
+//     100% { opacity:1; }
+// }
+// @-moz-keyframes blink{
+//     0% { opacity:1; }
+//     50% { opacity:0; }
+//     100% { opacity:1; }
+// }

@@ -8,18 +8,18 @@ Booking.destroy_all
 Speech.destroy_all
 User.destroy_all
 
-u1 = User.create({ name: 'Magda', password: 'magda', email: 'magda@ga.co'})
-u2 = User.create({ name: 'Dean', password: 'dean', email: 'dean@ga.co'})
-u3 = User.create({ name: 'Denis', password: 'denis', email: 'denis@ga.co'})
-u4 = User.create({ name: 'Maggie', password: 'maggie', email: 'maggie@ga.co'})
-u5 = User.create({ name: 'Sam', password: 'sam', email: 'sam@ga.co' })
-u6 = User.create({ name: 'Jordan', password: 'jordan', email: 'jordan@ga.co'})
-u7 = User.create({ name: 'Andrea', password: 'andrea', email: 'andrea@ga.co' })
-u8 = User.create({ name: 'Ray', password: 'ray', email: 'ray@ga.co'})
-u9 = User.create({ name: 'Tadisha', password: 'tadisha', email: 'tadisa@ga.co' })
-u10 = User.create({ name: 'Anthonasia', password: 'anthonasia', email: 'anthonasia@ga.co' })
-u11 = User.create({ name: 'Harry', password: 'harry', email: 'harry@ga.co'})
-u12 = User.create({ name: 'DT', password: 'dt', email: 'dt@ga.co'})
+u1 = User.create({ name: 'Magda', email: 'magda@ga.co'})
+u2 = User.create({ name: 'Dean', email: 'dean@ga.co'})
+u3 = User.create({ name: 'Denis', email: 'denis@ga.co'})
+u4 = User.create({ name: 'Maggie', email: 'maggie@ga.co'})
+u5 = User.create({ name: 'Sam', email: 'sam@ga.co' })
+u6 = User.create({ name: 'Jordan', email: 'jordan@ga.co'})
+u7 = User.create({ name: 'Andrea', email: 'andrea@ga.co' })
+u8 = User.create({ name: 'Ray', email: 'ray@ga.co'})
+u9 = User.create({ name: 'Tadisha', email: 'tadisa@ga.co' })
+u10 = User.create({ name: 'Anthonasia', email: 'anthonasia@ga.co' })
+u11 = User.create({ name: 'Harry', email: 'harry@ga.co'})
+u12 = User.create({ name: 'DT', email: 'dt@ga.co'})
 
 s1 = Speech.create( {name: 'Welcome and Introduction', speaker: 'Dean Cooper',
       starttime: DateTime.parse("09/01/2009 09:00"), endtime: DateTime.parse("09/01/2009 10:00")})
