@@ -13,15 +13,57 @@
  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
 
 
+<div class="location">
+  <div class="map-holder">
+      <div class="map-left">
+        <!-- .........................   MAP on the page-->
+         <div id='map' class='map pad2'></div>
+        <!-- .........................   MAP on the page-->
+      </div>
 
 
+      <div class="map-right">
+          <div class="map-nav">
+          </div>
+          <div id='features'>
+            <section class='map-information  active' id='weather'>
+              <!-- <section class="map-information active" id="event-location"> -->
+                  <h3>Weather: Melbourne</h3>
+                  <!-- ========================  WEATHER  -->
+                  <div class = "weather">
+                    <div id="cont_21d71ee597e69cbb9fd0e2e85960b55e"></div>
+                  </div>
+                  <script type="text/javascript" async src="https://www.theweather.com/wid_loader/21d71ee597e69cbb9fd0e2e85960b55e"></script>
+                <!-- ========================  WEATHER  -->
+            </section>
+            <section class="map-information" id="legend">
+                <h3>Map legend</h3>
+                <p> yellow p | GA logo | A - B start end of the route | after Events </p>
+            </section>
+            <section class="map-information" id="parking">
+                <h3>Parking</h3>
+                <p>Yellow p </p>
+            </section>
+            <!-- <section class="map-information" id="wdi-after-events">
+                <h3>After Events</h3>
+                <p>3 locations -  after evens </p>
+            </section> -->
+          </div>
+        </div>
+  </div>
+</div>
 
-<!-- .........................   MAP on the page-->
- <div id='map' class='map pad2'></div>
 
-<!-- .........................   MAP on the page-->
+<!-- <script>
 
+  // Map Container, same height as information div
+  $(".map-left").css("height", $(".map-right").height());
 
+  // Map becomes fixed for period during scroll
+  var mapSticky = document.getElementById('map');
+  Stickyfill.add(mapSticky);
+
+ </script> -->
 
 
 
@@ -36,6 +78,59 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
        center: [144.958998, -37.818535],
        zoom: 13
    });
+
+
+
+   // ========================= Map Movement on Scroll
+ var chapters = {
+
+   'weather': {
+       duration: 6000,
+       center: [144.958998, -37.818535],
+       pitch: 0,
+       bearing: -20,
+       zoom: 16
+   },
+   'legend': {
+       duration: 6000,
+       center: [144.958998, -37.818535],
+       bearing: 180,
+       zoom: 12,
+       pitch: 0
+   },
+   'parking': {
+       bearing: 0,
+       center: [144.958998, -37.818535],
+       zoom: 15,
+       speed: 0.6,
+       pitch: 15
+   },
+ };
+
+
+
+ function isOnScreen(element){
+
+   var element = $(element);
+   var win = $(window);
+   var viewport = {
+
+     top : win.scrollTop(),
+     left : win.scrollLeft()
+
+   };
+
+   viewport.bottom = viewport.top + (win.height()/2);
+   var bounds = element.offset();
+   bounds.bottom = bounds.top + element.outerHeight();
+   return !(viewport.bottom < bounds.top || viewport.top > bounds.bottom - (win.height()/2));
+
+ }
+
+
+
+
+
 
 
    map.addControl(new mapboxgl.Directions());
@@ -54,6 +149,30 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
 
   map.on('load', function() {
+
+
+    // ========================= Map View on Scroll :)
+
+   $(window).scroll(function() {
+     var mapStates = ['weather', 'legend', 'parking'];
+
+     for(var g = 0; g < mapStates.length; g++) {
+
+       var currentState = mapStates[g]
+       if ( isOnScreen( $('#' + currentState) ) === true) {
+
+         map.flyTo( chapters[currentState] );
+
+         if ( mapStates[g] === 'parking' ) {
+           showParkingToggle();
+         }
+
+       }
+
+     }
+
+   });
+
 
 
 
@@ -81,8 +200,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                   "date_of_conf": "19 Dec 2017",
                   "time": "10am - 6pm",
                   "iconSize": [25, 25],
-                  "iconImage":"url(https://placekitten.com/g/"
-                  // "iconImage":"url(/images/ga_logo.png)"
+                  "iconImage":"url(/images/ga_logo.png)"
                 }
               },
 
@@ -104,7 +222,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                   "date_of_conf": "19 Dec 2017",
                   "time": "7pm - 10pm",
                   "iconSize": [25, 25],
-                  "iconImage":"url(https://placekitten.com/g/"
+                  "iconImage":"url(/images/dinner_icon.png)"
                 }
               },
 
@@ -126,7 +244,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                   "date_of_conf": "19 Dec 2017",
                   "time": "7pm - 11pm",
                   "iconSize": [25, 25],
-                  "iconImage":"url(https://placekitten.com/g/"
+                  "iconImage":"url(/images/dinner_icon.png)"
                 }
               },
 
@@ -148,7 +266,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
                   "date_of_conf": "19 Dec 2017",
                   "time": "10pm - up to 6am",
                   "iconSize": [25, 25],
-                  // "iconImage":"url(https://placekitten.com/g/"
+                  "iconImage": "url(/images/event_icon.png)"
                 }
               },
 
@@ -173,7 +291,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
         ga_logo.style.left='-28px';
         ga_logo.style.top='-6px';
 
-        ga_logo.style.backgroundImage = marker_ga.properties.iconImage + marker_ga.properties.iconSize.join('/') + '/)';
+        ga_logo.style.backgroundImage = marker_ga.properties.iconImage;
         ga_logo.style.width = marker_ga.properties.iconSize[0] + 'px';
         ga_logo.style.height = marker_ga.properties.iconSize[1] + 'px';
 
