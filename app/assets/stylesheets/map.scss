@@ -16,8 +16,8 @@ body {
        // display: inline-block;
        float: left;
        position: relative;
-       width: 80%;
-      //  background-color: orange;
+       position: fixed;
+       width: 82%;
        margin: 0;
      }
 
@@ -25,8 +25,8 @@ body {
       width: 100%;
       height: 120vh;
       // background-color: grey;
-      position: -webkit-sticky;
-      position: sticky;
+      // position: -webkit-sticky;
+      // position: sticky;
       top: 0;
       opacity: 0.4;
       transition: 1s;
@@ -41,10 +41,10 @@ body {
 
      .map-right {
        // display: inline-block;
-       float: left;
+       float: right;
        position: relative;
-       width: 20%;
-       background-color: #f7f7f7;
+       width: 18%;
+       background-color: lightgrey;
        vertical-align: top;
        margin: 0;
      }
@@ -53,7 +53,8 @@ body {
        padding: 20px;
        border-top: 1px solid black;
        height: 50vh;
-       padding: 50px;
+       padding: 15%;
+       text-align: center;
      }
 
    }
@@ -61,8 +62,14 @@ body {
   }
 
 
-.directions-control-directions-container{
-  display: none;
+.directions-control-directions-container {
+  // display: none;
+  opacity: 0.1;
+}
+
+.directions-control-directions-container:hover {
+  // display: none;
+  opacity: 0.3;
 }
 
 
@@ -123,7 +130,7 @@ section:last-child {
 
 
 .ga_icon {
-  opacity: 0.4;
+  opacity: 0.7;
   border: none;
   cursor: pointer;
   // height: 25px;

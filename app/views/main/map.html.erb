@@ -28,42 +28,41 @@
           <div id='features'>
             <section class='map-information  active' id='weather'>
               <!-- <section class="map-information active" id="event-location"> -->
-                  <h3>Weather: Melbourne</h3>
-                  <!-- ========================  WEATHER  -->
-                  <div class = "weather">
-                    <div id="cont_21d71ee597e69cbb9fd0e2e85960b55e"></div>
-                  </div>
-                  <script type="text/javascript" async src="https://www.theweather.com/wid_loader/21d71ee597e69cbb9fd0e2e85960b55e"></script>
+                <h3>Current weather in Melbourne</h3>
+                <!-- ========================  WEATHER  -->
+                <div class = "weather">
+                  <div id="cont_dfd3f2cd6bbd804bf063752d7f93c3e7"></div>
+                </div>
+                <script type="text/javascript" async src="https://www.theweather.com/wid_loader/dfd3f2cd6bbd804bf063752d7f93c3e7"></script>
                 <!-- ========================  WEATHER  -->
             </section>
             <section class="map-information" id="legend">
-                <h3>Map legend</h3>
-                <p> yellow p | GA logo | A - B start end of the route | after Events </p>
+                <h3>Legend</h3>
+                <p> 🔴 WDI Conference </p>
+                <p> 🌕 Parking Spots </p>
+                <p> 💙 Current Location </p>
+                <p> 💜 Destination </p>
+                <p> 🍴 🎈 After Events </p>
             </section>
             <section class="map-information" id="parking">
-                <h3>Parking</h3>
-                <p>Yellow p </p>
+                <h3>Parking Spots</h3>
+                <p>Hover over 🌕 </p>
+                <p>to see parking details</p>
             </section>
-            <!-- <section class="map-information" id="wdi-after-events">
+            <section class="map-information" id="wdi-after-events">
                 <h3>After Events</h3>
-                <p>3 locations -  after evens </p>
-            </section> -->
+                <p>Hover over 🍴 🎈 </p>
+                <p>to see event details</p>
+                <p>Options: </p>
+                <p>1. Dinner @ Attica</p>
+                <p>2. Dinner @ Crown</p>
+                <p>3. Party @ Bond</p>
+            </section>
           </div>
         </div>
   </div>
 </div>
 
-
-<!-- <script>
-
-  // Map Container, same height as information div
-  $(".map-left").css("height", $(".map-right").height());
-
-  // Map becomes fixed for period during scroll
-  var mapSticky = document.getElementById('map');
-  Stickyfill.add(mapSticky);
-
- </script> -->
 
 
 
@@ -89,7 +88,8 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
        center: [144.958998, -37.818535],
        pitch: 0,
        bearing: -20,
-       zoom: 16
+       zoom: 13,
+       pitch: 50
    },
    'legend': {
        duration: 6000,
@@ -99,6 +99,13 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
        pitch: 0
    },
    'parking': {
+       bearing: 0,
+       center: [144.958998, -37.818535],
+       zoom: 15,
+       speed: 0.6,
+       pitch: 25
+   },
+   'wdi-after-events': {
        bearing: 0,
        center: [144.958998, -37.818535],
        zoom: 15,
@@ -151,10 +158,10 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
   map.on('load', function() {
 
 
-    // ========================= Map View on Scroll :)
+    // ========================= Map View on Scroll
 
    $(window).scroll(function() {
-     var mapStates = ['weather', 'legend', 'parking'];
+     var mapStates = ['weather', 'legend', 'parking', 'wdi-after-events' ];
 
      for(var g = 0; g < mapStates.length; g++) {
 
@@ -163,9 +170,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
          map.flyTo( chapters[currentState] );
 
-         if ( mapStates[g] === 'parking' ) {
-           showParkingToggle();
-         }
+        //  if ( mapStates[g] === 'parking' ) {
+        //    showParkingToggle();
+        //  }
 
        }
 
