@@ -17,9 +17,9 @@
   <div class="map-holder">
 
       <div class="map-left">
-        <!-- .........................   MAP on the page-->
+<!-- .........................   MAP on the page-->
          <div id='map' class='map pad2'></div>
-        <!-- .........................   MAP on the page-->
+<!-- .........................   MAP on the page-->
       </div>
 
 
@@ -39,21 +39,23 @@
             </section>
             <section class="map-information" id="legend">
                 <h3>Legend</h3>
-                <p> 🔴 WDI Conference </p>
-                <p> 🌕 Parking Spots </p>
-                <p> 💙 Current Location </p>
-                <p> 💜 Destination </p>
+                <p> 🔴 - WDI Conference </p>
+                <p> 🌕 - Parking Spots </p>
+                <p> 💙 - Current Location </p>
+                <p> 💜 - Destination </p>
                 <p> 🍴 🎈 After Events </p>
             </section>
             <section class="map-information" id="parking">
                 <h3>Parking Spots</h3>
-                <p>Hover over 🌕 </p>
+                <p>Hover over </p>
+                <p>🌕</p>
                 <p>to see parking details</p>
             </section>
             <section class="map-information" id="wdi-after-events">
                 <h3>After Events</h3>
                 <p>Hover over 🍴 🎈 </p>
                 <p>to see event details</p>
+                <br>
                 <p>Options: </p>
                 <p>1. Dinner @ Attica</p>
                 <p>2. Dinner @ Crown</p>
@@ -90,7 +92,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
       center: [144.958998, -37.818535],
       pitch: 0,
       bearing: -20,
-      zoom: 14,
+      zoom: 12,
       pitch: 50
    },
    'legend': {
@@ -442,9 +444,9 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
         $('#map').css({
           'opacity': '1'
         });
-        $('#mapbox-directions-origin-input , #mapbox-directions-destination-input, .mapbox-form-label, .js-reverse-inputs').css({
-          'display': 'none'
-        });
+        // $('#mapbox-directions-origin-input , #mapbox-directions-destination-input, .mapbox-form-label, .js-reverse-inputs').css({
+        //   'display': 'none'
+        // });
         // $('.mapbox-directions-component mapbox-directions-inputs').hide();
          directions.setOrigin([ geo.coords.longitude, geo.coords.latitude ]);
          directions.setDestination([144.958998, -37.818535]);    // On load, set the origin to GA Melbourne
@@ -465,7 +467,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
      function flyToLocation(currentFeature) {
         map.flyTo({
           center: currentFeature.geometry.coordinates,
-          zoom: 15
+          zoom: 12
         });
       }
    });
@@ -476,16 +478,3 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
 </script>
 <!-- ========================  MAP FROM MAPBOX  script-->
-
-
-
-
-
-
-
-<!-- ========================  WEATHER  -->
-<!-- <div class = "weather">
-  <div id="cont_21d71ee597e69cbb9fd0e2e85960b55e"></div>
-</div>
-<script type="text/javascript" async src="https://www.theweather.com/wid_loader/21d71ee597e69cbb9fd0e2e85960b55e"></script> -->
-<!-- ========================  WEATHER  -->

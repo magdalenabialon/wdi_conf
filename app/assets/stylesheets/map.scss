@@ -4,10 +4,10 @@ body {
 }
 
 //========================= MAP and MAP Legend
-.location {
-  height: 1400px;
+// .location {
+//   height: 1400px;
 //   background-color: red;
-}
+// }
 
 .map-holder {
   width: 100%;
@@ -56,13 +56,15 @@ p {
 
 .directions-control-directions-container {
   // display: none;
-  opacity: 0.1;
+  opacity: 0.05;
+  transition: 1s;
   // margin-right: 10%;
 }
 
 .directions-control-directions-container:hover {
   // display: none;
   opacity: 0.9;
+  transition: 1s;
 }
 
 
@@ -71,10 +73,18 @@ div.directions-control.directions-control-inputs {
   left: 8%;
 }
 
+.mapbox-form-label, button.js-reverse-inputs {
+  display: none;
+}
+
+
+#mapbox-directions-origin-input, #mapbox-directions-destination-input {
+  display: none;
+}
 
 //=========================  Legend - right banner ative
 section {
-  opacity: 0.25;
+  opacity: 0.70;
 }
  .active {
     opacity: 1;
