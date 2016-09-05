@@ -3,6 +3,11 @@ body {
   padding:0;
 }
 
+#link-to-map, a {
+  text-decoration: none;
+  color: lightgrey;
+}
+
 //========================= MAP and MAP Legend
 // .location {
 //   height: 1400px;
