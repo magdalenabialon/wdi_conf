@@ -68,6 +68,7 @@
 
 <!-- ========================  MAP FROM MAPBOX  script-->
 <script>
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
 
    var map = new mapboxgl.Map({
@@ -84,33 +85,34 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
  var chapters = {
 
    'weather': {
-       duration: 6000,
-       center: [144.958998, -37.818535],
-       pitch: 0,
-       bearing: -20,
-       zoom: 13,
-       pitch: 50
+      duration: 6000,
+      center: [144.958998, -37.818535],
+      pitch: 0,
+      bearing: -20,
+      zoom: 14,
+      pitch: 50
    },
    'legend': {
-       duration: 6000,
-       center: [144.958998, -37.818535],
-       bearing: 180,
-       zoom: 12,
-       pitch: 0
+      duration: 6000,
+      center: [144.959810, -37.821799],
+      bearing: -30,
+      zoom: 15,
+      pitch: 20
    },
    'parking': {
-       bearing: 0,
-       center: [144.958998, -37.818535],
-       zoom: 15,
-       speed: 0.6,
-       pitch: 25
+      duration: 6000,
+      bearing: 180,
+      center: [144.958998, -37.818535],
+      zoom: 15,
+      speed: 0.6,
+      pitch: 25
    },
    'wdi-after-events': {
-       bearing: 0,
-       center: [144.958998, -37.818535],
-       zoom: 15,
-       speed: 0.6,
-       pitch: 15
+      bearing: 10,
+      center: [144.983181, -37.855259],
+      zoom: 12.2,
+      speed: 0.6,
+      pitch: 25
    },
  };
 
@@ -137,9 +139,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
 
 
-
-
-
    map.addControl(new mapboxgl.Directions());
 
 
@@ -158,7 +157,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
   map.on('load', function() {
 
 
-    // ========================= Map View on Scroll
+    // ========================= MAP ON SCROLL
 
    $(window).scroll(function() {
      var mapStates = ['weather', 'legend', 'parking', 'wdi-after-events' ];
@@ -170,15 +169,24 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
          map.flyTo( chapters[currentState] );
 
-        //  if ( mapStates[g] === 'parking' ) {
-        //    showParkingToggle();
-        //  }
-
        }
-
      }
-
    });
+
+
+//============================= FADE LEGEND when not active
+  //   var activeChapterName = 'weather';
+  //   function setActiveChapter(chapterName) {
+  //   if (chapterName === activeChapterName) return;
+  //
+  //   map.flyTo(chapters[chapterName]);
+  //
+  //   document.getElementById(chapterName).setAttribute('class', 'active');
+  //   document.getElementById(activeChapterName).setAttribute('class', '');
+  //
+  //   activeChapterName = chapterName;
+  // }
+
 
 
 

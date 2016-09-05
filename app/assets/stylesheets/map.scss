@@ -65,29 +65,26 @@ body {
 .directions-control-directions-container {
   // display: none;
   opacity: 0.1;
+  margin-right: 10%; 
 }
 
 .directions-control-directions-container:hover {
   // display: none;
-  opacity: 0.3;
+  opacity: 0.9;
 }
 
 
 
 section {
-    padding:  25px 50px;
-    line-height: 25px;
-    border-bottom: 1px solid #ddd;
-    opacity: 0.25;
-    font-size: 13px;
+  opacity: 0.25;
 }
-section.active {
+ .active {
     opacity: 1;
 }
-section:last-child {
-    border-bottom: none;
-    margin-bottom: 200px;
-}
+// section:last-child {
+//     border-bottom: none;
+//     margin-bottom: 200px;
+// }
 
 
 
@@ -143,13 +140,14 @@ section:last-child {
   // transform: translate(28px, 56px, 0);
 }
 .ga_icon:hover {
-  opacity: 0.95;
+  opacity: 1;
   border: none;
   cursor: pointer;
   // height: 25px;
   // width: 25px;
   // background-image: url(/images/ga_logo.png);
   background-color: rgba(0, 0, 0, 0);
+  z-index: 1;
   // transform: translate(28px, 56px, 0);
 }
 
@@ -265,6 +263,7 @@ section:last-child {
    visibility: visible;
    -webkit-animation: fadeIn 1s;
    animation: fadeIn 1s;
+   z-index: 1;
 }
 
 
