@@ -17,7 +17,8 @@ class Auth0Controller < ApplicationController
         @user.email = request.env['omniauth.auth']["info"]["email"]
         @user.image_url = request.env['omniauth.auth']["info"]["image"]
         if @user.save
-          render "dashboard/show.html.erb"
+          # render "dashboard/show.html.erb"
+          redirect_to '/'
         else
           render "dashboard/error.html.erb"
         end
