@@ -64,7 +64,6 @@ ActiveRecord::Schema.define(version: 20160902031304) do
     t.datetime "updated_at", null: false
     t.text     "image_url"
     t.string   "imageurl"
-    t.text     "image_url"
   end
 
   add_foreign_key "afterevents", "users"
