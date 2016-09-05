@@ -1,0 +1,13 @@
+
+<div class="speakerContainer">
+  <% @speeches.each do |speech| %>
+    <div class="speakerWrapper">
+      <div class="leftHeader">
+        <img src="http://placehold.it/150x150" class="speakerPic" id="luke-" alt="">
+      </div><div class="rightHeader">
+        <h2 class="speakerName"><%= speech.speaker %></h2>
+        <span class="speakerDescription"><%=speech.theme %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
