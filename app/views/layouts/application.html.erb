@@ -56,10 +56,12 @@
       <div class="nav-bottom">
 
         <div class="nav-item no-hover">
-          <i class="fa fa-circle-thin" aria-hidden="true"></i>
+
           <%if @user %>
+            <img id ="user-photo" src="<%= @user.image_url %> " alt="user_avatar">
             <p>Welcome, <%=@user.name%></p>
           <% else %>
+            <i class="fa fa-circle-thin" aria-hidden="true"></i>
             <p>Welcome back, User</p>
           <% end %>
         </div>
@@ -75,10 +77,6 @@
     <div class="wrapper">
 
       <%= yield %>
-
-      <!-- <footer>
-        <p>Footer</p>
-      </footer> -->
 
     </div>
 
@@ -149,7 +147,7 @@
           }
         }
       });
-      
+
     </script>
 
     <script>
