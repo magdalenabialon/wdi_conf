@@ -13,20 +13,63 @@
  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
 
 
+<div class="location">
+  <div class="map-holder">
+
+      <div class="map-left">
+        <!-- .........................   MAP on the page-->
+         <div id='map' class='map pad2'></div>
+        <!-- .........................   MAP on the page-->
+      </div>
 
 
-
-<!-- .........................   MAP on the page-->
- <div id='map' class='map pad2'></div>
-
-<!-- .........................   MAP on the page-->
-
+      <div class="map-right">
+          <div class="map-nav">
+          </div>
+          <div id='features'>
+            <section class='map-information  active' id='weather'>
+              <!-- <section class="map-information active" id="event-location"> -->
+                <h3>Current weather in Melbourne</h3>
+                <!-- ========================  WEATHER  -->
+                <div class = "weather">
+                  <div id="cont_dfd3f2cd6bbd804bf063752d7f93c3e7"></div>
+                </div>
+                <script type="text/javascript" async src="https://www.theweather.com/wid_loader/dfd3f2cd6bbd804bf063752d7f93c3e7"></script>
+                <!-- ========================  WEATHER  -->
+            </section>
+            <section class="map-information" id="legend">
+                <h3>Legend</h3>
+                <p> 🔴 WDI Conference </p>
+                <p> 🌕 Parking Spots </p>
+                <p> 💙 Current Location </p>
+                <p> 💜 Destination </p>
+                <p> 🍴 🎈 After Events </p>
+            </section>
+            <section class="map-information" id="parking">
+                <h3>Parking Spots</h3>
+                <p>Hover over 🌕 </p>
+                <p>to see parking details</p>
+            </section>
+            <section class="map-information" id="wdi-after-events">
+                <h3>After Events</h3>
+                <p>Hover over 🍴 🎈 </p>
+                <p>to see event details</p>
+                <p>Options: </p>
+                <p>1. Dinner @ Attica</p>
+                <p>2. Dinner @ Crown</p>
+                <p>3. Party @ Bond</p>
+            </section>
+          </div>
+        </div>
+  </div>
+</div>
 
 
 
 
 <!-- ========================  MAP FROM MAPBOX  script-->
 <script>
+
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAycXcyem9jYXpzZWZ6eW4ifQ.RWDUb9U9vdUlNuKcPGJDhg';
 
    var map = new mapboxgl.Map({
@@ -36,6 +79,65 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
        center: [144.958998, -37.818535],
        zoom: 13
    });
+
+
+
+   // ========================= Map Movement on Scroll
+ var chapters = {
+
+   'weather': {
+      duration: 6000,
+      center: [144.958998, -37.818535],
+      pitch: 0,
+      bearing: -20,
+      zoom: 14,
+      pitch: 50
+   },
+   'legend': {
+      duration: 6000,
+      center: [144.959810, -37.821799],
+      bearing: -30,
+      zoom: 15,
+      pitch: 20
+   },
+   'parking': {
+      duration: 6000,
+      bearing: 180,
+      center: [144.958998, -37.818535],
+      zoom: 15,
+      speed: 0.6,
+      pitch: 55
+   },
+   'wdi-after-events': {
+      bearing: 10,
+      center: [144.983181, -37.855259],
+      zoom: 12.2,
+      speed: 0.6,
+      pitch: 25
+   },
+ };
+
+
+
+ function isOnScreen(element){
+
+   var element = $(element);
+   var win = $(window);
+   var viewport = {
+
+     top : win.scrollTop(),
+     left : win.scrollLeft()
+
+   };
+
+   viewport.bottom = viewport.top + (win.height()/2);
+   var bounds = element.offset();
+   bounds.bottom = bounds.top + element.outerHeight();
+   return !(viewport.bottom < bounds.top || viewport.top > bounds.bottom - (win.height()/2));
+
+ }
+
+
 
 
    map.addControl(new mapboxgl.Directions());
@@ -56,33 +158,136 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
   map.on('load', function() {
 
 
+    // ========================= MAP ON SCROLL
 
-    //========================= GA-conf logo / location
+   $(window).scroll(function() {
+     var mapStates = ['weather', 'legend', 'parking', 'wdi-after-events' ];
+
+     for(var g = 0; g < mapStates.length; g++) {
+
+       var currentState = mapStates[g]
+       if ( isOnScreen( $('#' + currentState) ) === true) {
+
+         map.flyTo( chapters[currentState] );
+
+       }
+     }
+   });
+
+
+//============================= FADE LEGEND when not active
+  //   var activeChapterName = 'weather';
+  //   function setActiveChapter(chapterName) {
+  //   if (chapterName === activeChapterName) return;
+  //
+  //   map.flyTo(chapters[chapterName]);
+  //
+  //   document.getElementById(chapterName).setAttribute('class', 'active');
+  //   document.getElementById(activeChapterName).setAttribute('class', '');
+  //
+  //   activeChapterName = chapterName;
+  // }
+
+
+
+
+
+    //========================= GA-conf   &  after Events / locations and logo
     var gaConf =
 
-      {
-        type: "FeatureCollection",
-        features: [
           {
-            "type": "Feature",
-            "geometry": {
-              "type": "Point",
-              "coordinates": [
-                144.958998,
-                -37.818535
-              ]
-            },
-            "properties": {
-              "website": "https://generalassemb.ly/",
-              "address": "12A/Williams St CBD",
-              "city": "Melbourne Vic",
-              "country": "Australia",
-              "date_of_conf": "19 Feb 2017",
-              "time": "10am - 6pm"
-            }
-          },
-        ]
-      }
+            type: "FeatureCollection",
+            features: [
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    144.958998,
+                    -37.818535
+                  ]
+                },
+                "properties": {
+                  "event": "WDI Conference 2016",
+                  "website": "https://generalassemb.ly/",
+                  "address": "12A/Williams St",
+                  "city": "Melbourne Vic",
+                  "country": "Australia",
+                  "date_of_conf": "19 Dec 2017",
+                  "time": "10am - 6pm",
+                  "iconSize": [25, 25],
+                  "iconImage":"url(/images/ga_logo.png)"
+                }
+              },
+
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    144.997320,
+                    -37.876840
+                  ]
+                },
+                "properties": {
+                  "event": "After Conference Dinner",
+                  "website": "http://www.attica.com.au",
+                  "address": "74 Glen Eira Rd",
+                  "city": "Melbourne Vic",
+                  "country": "Australia",
+                  "date_of_conf": "19 Dec 2017",
+                  "time": "7pm - 10pm",
+                  "iconSize": [25, 25],
+                  "iconImage":"url(/images/dinner_icon.png)"
+                }
+              },
+
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    144.957268,
+                    -37.823716
+                  ]
+                },
+                "properties": {
+                  "event": "After Conference Dinner",
+                  "website": "https://www.crownmelbourne.com.au/",
+                  "address": "130/8 Whiteman St",
+                  "city": "Melbourne Vic",
+                  "country": "Australia",
+                  "date_of_conf": "19 Dec 2017",
+                  "time": "7pm - 11pm",
+                  "iconSize": [25, 25],
+                  "iconImage":"url(/images/dinner_icon.png)"
+                }
+              },
+
+              {
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [
+                    144.963095,
+                    -37.818055
+                  ]
+                },
+                "properties": {
+                  "event": "After Conference Party",
+                  "website": "http://www.bondmelbourne.com.au/",
+                  "address": "24 Bond St",
+                  "city": "Melbourne Vic",
+                  "country": "Australia",
+                  "date_of_conf": "19 Dec 2017",
+                  "time": "10pm - up to 6am",
+                  "iconSize": [25, 25],
+                  "iconImage": "url(/images/event_icon.png)"
+                }
+              },
+
+            ]
+          }
 
       map.addSource("places", {
         "type": "geojson",
@@ -93,21 +298,41 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
       gaConf.features.forEach(function(marker_ga) {
         // Create a div element for the marker_ga
         var ga_logo = document.createElement('div');
+
+
+
         // Add a class called 'marker_ga' ga_icon to each div
         ga_logo.className = 'ga_icon popup';
-        // By default the image for your custom marker_ga will be anchored by its top left corner. Adjust the position accordingly
+        // // By default the image for your custom marker_ga will be anchored by its top left corner. Adjust the position accordingly
         ga_logo.style.left='-28px';
-        ga_logo.style.top='-46px';
+        ga_logo.style.top='-6px';
+
+        ga_logo.style.backgroundImage = marker_ga.properties.iconImage;
+        ga_logo.style.width = marker_ga.properties.iconSize[0] + 'px';
+        ga_logo.style.height = marker_ga.properties.iconSize[1] + 'px';
 
 
 
-        // Create the custom marker_gas, set their position, and add to map
+
+
+
+        // Create the custom marker_ga, set their position, and add to map
         var markerGA = new mapboxgl.Marker(ga_logo)
             .setLngLat(marker_ga.geometry.coordinates)
             .addTo(map);
 
+        // map.addLayer({
+        //   "id": "locations",
+        //   "type": "symbol",
+        //   "source": "places",
+        //   "layout": {
+        //     "icon-image": "restaurant-15",
+        //     "icon-allow-overlap": true,
+        //   }
+        // });
 
-        ga_logo.addEventListener('mouseenter', function(e) {
+
+        ga_logo.addEventListener('mouseenter', function(event) {
           //  window.alert("Website: " + marker_ga.properties.website + " | Conference date: " + marker_ga.properties.date_of_conf);
 
             //create span with the message inside the popup
@@ -115,7 +340,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
             span.className = 'popuptext';
             span.id = 'myPopup';
 
-            var t = document.createTextNode("WDI Conference ⏳ " + marker_ga.properties.date_of_conf + " 🏢 " + marker_ga.properties.address);
+            var t = document.createTextNode(marker_ga.properties.event + " ⏳ " + marker_ga.properties.time + " 📅 " + marker_ga.properties.date_of_conf + " 🏢 " + marker_ga.properties.address);
             span.appendChild(t)
 
 
@@ -123,14 +348,14 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
             // console.log(span)
 
             //once ga_logo was clicked toggle popup and show it
-            var popup = document.getElementById('myPopup');
-            popup.classList.toggle('show');
+            var $popup = $(event.target);
+            $popup.find('#myPopup').addClass('show');
 
         });
 
-        ga_logo.addEventListener('mouseout', function(e) {
-          var popup = document.getElementById('myPopup');
-          popup.classList.toggle('show').remove();
+        ga_logo.addEventListener('mouseout', function(event) {
+          var $popup = $(event.target);
+           $popup.find('#myPopup').removeClass('show')
         })
 
 
@@ -187,37 +412,27 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 
 
               el.addEventListener('mouseenter', function(event) {
-              // el.addEventListener('click', function() {
-                  //window.alert("Parking type: " + marker.properties.parking_type + " | Number of spaces: " + marker.properties.number_of_spaces);
-               console.log(event.target)
 
-                  //create span with the message inside the popup
+              //create span with the message inside the popup
                   var span = document.createElement('span');
                   span.className = 'popuptextParking';
                   span.id = 'myPopupParking';
 
                   var t = document.createTextNode("Parking type: " + marker.properties.parking_type + " 🚗 . Number of spaces: " + marker.properties.number_of_spaces);
                   span.appendChild(t)
-
-
                   el.appendChild(span)
-                  // console.log(span)
 
-                  //once ga_logo was clicked toggle popup and show it
+                  //once parking logo was hovered toggle popup and show it  //1.find the mouse event - div, go down and find element with id, add to this particular one class
                   var $popupPrk = $(event.target);
-                  $popupPrk.find('#myPopupParking').addClass('show')
-
-                  // $popupPrk.addClass('show');
-                  // var popupPrk = document.getElementById('myPopupParking');
-                  //
-                  // popupPrk.classList.toggle('show');
-
+                  $popupPrk.find('#myPopupParking').addClass('show');
               });
+
 
               el.addEventListener('mouseout', function(event) {
                 var $popupPrk = $(event.target);
                 $popupPrk.find('#myPopupParking').removeClass('show')
-              })
+              });
+
 
             // add marker to map
             new mapboxgl.Marker(el, {offset: [-marker.properties.iconSize[0] / 2, -marker.properties.iconSize[1] / 2]})
@@ -245,9 +460,6 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
        });
 
   });
-
-
-
 
 
 
@@ -286,14 +498,3 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibWFnZGFsZW5hYmlhbG9uIiwiYSI6ImNpc2p3cnUwczAyc
 </div>
 <script type="text/javascript" async src="https://www.theweather.com/wid_loader/21d71ee597e69cbb9fd0e2e85960b55e"></script> -->
 <!-- ========================  WEATHER  -->
-
-
-
-
-
-<!-- ========================  PARKING MAP  -->
-<!-- <div><iframe width="760px" title="wdi_conf" height="646px" src="https://data.melbourne.vic.gov.au/w/m4j7-darc/spy9-nmud?cur=jBdT_JGn9RO&from=root" frameborder="0"scrolling="no"><a href="https://data.melbourne.vic.gov.au/Property-Planning/wdi_conf/m4j7-darc" title="wdi_conf" target="_blank">wdi_conf</a></iframe></div> -->
-<!-- ========================  PARKING MAP  -->
-
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-_tjRXvZwDBMsFKx2He46Jv3MBw-_oT0"
-        async defer></script> -->
