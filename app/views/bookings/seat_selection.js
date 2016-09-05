@@ -1,11 +1,5 @@
-<div class="floorPlan"></div>
-
-<!-- <script src="app/views/bookings/seat_selection.js"></script> -->
-
-<script type="text/javascript">
 
 $(document).ready(function(){
-
 
   var rowWidth = 10
   var columnWidth = 6
@@ -16,14 +10,7 @@ $(document).ready(function(){
   for (var i = 0; i < columnWidth; i++) {
     var $row = $('<div>').addClass('row')
     for (var j = 0; j < rowWidth; j++) {
-      var image = $('<img>').attr('src', '/seat.png');
-      var div = ($('<div>').addClass('seat').attr("id",[i] + [j]))
-      var divImage = div.append(image);
-      $row.append(divImage)
-
-
-    // $('.seat').css("background","url(/seat.png)")
-
+      $row.append($('<div>').addClass('seat').attr("id",[i] + [j]));
       // $('<div>').addClass('seat').attr("id",[i] + [j]);
       // $('.seat').css("width", "20px");
       // $('.seat').css("height", "20px");
@@ -34,5 +21,3 @@ $(document).ready(function(){
     $('.floorPlan').append($row)
   }
 })
-
-</script>
