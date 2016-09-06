@@ -71,8 +71,8 @@ ActiveRecord::Schema.define(version: 20160906075601) do
     t.integer  "quizscore"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text     "image_url"
     t.string   "imageurl"
+    t.text     "image_url"
   end
 
   add_foreign_key "afterevents", "users"
