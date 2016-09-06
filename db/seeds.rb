@@ -21,20 +21,26 @@ u10 = User.create({ name: 'Anthonasia', email: 'anthonasia@ga.co' })
 u11 = User.create({ name: 'Harry', email: 'harry@ga.co'})
 u12 = User.create({ name: 'DT', email: 'dt@ga.co'})
 
-s1 = Speech.create( {name: 'Welcome and Introduction', speaker: 'Dean Cooper',
+s1 = Speech.create( {name: 'Welcome and Introduction', speaker: 'Maggie McCain', theme: 'General', description: "We welcome you to the 5th Annual WDIConf.  We'll give you an overview of the conference, logistics, and some motivational nuggets of knowledge to kick off a fun, inspiring weekend of learning and connecting with your peers.",
       starttime: DateTime.parse("09/01/2009 09:00"), endtime: DateTime.parse("09/01/2009 10:00")})
 
-s2 = Speech.create( {name: 'How I became a great artist', speaker: 'Magda',
-      starttime: DateTime.parse("09/01/2009 10:30"), endtime: DateTime.parse("09/01/2009 11:00")})
+s6 = Speech.create( {name: 'Achieving Maximum Efficiency with Agile', speaker: 'Denis Ng', theme: 'Agile', description: "The Ultimate Scrum Master gives us a crash course in optimizing efficiency for your team by implementing Agile methodologies in your organization.  Learn how to free your team of the sequential waterfall development by improving your workflow and team reaction to unpredictability in the workplace.",
+      starttime: DateTime.parse("09/01/2009 10:00"), endtime: DateTime.parse("09/01/2009 11:00")})
 
-s3 = Speech.create( {name: 'My love of fast cars and css', speaker: 'Jordan',
-      starttime: DateTime.parse("09/01/2009 11:30"), endtime: DateTime.parse("09/01/2009 12:00")})
+s2 = Speech.create( {name: 'Getting SASSy', speaker: 'Jordan Etzler', theme: 'SASS/CSS', description: 'Jordan is a SASS wizard who will give us a deep dive into all the features SASS offers to make your styling that much easier.',
+      starttime: DateTime.parse("09/01/2009 11:00"), endtime: DateTime.parse("09/01/2009 12:30")})
 
-s4 = Speech.create( {name: 'How I became the trello lord', speaker: 'Denis',
-      starttime: DateTime.parse("09/01/2009 12:30"), endtime: DateTime.parse("09/01/2009 13:00")})
+s3 = Speech.create( {name: 'Lunch Hour', description: 'Complimentary catered lunch served on premise', speaker: 'Envato'
+      starttime: DateTime.parse("09/01/2009 12:30"), endtime: DateTime.parse("09/01/2009 14:00")})
 
-s5 = Speech.create( {name: 'My Melbourne adventures', speaker: 'Maggie',
-      starttime: DateTime.parse("09/01/2009 13:30"), endtime: DateTime.parse("09/01/2009 14:00")})
+s4 = Speech.create( {name: 'Node-torious B.I.G.', speaker: 'Dean Cooper', theme: 'Node.js', description: 'Dean will be teaching Javascript newbies how to use the language beyond the browser with nodeJS, as an alternative to Sinatra and Rails.',
+      starttime: DateTime.parse("09/01/2009 14:00"), endtime: DateTime.parse("09/01/2009 15:00")})
+
+s5 = Speech.create( {name: 'What a-Bot it?', speaker: 'Harry Aydin', theme: 'Robots', description: 'Ever wondered how to better organize team communications and queues?  There\'s a bot for that.',
+      starttime: DateTime.parse("09/01/2009 15:00"), endtime: DateTime.parse("09/01/2009 16:00")})
+
+s7 = Speech.create( {name: 'Gems & Ruby', speaker: 'Magda Bialon', theme: 'Ruby', description: 'Magda unearths the true diamonds among the infinite list of gems available to Ruby users.',
+      starttime: DateTime.parse("09/01/2009 16:00"), endtime: DateTime.parse("09/01/2009 17:00")})
 
 b1 = Booking.create({speech_id: s1.id, user_id: u1.id, seat: '1A' })
 b2 = Booking.create({speech_id: s1.id, user_id: u2.id, seat: '1B' })
