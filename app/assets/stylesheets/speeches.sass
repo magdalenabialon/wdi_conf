@@ -32,6 +32,7 @@
 // }
 // }
 
+
 @import compass
 
 /* -------------------------------------
@@ -44,9 +45,9 @@ $vertical: true
  * General Style
  * ------------------------------------- */
 
-// Colors
-$bg: #ccffcc
-$white: #eee9dc
+//
+$bg: #34E5FF
+$white: white
 $red: #f98262
 
 @import url(http://fonts.googleapis.com/css?family=Noto+Sans)
@@ -99,6 +100,7 @@ h2
 
 .speaker
   font-size: .8em
+  padding-left: 5em
 
 .date
   @if $vertical
@@ -113,6 +115,9 @@ h2
   font-size: 0.95em
   line-height: 20px
   position: absolute
+  color: #00FFCC
+
+
 .circle
   @if $vertical
     margin-top: -10px
@@ -143,9 +148,10 @@ h2
     vertical-align: top
     padding: 50px 15px 15px
     transition: width 0.4s linear, max-height 0.4s linear
-  border-width: 2px
+  border-width: 1px
   border-style: solid
   border-radius: 0.5em
+  border-color: white
   position: relative
   &:before, &:after
     content: ""
@@ -187,11 +193,16 @@ h2
     word-break: break-word
     hyphens: auto
     overflow: hidden
+    padding-left: 2%
+
+.content:hover
+  opacity: 0.7
 
 .float-right
   float: right
-  padding-right: 15%
-  padding-top: 3%
+  padding-right: 20px
+  padding-top: 2%
+  color: #90FEFB 
 
 .speechLabel
   font-size: 1.3em
