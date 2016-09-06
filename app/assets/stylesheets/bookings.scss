@@ -37,10 +37,10 @@
 
 .seat > img:hover {
   background-color: rgba(255, 4, 4, 0.6);
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
-.seat > img{border:solid 1px red; margin:10px;}
-.selected{
-    box-shadow:0px 12px 22px 1px #333;
+.seat > img.selected{
+  background-color: rgb(170, 112, 205);
+  color: white;
 }
