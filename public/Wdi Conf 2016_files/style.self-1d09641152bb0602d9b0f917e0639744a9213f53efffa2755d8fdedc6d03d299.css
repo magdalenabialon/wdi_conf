@@ -1,0 +1,283 @@
+/* ////////////////////// VARIABLES ////////////////////// */
+/* ////////////////////// GLOBAL STYLES ////////////////////// */
+/* line 25, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 31, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.style-guide {
+  height: 500px;
+  background-color: white;
+  padding: 50px 30px 50px 100px;
+}
+
+/* line 37, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 43, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+body {
+  background-color: black;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url("/images/patterns/subtle_dots.png");
+}
+
+/* line 51, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.wrapper {
+  width: -webkit-calc(100% - 70px);
+  width: -moz-calc(100% - 70px);
+  width: calc(100% - 70px);
+  height: 100%;
+  margin: 0px 0px 0px 70px;
+}
+
+/* ////////////////////// NAVIGATION  ////////////////////// */
+/* line 96, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+nav {
+  display: block;
+  position: fixed;
+  width: 70px;
+  height: 100%;
+  background-color: #202020;
+  margin: 0;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 0px 7px rgba(0, 0, 0, 0.5);
+  z-index: 5000;
+}
+/* line 108, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+nav i {
+  font-size: 1.5em !important;
+}
+
+/* line 114, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.nav-bottom {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
+
+/* line 120, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.nav-item {
+  width: 100%;
+  text-align: left;
+  padding: 20px 0px 0px 0px;
+  color: white;
+  background-color: #202020;
+  transition: 0.5s;
+  cursor: pointer;
+  border-bottom: 1px solid #3b3b3b;
+}
+/* line 130, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.nav-item i {
+  padding-left: 25px;
+  float: left;
+  width: 70px;
+}
+/* line 136, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.nav-item p {
+  display: none;
+  float: left;
+  line-height: 24px;
+  padding: 3px 0 0 5px;
+  margin: 0;
+  color: #c9c7c7;
+  font-size: 0.8em;
+}
+/* line 147, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.nav-item .nav-item:hover {
+  background-color: #3c3c3c;
+}
+
+/* line 153, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.no-hover:hover {
+  background-color: #202020;
+  cursor: default;
+}
+
+/* line 158, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+#user-photo {
+  width: 50px;
+  border-radius: 50px;
+}
+
+/* line 163, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+footer {
+  display: block;
+  background-color: #2b2b2b;
+  height: auto;
+  margin: 0;
+  padding: 80px 0px 80px 0px;
+}
+
+/* line 173, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.left50 {
+  display: inline-block;
+  width: 50%;
+}
+
+/* line 178, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.right50 {
+  display: inline-block;
+  width: 49%;
+}
+
+/* ////////////////////// INDEX ////////////////////// */
+/* line 189, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.video-background {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* line 196, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.video-foreground {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+/* line 201, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.video-foreground iframe {
+  height: 100%;
+  width: 100%;
+  border: 0;
+  z-index: 1;
+}
+
+/* line 217, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.overlay {
+  z-index: 100;
+  height: 100%;
+  width: 100%;
+  color: white;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* line 230, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.title {
+  text-align: center;
+  width: 330px;
+  height: 330px;
+  margin-top: -200px;
+  padding: 5px;
+}
+/* line 238, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.title h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 5em;
+  margin: 0px;
+  font-weight: bold;
+}
+/* line 246, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.title h2 {
+  font-family: "Roboto", sans-serif;
+  font-style: italic;
+  font-size: 2.2em;
+  margin: 0px;
+}
+/* line 253, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.title h3 {
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-size: 7em;
+  margin: 0px;
+}
+/* line 260, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.title img {
+  width: 100%;
+}
+
+/* line 266, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.container {
+  max-width: 1000px;
+  margin: 0px auto 0px auto;
+}
+
+/* line 282, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.overlay {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 288, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.about {
+  height: 500px;
+  background-color: white;
+  padding: 50px 30px 50px 100px;
+}
+
+/* line 295, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.speakers {
+  background-color: blue;
+  padding: 50px 30px 50px 100px;
+}
+
+/* line 301, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.timetable {
+  height: 500px;
+  background-color: plum;
+  padding: 50px 30px 50px 100px;
+}
+
+/* line 309, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.loc {
+  height: 300px;
+  padding: 50px 30px 50px 100px;
+}
+
+/* line 316, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.after-events {
+  height: 500px;
+  background-color: mistyrose;
+  padding: 50px 30px 50px 100px;
+}
+
+/* line 323, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.booking {
+  height: 500px;
+  background-color: violet;
+  padding: 50px 30px 50px 100px;
+}
+
+/* line 330, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+.sponsors {
+  height: 500px;
+  background-color: white;
+  padding: 50px 30px 50px 100px;
+}
+
+/* line 339, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+footer #footer-logo {
+  display: inline-block;
+  height: 25px;
+}
+/* line 344, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+footer .disclaimer p {
+  display: inline-block;
+  line-height: 25px;
+  vertical-align: top;
+  margin: 0;
+  padding-left: 20px;
+}
+/* line 352, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+footer .disclaimer .right50 {
+  text-align: right;
+}
+/* line 356, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/style.scss */
+footer .disclaimer > .right50 img {
+  height: 25px;
+  padding: 2.5px 7.5px 2.5px 7.5px;
+}
