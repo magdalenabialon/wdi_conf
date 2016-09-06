@@ -30,7 +30,7 @@ s6 = Speech.create( {name: 'Achieving Maximum Efficiency with Agile', speaker: '
 s2 = Speech.create( {name: 'Getting SASSy', speaker: 'Jordan Etzler', theme: 'SASS/CSS', description: 'Jordan is a SASS wizard who will give us a deep dive into all the features SASS offers to make your styling that much easier.',
       starttime: DateTime.parse("09/01/2009 11:00"), endtime: DateTime.parse("09/01/2009 12:30")})
 
-s3 = Speech.create( {name: 'Lunch Hour', description: 'Complimentary catered lunch served on premise', speaker: 'Envato'
+s3 = Speech.create( {name: 'Lunch Hour', description: 'Complimentary catered lunch served on premise', speaker: 'Envato',
       starttime: DateTime.parse("09/01/2009 12:30"), endtime: DateTime.parse("09/01/2009 14:00")})
 
 s4 = Speech.create( {name: 'Node-torious B.I.G.', speaker: 'Dean Cooper', theme: 'Node.js', description: 'Dean will be teaching Javascript newbies how to use the language beyond the browser with nodeJS, as an alternative to Sinatra and Rails.',
