@@ -40,32 +40,7 @@
   border-radius: 10px;
 }
 
-//
-// #row1 {
-//   margin-left: 20px;
-// }
-//
-// #row2 {
-//
-// }
-//
-// #row3 {
-//
-// }
-//
-// #row4 {
-//
-// }
-//
-// #row5 {
-//
-// }
-
-.total_bar {
-  text-align: center;
-  // background-color: red;
-}
-.checkout_button {
-  position: relative;
-  margin-right: 130px;
+.seat > img{border:solid 1px red; margin:10px;}
+.selected{
+    box-shadow:0px 12px 22px 1px #333;
 }
