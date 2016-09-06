@@ -53,7 +53,7 @@ $red: #f98262
 
 body
   @if $vertical
-    max-width: 1200px
+    // max-width: 1200px
     margin: 0 auto
   @else
     margin: 0
@@ -193,7 +193,7 @@ h2
   padding-right: 15%
   padding-top: 3%
 
-label
+.speechLabel
   font-size: 1.3em
   position: absolute
   z-index: 100
@@ -215,7 +215,7 @@ label
   display: none
 .radio:checked
   & + .relative
-    label
+    .speechLabel
       cursor: auto
       @if $vertical
         transform: translateX(42px)
@@ -249,7 +249,7 @@ label
       border-left: none
       li
         margin: 50px 0
-    label
+    .speechLabel
       width: 85%
       font-size: 1.1em
       white-space: nowrap

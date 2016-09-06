@@ -32,7 +32,7 @@ $('li h3').click(function(e) {
     <li class='work'>
       <input class='radio' id='work<%= index+1 %>' name='works' type='radio' checked>
       <div class="relative">
-        <label for='work<%= index+1 %>'><%= speech.name %> <span class="speaker"> Presenter:  <%=speech.speaker%></span></label>
+        <label class="speechLabel" for='work<%= index+1 %>'><%= speech.name %> <span class="speaker"> Presenter:  <%=speech.speaker%></span></label>
         <span class="float-right"><%=speech.theme%></span>
         <span class='date'>9:00-10:00am</span>
         <span class='circle'></span>
