@@ -5,14 +5,9 @@ var $instructionLabel = $('#instructionLabel')
 var editor = ace.edit("editor");
 editor.setTheme("ace/theme/twilight");
 editor.session.setMode("ace/mode/javascript");
-var rightQuestionsRequired = 3;
-var currentQuizQuestion;
-var numberOfGoes = 3;
-
-var currentGoes = 0;
 var numberOfQuestions = 0;
-var questionsPassed = 0;
-// 3 questions, have to get two right
+var maxQuestions = 2;
+var currentQuizQuestion;
 
 
 $(function(){
@@ -21,6 +16,8 @@ $(function(){
     console.log('hello');
     $('.quizmodal-overlay').css('display', 'flex');
     runIntro();
+
+
   });
 
   $('.close-modal').click(function(){
@@ -31,23 +28,20 @@ $(function(){
 
 
 function runQuiz() {
-  numberOfQuestions = 0;
-  questionsPassed = 0;
   populateQuestion();
 }
 
 function runIntro() {
-  // $("#instructionLabel").typed({
-  //      strings: ["Welcome. Before you can make a booking",
-  //      "You need to pass a simple coding test."],
-  //      typeSpeed: 0,
-  //      callback: function() {
-  //          $('.typed-cursor').show();
-  //        runQuiz();
-  //      }
-  //     }
-  //    );
-  runQuiz();
+  $("#instructionLabel").typed({
+       strings: ["Welcome. Before you can make a booking",
+       "You need to pass a simple coding test."],
+       typeSpeed: 0,
+       callback: function() {
+           $('.typed-cursor').show();
+         runQuiz();
+       }
+      }
+     );
  }
 
 function replaceAll(str, find, replace) {
@@ -59,8 +53,6 @@ function removeWhiteSpace(string) {
 }
 
 function populateQuestion() {
-  currentGoes = 0;
-
   $.ajax({
   url: 'api/quizzes',
   method: 'get'
@@ -78,65 +70,33 @@ function populateQuestion() {
 }
 
 function questionOver() {
-
+  console.log('maxQuestions ',maxQuestions);
+  console.log('numberOfQuestions ', numberOfQuestions);
   $quizResult.text('');
   populateQuestion();
 }
+
+
 
 function runQuiz() {
-  $quizResult.text('');
   populateQuestion();
+  console.log(document.activeElement);
+
+  console.log(document.activeElement);
 }
 
-function quizFailOver() {
-  $('.quizmodal-overlay').css('display', 'none');
-}
 $('#submitQuizButton').on('click', function() {
-
-  console.log('rightQuestionsRequired ',rightQuestionsRequired);
-  console.log('no of goes ',numberOfGoes);
-  console.log('numberOfQuestions ', numberOfQuestions);
-  console.log('questions passed ', questionsPassed);
-
-    currentGoes++;
     var text = editor.getValue();
     text = removeWhiteSpace(text);
     if ((text == currentQuizQuestion.answer1) || (text == currentQuizQuestion.answer2)) {
-      $quizResult.text('Correct!')
-      questionsPassed++;
-      //set a timeout so they can see the result then move onto showing a new question.
-      if (questionsPassed < rightQuestionsRequired)
-      {
-          ticket = setTimeout(questionOver, 2000);
-      }
-      else {
-          $quizResult.text('You passed the quiz. Please proceed.')
-      }
-
+      $quizResult.text('correct')
     }
     else {
-      var goesLeft = numberOfGoes - currentGoes;
-
-      $quizResult.text('Sorry, Incorrect. You have ' + goesLeft + ' attempts remaining.')
-      //set a timeout so they can see the result then move onto showing a new question.
-
-      if (goesLeft == 0) {
-        //ran out of attempts for this question. do we give them another chance?
-
-        if ((numberOfQuestions == 3) || (numberOfQuestions == 2 && questionsPassed == 0)) {
-        //already hit the limit, you fail at life.
-          $quizResult.text('Sorry, you fail the quiz. Please come back next year.')
-          ticket = setTimeout(quizFailOver, 2000);
-        }
-        else {
-          ticket = setTimeout(questionOver, 2000);
-        }
-
-      }
-
+      $quizResult.text('incorrect')
     }
 
-
+    //set a timeout so they can see the result then move onto showing a new question.
+     ticket = setTimeout(questionOver, 2000);
 });
 
 
