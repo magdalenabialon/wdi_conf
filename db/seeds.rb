@@ -69,7 +69,7 @@ q5 = Quiz.create({prompt: "Write a JQuery selector to select list items that are
                   answer1: "$('ul li');",
                   answer2: '$("ul li");'});
 
-q6 = Quiz.create({prompt: "Write a HTML p tag element with a class of 'greet' and the words Hello",
+q6 = Quiz.create({prompt: "Write a HTML p tag with a class of 'greet' and the words Hello",
                   problem: "",
                   answer1: "<p class='greet'>Hello</p>",
                   answer2: '<p class="greet">Hello</p>'});

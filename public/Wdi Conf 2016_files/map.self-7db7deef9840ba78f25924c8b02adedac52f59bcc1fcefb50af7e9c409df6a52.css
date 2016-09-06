@@ -1,0 +1,274 @@
+/* line 1, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 6, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+#link-to-map, a {
+  text-decoration: none;
+  color: lightgrey;
+}
+
+/* line 17, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.map-holder {
+  width: 100%;
+}
+
+/* line 22, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.map-left {
+  float: left;
+  position: fixed;
+  width: 82vw;
+  margin: 0;
+}
+
+/* line 30, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+#map {
+  height: 120vh;
+  top: 0;
+  right: 4.5vw;
+  opacity: 0.4;
+  transition: 1s;
+}
+
+/* line 38, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+p {
+  padding: 0;
+  margin: 0;
+}
+
+/* line 43, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.map-right {
+  float: right;
+  position: relative;
+  width: 18vw;
+  background-color: lightgrey;
+  vertical-align: top;
+  margin: 0;
+}
+
+/* line 53, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.map-information {
+  border-top: 1px solid black;
+  height: 50vh;
+  padding: 15%;
+  text-align: center;
+}
+
+/* line 62, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.directions-control-directions-container {
+  opacity: 0.05;
+  transition: 1s;
+}
+
+/* line 69, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.directions-control-directions-container:hover {
+  opacity: 0.9;
+  transition: 1s;
+}
+
+/* line 77, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+div.directions-control.directions-control-inputs {
+  left: 8%;
+}
+
+/* line 81, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.mapbox-form-label, button.js-reverse-inputs {
+  display: none;
+}
+
+/* line 86, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+#mapbox-directions-origin-input, #mapbox-directions-destination-input {
+  display: none;
+}
+
+/* line 91, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+section {
+  opacity: 0.70;
+}
+
+/* line 94, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.active {
+  opacity: 1;
+}
+
+/* line 120, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.parking-icon {
+  border-radius: 100%;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  line-height: 20px;
+  color: orange;
+}
+
+/* line 128, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.icon-dc {
+  background: yellow;
+  opacity: 0.1;
+  cursor: pointer;
+}
+
+/* line 133, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.icon-dc:hover {
+  background: yellow;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+/* line 140, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.ga_icon {
+  opacity: 0.7;
+  border: none;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: transparent;
+}
+
+/* line 154, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.ga_icon:hover {
+  opacity: 1;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 1;
+}
+
+/* ======================  Popup container - for wdi conf and GA logo */
+/* line 169, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+/* line 180, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.popup .popuptext {
+  font-size: 1.4em;
+  visibility: hidden;
+  width: 450px;
+  background-color: tomato;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+/* line 197, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+/* line 209, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* ======================  Popup container - for parkings */
+/* line 229, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.popupParking {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+/* line 240, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.popupParking .popuptextParking {
+  visibility: hidden;
+  width: 180px;
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -80px;
+}
+
+/* Popup arrow */
+/* line 256, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.popupParking .popuptextParking::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+/* line 268, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/map.scss */
+.popupParking .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+  z-index: 1;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,39 @@
+/* line 18, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/bookings.scss */
+.floorPlan {
+  width: 60%;
+  height: 70vh;
+  margin: 0 auto;
+}
+
+/* line 24, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/bookings.scss */
+.seat {
+  width: 10%;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+/* line 31, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/bookings.scss */
+.seat > img {
+  width: 100%;
+  height: auto;
+  transition: 0.8s;
+  padding: 2px;
+}
+
+/* line 38, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/bookings.scss */
+.seat > img:hover {
+  background-color: rgba(255, 4, 4, 0.6);
+  border-radius: 10px;
+}
+
+/* line 64, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/bookings.scss */
+.total_bar {
+  text-align: center;
+}
+
+/* line 68, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/bookings.scss */
+.checkout_button {
+  position: relative;
+  margin-right: 130px;
+}
