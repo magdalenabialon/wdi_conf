@@ -61,9 +61,9 @@
 
         <div class="nav-item no-hover">
 
-          <%if @user %>
-            <img id ="user-photo" src="<%= @user.image_url %> " alt="user_avatar">
-            <p>Welcome, <%=@user.name%></p>
+          <%if session[:userinfo] %>
+            <img id ="user-photo" src="<%= session[:userinfo]['image_url'] %> " alt="user_avatar">
+            <p>Welcome, <%=session[:userinfo]['name'] %></p>
           <% else %>
             <i class="fa fa-circle-thin" aria-hidden="true"></i>
             <p>Welcome back, User</p>
@@ -84,9 +84,7 @@
 
     </div>
 
-
-
-
+    
 
     <script>
 
