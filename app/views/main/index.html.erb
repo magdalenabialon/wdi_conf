@@ -92,7 +92,6 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
       </div>
     </div>
-    <!-- <%= render "partials/speakers" %> -->
   </div>
 </div>
 
@@ -110,15 +109,12 @@
       </div>
     </div>
   </div>
-  <div class="timetable">
-    <%= render "partials/timetable" %>
-  </div>
 </div>
 
 <!--  ////////////////////////// LOCATION/MAP ////////////////////////// -->
 
 
-<div class="location">
+<!-- <div class="location">
   <div class="map-holder">
     <div class="map-left">
       <div id='map-jordan'></div>
@@ -143,9 +139,10 @@
       </section>
     </div>
   </div>
-</div>
+</div> -->
 
 <!-- Map -->
+
 <!-- <a href="/map">
   <div class="loc">
     <p>Location / Map </p>
@@ -161,7 +158,7 @@
   <div class="container">
     <p>After Events</p>
   </div>
-  <p class ="font-ae" >After Events</p>
+  <!-- <p class ="font-ae" >After Events</p> -->
   <%= render "partials/after_events" %>
 </div>
 
@@ -169,10 +166,9 @@
 
 
 <div class="sponsors">
-  <!-- <div class="container">
+  <div class="container">
     <p>Sponsors</p>
-  </div> -->
-  <p>Sponsors</p>
+  </div>
   <%= render "partials/sponsors" %>
 </div>
 
@@ -182,7 +178,18 @@
 <footer>
   <div class="container">
     <div class="info">
-
+      <div class="info-box">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <p>Southbank, Vic 3006</p>
+      </div>
+      <div class="info-box">
+        <i class="fa fa-mobile" aria-hidden="true"></i>
+        <p>(03) 0000 0000</p>
+      </div>
+      <div class="info-box">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <p>contact@wdicofe.com.au</p>
+      </div>
     </div>
     <div class="disclaimer">
       <div class="left50">
@@ -201,7 +208,7 @@
 <!--  ////////////////////////// STYLE GUIDE ////////////////////////// -->
 
 
-<div class="style-guide">
+<!-- <div class="style-guide">
   <h1>Lorem Ipsum</h1>
   <h2>Lorem Ipsum</h2>
   <h3>Lorem Ipsum</h3>
@@ -219,9 +226,19 @@
 
 
   <p>Style Guide</p>
-</div>
+</div> -->
 
 <%= render "partials/quiz" %>
+
+
+
+
+
+
+
+
+
+
 
 
 <script
@@ -258,4 +275,4 @@ src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js">
 
  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
 
-<!-- <script src="map_index.js"></script> -->
+<script src="map_index.js"></script>

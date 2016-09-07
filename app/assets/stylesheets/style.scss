@@ -144,6 +144,11 @@ nav {
 
   }
 
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
   .nav-item:hover {
     background-color: rgb(60, 60, 60);
   }
@@ -316,6 +321,7 @@ footer {
 
   .container {
     width: 1100px;
+    // height: 300px;
   }
 
   .speaker {
@@ -364,107 +370,111 @@ footer {
 }
 
 .location {
-  // padding: 10px;
-  overflow: auto;
+//   // padding: 10px;
+//   overflow: auto;
+//
+//   .map-holder {
+//     width: 100%;
+//     position: relative;
+//
+//     .map-left {
+//       // display: inline-block;
+//       float: left;
+//       position: relative;
+//       width: 60%;
+//       background-color: orange;
+//       margin: 0;
+//     }
+//
+//     #map-jordan {
+//       width: 100%;
+//       height: 100vh;
+//       background-color: grey;
+//       position: -webkit-sticky;
+//       position: sticky;
+//       top: 0;
+//       // Temporary CSS
+//       // margin: 0 auto;
+//       // width: 90%;
+//       // height: 80vh;
+//
+//       p {
+//         padding: 0;
+//         margin: 0;
+//       }
+//
+//     }
+//
+//     .map-right {
+//       // display: inline-block;
+//       float: left;
+//       position: relative;
+//       width: 40%;
+//       background-color: #f7f7f7;
+//       vertical-align: top;
+//       margin: 0;
+//     }
+//
+//     .map-information {
+//       padding: 20px;
+//       border-top: 1px solid black;
+//       height: -webkit-calc(100vh - 60px);
+//       height:    -moz-calc(100vh - 60px);
+//       height:         calc(100vh - 60px);
+//       padding: 50px;
+//     }
+//
+//     #event-location {
+//       margin-top: 60px;
+//     }
+//
+//     .map-nav-holder {
+//       height: -webkit-calc(200vh - 60px);
+//       height:    -moz-calc(200vh - 60px);
+//       height:         calc(200vh - 60px);
+//       width: 100%;
+//       position: absolute;
+//       top: 0;
+//       right: 0;
+//     }
+//
+//     .map-nav {
+//       height: 60px;
+//       background-color: green;
+//       position: -webkit-sticky;
+//       position: sticky;
+//       top: 0;
+//     }
+//
+//   }
 
-  .map-holder {
-    width: 100%;
-    position: relative;
+  // MAGDAS MAP STYLING ???
 
-    .map-left {
-      // display: inline-block;
-      float: left;
-      position: relative;
-      width: 60%;
-      background-color: orange;
-      margin: 0;
-    }
+  // height: 890px;
+  // background-color: #232528;
+  // padding: 50px 30px 50px 100px;
 
-    #map-jordan {
-      width: 100%;
-      height: 100vh;
-      background-color: grey;
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0;
-      // Temporary CSS
-      // margin: 0 auto;
-      // width: 90%;
-      // height: 80vh;
-
-      p {
-        padding: 0;
-        margin: 0;
-      }
-
-    }
-
-    .map-right {
-      // display: inline-block;
-      float: left;
-      position: relative;
-      width: 40%;
-      background-color: #f7f7f7;
-      vertical-align: top;
-      margin: 0;
-    }
-
-    .map-information {
-      padding: 20px;
-      border-top: 1px solid black;
-      height: -webkit-calc(100vh - 60px);
-      height:    -moz-calc(100vh - 60px);
-      height:         calc(100vh - 60px);
-      padding: 50px;
-    }
-
-    #event-location {
-      margin-top: 60px;
-    }
-
-    .map-nav-holder {
-      height: -webkit-calc(200vh - 60px);
-      height:    -moz-calc(200vh - 60px);
-      height:         calc(200vh - 60px);
-      width: 100%;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
-    .map-nav {
-      height: 60px;
-      background-color: green;
-      position: -webkit-sticky;
-      position: sticky;
-      top: 0;
-    }
-
+  .loc {
+    height: 300px;
+    background-image: url(/images/map_bg.jpg);
+    background-repeat: none;
+    background-position: center;
+  //   // background-color: orange;
+    padding: 50px 30px 50px 100px;
+    color: white;
   }
-  height: 890px;
-  background-color: #232528;
-  padding: 50px 30px 50px 100px;
+
+  .loc:hover {
+    opacity: 0.7;
+  }
+
+  #link-to-map {
+    height: 300px;
+  }
 
 }
 
 
-.loc {
-  height: 300px;
-  background-image: url(/images/map_bg.jpg);
-  background-repeat: none;
-  background-position: center;
-//   // background-color: orange;
-  padding: 50px 30px 50px 100px;
-  color: white;
-}
-
-.loc:hover {
-  opacity: 0.7;
-}
-
-// #link-to-map {
-//   height: 300px;
-// }
 
 
 .after-events {
@@ -485,30 +495,104 @@ footer {
   background-color: white;
   padding: 50px 30px 50px 100px;
 
+  .sponsors-div{
+    width: 100%;
+    display: flex;
+  }
+
+  .sponsors-logos {
+    // width: 35%;
+  }
+
+  .sponsor10:hover {
+    opacity: 0.7;
+  }
+
+  .sponsor11:hover {
+    opacity: 0.7;
+  }
+
+  #firstDiv-sponsors, #secondDiv-sponsors, #thirdDiv-sponsors {
+    width: 33%;
+    text-align: center;
+  }
+
 }
 
+
 footer {
+  background-color: #1f2022;
+  color: #767676;
+
+  .info {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0px 0px 40px 0px;
+
+
+    .info-box {
+      display: inline-block;
+      margin: 0px 30px 0px 30px;
+    }
+
+    .info-box * {
+      display: inline-block;
+      color: #767676;
+    }
+
+    .info-box > i {
+      padding-right: 15px;
+      font-size: 1.7em;
+      line-height: 1.7em;
+      vertical-align: middle;
+    }
+
+    .info-box p {
+      line-height: 1.7em;
+      vertical-align: middle;
+    }
+
+
+
+
+  }
+
+  .disclaimer {
+
+    border-top: 1px solid #504e4e;
+    padding: 40px 0px 40px 0px;
+
+    p {
+      display: inline-block;
+      line-height: 25px;
+      vertical-align: top;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .right50 {
+      text-align: right;
+    }
+
+    .right50 img {
+      height: 27px;
+      -webkit-filter: brightness(200%);
+      filter: brightness(200%);
+      padding: 2.5px 16px 2.5px 16px;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+
+    .right50 img:hover {
+      -webkit-filter: brightness(130%);
+      filter: brightness(130%);
+    }
+
+  }
 
   #footer-logo {
     display: inline-block;
     height: 25px;
-  }
-
-  .disclaimer p {
-    display: inline-block;
-    line-height: 25px;
-    vertical-align: top;
-    margin: 0;
-    padding-left: 20px;
-  }
-
-  .disclaimer .right50 {
-    text-align: right;
-  }
-
-  .disclaimer > .right50 img {
-    height: 25px;
-    padding: 2.5px 7.5px 2.5px 7.5px;
   }
 
 }
