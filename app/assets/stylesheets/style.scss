@@ -287,7 +287,7 @@ footer {
 
 .about {
   height: 500px;
-  background-color: white;
+  background-color: linen;
   padding: 50px 30px 50px 100px;
 
 }
@@ -307,10 +307,22 @@ footer {
 
 
 .loc {
-  height: 150px;
+  height: 300px;
+  background-image: url(/images/map_bg.jpg);
+  background-repeat: none;
+  background-position: center;
 //   // background-color: orange;
   padding: 50px 30px 50px 100px;
+  color: white;
 }
+
+.loc:hover {
+  opacity: 0.7;
+}
+
+// #link-to-map {
+//   height: 300px;
+// }
 
 
 .after-events {
@@ -320,7 +332,7 @@ footer {
 }
 
 .booking {
-  height: 500px;
+  height: 300px;
   background-color: violet;
   padding: 50px 30px 50px 100px;
 
