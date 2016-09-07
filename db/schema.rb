@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160902031304) do
+ActiveRecord::Schema.define(version: 20160907024711) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,14 +26,30 @@ ActiveRecord::Schema.define(version: 20160902031304) do
     t.index ["user_id"], name: "index_afterevents_on_user_id", using: :btree
   end
 
+  create_table "attendances", force: :cascade do |t|
+    t.integer  "afterevent_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["afterevent_id"], name: "index_attendances_on_afterevent_id", using: :btree
+    t.index ["user_id"], name: "index_attendances_on_user_id", using: :btree
+  end
+
   create_table "bookings", force: :cascade do |t|
     t.string   "seat"
-    t.integer  "speech_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "user_id"
-    t.index ["speech_id"], name: "index_bookings_on_speech_id", using: :btree
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "afterevents_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["afterevents_id"], name: "index_likes_on_afterevents_id", using: :btree
+    t.index ["user_id"], name: "index_likes_on_user_id", using: :btree
   end
 
   create_table "quizzes", force: :cascade do |t|
@@ -43,6 +59,14 @@ ActiveRecord::Schema.define(version: 20160902031304) do
     t.text     "answer2"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "seats", force: :cascade do |t|
+    t.text     "seatNumber"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_seats_on_user_id", using: :btree
   end
 
   create_table "speeches", force: :cascade do |t|
@@ -62,11 +86,15 @@ ActiveRecord::Schema.define(version: 20160902031304) do
     t.integer  "quizscore"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "imageurl"
     t.text     "image_url"
+    t.string   "imageurl"
   end
 
   add_foreign_key "afterevents", "users"
-  add_foreign_key "bookings", "speeches"
+  add_foreign_key "attendances", "afterevents"
+  add_foreign_key "attendances", "users"
   add_foreign_key "bookings", "users"
+  add_foreign_key "likes", "afterevents", column: "afterevents_id"
+  add_foreign_key "likes", "users"
+  add_foreign_key "seats", "users"
 end
