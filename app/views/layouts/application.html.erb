@@ -59,7 +59,7 @@
 
       <div class="nav-bottom">
 
-        <div class="nav-item no-hover">
+        <div class="nav-item no-hover" id="loggedin">
 
           <%if session[:userinfo] %>
             <img id ="user-photo" src="<%= session[:userinfo]['image_url'] %> " alt="user_avatar">
@@ -84,7 +84,7 @@
 
     </div>
 
-    
+
 
     <script>
 
