@@ -110,6 +110,9 @@
       </div>
     </div>
   </div>
+  <div class="timetable">
+    <%= render "partials/timetable" %>
+  </div>
 </div>
 
 <!--  ////////////////////////// LOCATION/MAP ////////////////////////// -->
@@ -142,6 +145,13 @@
   </div>
 </div>
 
+<!-- Map -->
+<div class="loc">
+  <p><a id = "link-to-map" href="/map">Location / Map</a></p>
+</div>
+
+<!-- Map -->
+
 <!--  ////////////////////////// AFTER EVENTS ////////////////////////// -->
 
 
@@ -149,15 +159,19 @@
   <div class="container">
     <p>After Events</p>
   </div>
+  <p class ="font-ae" >After Events</p>
+  <%= render "partials/after_events" %>
 </div>
 
 <!--  ////////////////////////// SPONSORS ////////////////////////// -->
 
 
 <div class="sponsors">
-  <div class="container">
+  <!-- <div class="container">
     <p>Sponsors</p>
-  </div>
+  </div> -->
+  <p>Sponsors</p>
+  <%= render "partials/sponsors" %>
 </div>
 
 <!--  ////////////////////////// FOOTER ////////////////////////// -->

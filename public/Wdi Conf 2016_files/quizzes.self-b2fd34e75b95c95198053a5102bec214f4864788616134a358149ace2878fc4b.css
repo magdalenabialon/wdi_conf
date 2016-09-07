@@ -1,0 +1,111 @@
+/* line 13, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+.ace_editor, .ace_content, #editor {
+  font-family: monospace !important;
+  font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace !important;
+}
+
+/* line 18, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+.submitButtonDiv {
+  text-align: center;
+  height: 30px;
+}
+
+/* line 24, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+.quizFinished {
+  position: absolute;
+  left: 250px;
+  top: 300px;
+}
+
+/* line 38, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+#submitQuizButton {
+  font-size: 0.5em;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  width: 100px;
+  height: 30px;
+  border: 1px solid #EEEEEE;
+  padding: 0;
+}
+
+/* line 49, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+#instructionLabelHeader {
+  left: 30px;
+  position: absolute;
+  top: -25px;
+}
+
+/* line 55, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+#newBooking {
+  font-size: 0.6em;
+}
+
+/* line 59, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+#quizResult {
+  font-size: 0.8em;
+}
+
+/* line 62, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+#instructionLabel {
+  font-size: 0.45em;
+  margin: 0 auto;
+}
+
+/* line 67, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+#editor {
+  width: 320px;
+  height: 200px;
+  left: 90px;
+  top: 35px;
+  position: absolute;
+  font-family: monospace;
+}
+
+/* line 76, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+.quizSection {
+  width: 500px;
+  height: 300px;
+  display: inline-block;
+  vertical-align: bottom;
+  background-image: url("../images/macbookpro.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* line 87, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+.quizmodal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+/* line 100, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+.quizmodal-info {
+  border-radius: 10px;
+  width: 500px;
+  height: 450px;
+  background-color: #f3f3f3;
+}
+
+/* line 107, /Users/deancooper/Documents/WDI/Projects/wdi_conf/app/assets/stylesheets/quizzes.scss */
+.close-modal {
+  background-color: #e6e6e6;
+  width: 45px;
+  float: right;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  vertical-align: center;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 0.8em;
+}

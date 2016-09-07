@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :likes
+  # get 'charges/new'
+  # get 'charges/create'
+
   get "/dashboard" => "dashboard#show"
 
   get "/auth/auth0/callback" => "auth0#callback"
@@ -9,6 +13,7 @@ Rails.application.routes.draw do
   resources :bookings
   resources :speeches
   resources :users
+  resources :charges
 
   namespace :api do
     resources :quizzes

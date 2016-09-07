@@ -1,0 +1,34 @@
+<div class="floorPlan"></div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+
+  var rowWidth = 10
+  var columnWidth = 6
+
+  // Generating seat row and column for the floorplan
+
+  for (var i = 0; i < columnWidth; i++) {
+    var $row = $('<div>').addClass('row')
+    for (var j = 0; j < rowWidth; j++) {
+      var image = $('<img>').attr('src', '/seat.png');
+      var div = ($('<div>').addClass('seat').attr("id",[i] + [j]))
+      var divImage = div.append(image);
+      $row.append(divImage)
+    }
+  $('.floorPlan').append($row)
+  }
+})
+
+var onClick = function() {
+  $('.selected').removeClass('selected');
+  $(this).addClass('selected');
+};
+
+$('<img>').on('click',onClick);
+
+  console.log('click working')
+
+</script>

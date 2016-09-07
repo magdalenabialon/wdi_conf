@@ -10,18 +10,27 @@
 // }
 
 //doesnt seem to work...
-.ace_editor {
-  font-size: '12px';
-   font-family: 'Monaco, Menlo, "Ubuntu Mono", Consolas, source-code-pro, monospace;'
+.ace_editor, .ace_content, #editor {
+  font-family: monospace !important;
+  font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace !important;
 }
 
+.submitButtonDiv {
+  text-align: center;
+  height: 30px;
+}
+
+#newBooking {
+  padding-right: 10px;
+  font-size: 0.6em;
+  color: blue;
+  text-decoration: underline;
+}
 .quizFinished {
-  position: absolute;
-  left: 250px;
-  top: 300px;
+  text-align: right;
+
 }
 
-//
 // #editforDiv {
 //   width: 300px;
 //   height: 200px;
@@ -31,9 +40,6 @@
 // }
 
 #submitQuizButton {
-  position: relative;
-  top: 300px;
-  left: 100px;
   font-size: 0.5em;
   border-radius: 10px;
   background-color: black;
@@ -41,6 +47,7 @@
   width: 100px;
   height: 30px;
   border: 1px solid #EEEEEE;
+  padding: 0;
 }
 
 #instructionLabelHeader {
@@ -49,16 +56,12 @@
   top: -25px;
 }
 
- #newBooking {
-   font-size: 0.6em;
- }
+
 
 #quizResult {
-  font-size: 0.8em;
-  position: absolute;
-  left: 250px;
-  top: 280px;
-
+  font-size: 0.6em;
+  text-align: center;
+  padding-top: 12px;
 }
 #instructionLabel {
   font-size: 0.45em;
@@ -101,7 +104,7 @@
 .quizmodal-info {
     border-radius: 10px;
     width: 500px;
-    height: 400px;
+    height: 450px;
     background-color: #f3f3f3;
 }
 

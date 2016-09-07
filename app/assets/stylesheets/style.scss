@@ -24,7 +24,7 @@ $dot-pattern: url('/images/patterns/subtle_dots.png');
 
 * {
   box-sizing: border-box;
-  font-family: $sans-serif;
+  // font-family: $sans-serif;
 }
 
 //TEMP
@@ -81,7 +81,7 @@ p {
 }
 
 a {
-
+  text-decoration: none;
 }
 
 button {
@@ -153,6 +153,11 @@ nav {
 .no-hover:hover {
   background-color: rgb(32, 32, 32);
   cursor: default;
+}
+
+#user-photo {
+  width: 50px;
+  border-radius: 50px;
 }
 
 footer {
@@ -308,6 +313,7 @@ footer {
   padding: 80px auto 80px auto;
   text-align: center;
 
+
   .container {
     width: 1100px;
   }
@@ -435,14 +441,24 @@ footer {
     }
 
   }
+  height: 890px;
+  background-color: #232528;
+  padding: 50px 30px 50px 100px;
 
 }
 
-.after-events {
-  height: 500px;
-  background-color: mistyrose;
-  padding: 50px 30px 50px 100px;
 
+.loc {
+  height: 150px;
+//   // background-color: orange;
+  padding: 50px 30px 50px 100px;
+}
+
+
+.after-events {
+  height: 700px;
+  background-color: #333333;
+  padding: 50px 30px 50px 100px;
 }
 
 .booking {

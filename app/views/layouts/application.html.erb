@@ -36,7 +36,11 @@
         </div>
         <div class="nav-item" id="location">
           <i class="fa fa-location-arrow" aria-hidden="true"></i>
+
           <p>Location / Map</p>
+
+          <p><a id = "link-to-map" href="/map">Location / Map</a></p>
+
         </div>
         <div class="nav-item" id="after-events">
           <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -56,10 +60,12 @@
       <div class="nav-bottom">
 
         <div class="nav-item no-hover">
-          <i class="fa fa-circle-thin" aria-hidden="true"></i>
+
           <%if @user %>
+            <img id ="user-photo" src="<%= @user.image_url %> " alt="user_avatar">
             <p>Welcome, <%=@user.name%></p>
           <% else %>
+            <i class="fa fa-circle-thin" aria-hidden="true"></i>
             <p>Welcome back, User</p>
           <% end %>
         </div>
@@ -75,10 +81,6 @@
     <div class="wrapper">
 
       <%= yield %>
-
-      <!-- <footer>
-        <p>Footer</p>
-      </footer> -->
 
     </div>
 
@@ -145,11 +147,10 @@
           redirectUrl: 'http://localhost:3000/auth/auth0/callback',
           responseType: 'code',
           params: {
-            scope: 'openid email' // Learn about scopes: https://auth0.com/docs/scopes
+            scope: 'openid email'
           }
         }
       });
-      
     </script>
 
     <script>
