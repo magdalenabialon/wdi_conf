@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :attendances
+  resources :seats
   resources :likes
   # get 'charges/new'
   # get 'charges/create'

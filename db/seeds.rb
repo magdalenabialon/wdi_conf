@@ -42,14 +42,6 @@ s5 = Speech.create( {name: 'What a-Bot it?', speaker: 'Harry Aydin', theme: 'Rob
 s7 = Speech.create( {name: 'Gems & Ruby', speaker: 'Magda Bialon', theme: 'Ruby', description: 'Magda unearths the true diamonds among the infinite list of gems available to Ruby users.',
       starttime: DateTime.parse("09/01/2009 16:00"), endtime: DateTime.parse("09/01/2009 17:00")})
 
-b1 = Booking.create({speech_id: s1.id, user_id: u1.id, seat: '1A' })
-b2 = Booking.create({speech_id: s1.id, user_id: u2.id, seat: '1B' })
-b3 = Booking.create({speech_id: s2.id, user_id: u3.id, seat: '1A' })
-b4 = Booking.create({speech_id: s2.id, user_id: u4.id, seat: '1B' })
-b5 = Booking.create({speech_id: s3.id, user_id: u5.id, seat: '1A' })
-b6 = Booking.create({speech_id: s3.id, user_id: u6.id, seat: '1B' })
-b7 = Booking.create({speech_id: s3.id, user_id: u7.id, seat: '2A' })
-
 q1 = Quiz.create({prompt: 'Please correct the below code',
                   problem: "function multiply (a,b) {-n  a * b-n}",
                   answer1: "function multiply (a, b) { return a * b }",
