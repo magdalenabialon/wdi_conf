@@ -1,0 +1,46 @@
+  <!-- <div id="vertical-line"></div>
+  <ul>
+
+    <%@speeches.each do |speech|%>
+      <li class="speech">
+        <h3><%=speech.name%></h3>
+        <h4><%=speech.starttime%>: <%=speech.speaker%><span class="speech-right"><%=speech.theme%></span></h4> -->
+        <!-- <span class="speech-right"><%=speech.theme%></span> -->
+        <!-- <h4 class="speech-right"><%=speech.theme%></h4> -->
+        <!-- <p class="toggleContent"><%=speech.description%></p>
+      </li>
+    <% end %>
+
+  </ul>
+
+<script>
+$('.toggleContent').hide();
+//show the first one
+$('.toggleContent').eq(0).toggle();
+//handle toggles:
+// $('li h3').click((e) => $(e.target).closest('li').find('p').toggle(200));
+
+$('li h3').click(function(e) {
+  $('.toggleContent').hide();
+  $(e.target).closest('li').find('.toggleContent').toggle(200);
+})
+
+</script> -->
+
+<ul id='timeline'>
+  <%@speeches.each_with_index do |speech, index|%>
+    <li class='work'>
+      <input class='radio' id='work<%= index+1 %>' name='works' type='radio' checked>
+      <div class="relative">
+        <label class="speechLabel" for='work<%= index+1 %>'><%= speech.name %> <span class="speaker"> Presenter:  <%=speech.speaker%></span></label>
+        <span class="float-right"><%=speech.theme%></span>
+        <span class='date'>9:00-10:00am</span>
+        <span class='circle'></span>
+      </div>
+      <div class='content'>
+        <p><%=speech.description%></p>
+      </div>
+    </li>
+  <%end %>
+
+</ul>
