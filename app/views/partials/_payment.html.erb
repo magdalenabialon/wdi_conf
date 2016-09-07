@@ -15,11 +15,12 @@
 
 <style>
 .maxSize {
-  max-width: 300px;;
+  max-width: 350px;
+  min-width: 350px !important;
 }
 </style>
 <div class="container">
-    <div class="row">
+    <div class="row maxSize">
         <!-- You can make it whatever width you want. I'm making it full width
              on <= small devices and 4/12 page width on >= medium devices -->
         <div class="col-xs-12 col-md-4">
@@ -110,4 +111,11 @@
 
         </div>
     </div>
-</div><script src="..\payment.js"></script>
+</div>
+
+<script type="text/javascript">
+  Stripe.setPublishableKey('pk_test_yojSr1TOZyi7eMOOwCox9qhA');
+</script>
+
+
+<script src="..\payment.js"></script>

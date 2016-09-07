@@ -52,6 +52,7 @@ function payWithStripe(e) {
 
     Stripe.card.createToken(ccData, function stripeResponseHandler(status, response) {
         if (response.error) {
+          console.log('we had an error');
             /* Visual feedback */
             $form.find('.subscribe').html('Try again').prop('disabled', false);
             /* Show Stripe errors on the form */
@@ -73,7 +74,16 @@ function payWithStripe(e) {
                 })
                 // Assign handlers immediately after making the request,
                 .done(function(data, textStatus, jqXHR) {
-                    $form.find('.subscribe').html('Payment successful <i class="fa fa-check"></i>');
+                    if (jqXHR.responseJSON.success) {
+                      $form.find('.subscribe').html('Payment successful <i class="fa fa-check"></i>');
+                    }
+                    else {
+
+                      $form.find('.subscribe').html('There was a problem').removeClass('success').addClass('error');
+                      /* Show Stripe errors on the form */
+                      $form.find('.payment-errors').text(jqXHR.responseJSON.errorText.error.message);
+                      $form.find('.payment-errors').closest('.row').show();
+                    }
                 })
                 .fail(function(jqXHR, textStatus, errorThrown) {
                     $form.find('.subscribe').html('There was a problem').removeClass('success').addClass('error');
