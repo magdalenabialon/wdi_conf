@@ -16,7 +16,7 @@ class BookingsController < ApplicationController
     Stripe.api_key = "sk_test_s9sDunalUrIG1UuwI8XlAHSh"
 
     # Get the credit card details submitted by the form
-    token = params[:stripeToken]
+    token = params[:token]
 
     # Create a charge: this will charge the user's card
     begin
@@ -26,37 +26,18 @@ class BookingsController < ApplicationController
         :source => token,
         :description => "Example charge"
       )
-    rescue Stripe::CardError => e
-    # Since it's a decline, Stripe::CardError will be caught
-    body = e.json_body
-    err  = body[:error]
-
-    puts "Status is: #{e.http_status}"
-    puts "Type is: #{err[:type]}"
-    puts "Code is: #{err[:code]}"
-    # param is '' in this case
-    puts "Param is: #{err[:param]}"
-    puts "Message is: #{err[:message]}"
-    rescue Stripe::RateLimitError => e
-    # Too many requests made to the API too quickly
-    rescue Stripe::InvalidRequestError => e
-    # Invalid parameters were supplied to Stripe's API
-    rescue Stripe::AuthenticationError => e
-    # Authentication with Stripe's API failed
-    # (maybe you changed API keys recently)
-    rescue Stripe::APIConnectionError => e
-    # Network communication with Stripe failed
-    rescue Stripe::StripeError => e
-    # Display a very generic error to the user, and maybe send
-    # yourself an email
     rescue => e
-# # Something else happened, completely unrelated to Stripe
-#     rescue Stripe::CardError => e
-      render :error and return
+    success = false
+    render :json => { success:  false, :errorText => e.json_body } and return
     end
-    render :confirm
-  end
 
+    booking = Booking.new
+    # booking.user_id = User.first.id
+    booking.save
+
+    success = true
+    render :json => { success: true, :errorText => '' } and return
+  end
 
 
 
