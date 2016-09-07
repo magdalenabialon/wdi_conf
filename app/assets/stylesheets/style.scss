@@ -369,6 +369,52 @@ footer {
 
 }
 
+.cta {
+  background-color: #1f2022;
+  color: #767676;
+  padding: 80px 0px 80px 0px;
+
+  span {
+    color: #73fbd3;
+  }
+
+  .left-cta {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+
+    h3 {
+      padding-top: 0;
+      margin-top: 0;
+      color: white;
+    }
+  }
+
+  .right-cta {
+    display: inline-block;
+    width: 29%;
+    vertical-align: top;
+    text-align: center;
+
+    button {
+      background-color: #73fbd3;
+      padding: 15px 25px 15px 25px;
+      border: 0px;
+      color: #1f2022;
+      transition: 0.5s;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #48b896;
+
+    }
+
+  }
+
+}
+
 .location {
 //   // padding: 10px;
 //   overflow: auto;
@@ -478,9 +524,79 @@ footer {
 
 
 .after-events {
-  height: 700px;
   background-color: #333333;
   padding: 50px 30px 50px 100px;
+
+  .event-holder {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .event {
+    background-color: red;
+    height: 150px;
+    width: 48%;
+    display: inline-block;
+    overflow: none;
+    border: 1px solid green;
+    margin: 1%;
+  }
+
+  // .event-odd {
+  //   -webkit-clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+  //   clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+  // }
+
+  // .event-odd:hover {
+  //   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  //   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  //   width: 40%;
+  //
+  //   .event-even {
+  //     width: 19%;
+  //   }
+  //
+  // }
+  //
+  // .event-odd:hover + .event-even {
+  //   width: 19%;
+  // }
+
+  // .event-even {
+  //   background-color: green;
+  //   -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+  //   clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+  // }
+
+  // #attica {
+  //   background: url('/images/events/attica-front.jpg');
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   transition: 1.5s;
+  //
+  // }
+  //
+  // #crown {
+  //   background: url('/images/events/crown_hest.jpg');
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   transition: 1.5s;
+  // }
+  //
+  // #bond {
+  //   background: url('/images/events/bond3.jpg');
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   transition: 1.5s;
+  // }
+  //
+  // #grilld {
+  //   background: url('http://roweshopfitters.com.au/wp-content/uploads/2013/12/grilld-2.jpg');
+  //   background-repeat: no-repeat;
+  //   background-size: cover;
+  //   transition: 1.5s;
+  // }
+
 }
 
 .booking {
