@@ -44,7 +44,7 @@
 $(document).ready(function() {
 
   $('.js-attend').on('click', function(event){
-    console.log('you are attending');
+    // console.log('you are attending');
     var $afterEventDiv = $(event.target).closest('.selector');
     var aftereventId = $afterEventDiv.data('id');
     var $attendanceCountSpan = $afterEventDiv.find('.attendees-count');
