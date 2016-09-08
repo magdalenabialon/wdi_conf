@@ -96,6 +96,7 @@ $(document).ready(function(){
 }
 );
 
+
 function convertToRow(num) {
   switch(num) {
     case 0:
@@ -166,6 +167,22 @@ function drawPage() {
 
   var rowWidth = 10
   var columnWidth = 6
+
+//get the current seats that are taken.
+  $.ajax({
+      url: '/api/seats'
+    }).done(function(seats) {
+
+    console.log(seats);
+
+    seatArray = seats.slice(1).split('-');
+
+    seatArray.forEach(function(seat) {
+      console.log(seat);
+      $('#'+seat).addClass("taken")
+    })
+
+});
 
   // Generating seat row and column for the floorplan
   for (var i = 0; i < columnWidth; i++) {
