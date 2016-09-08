@@ -1,6 +1,6 @@
 
 
-<!--  ////////////////////////// HEADER ////////////////////////// -->
+<!--  ////////////////////////// HEADER ////////////////////////////////// -->
 
 <div class="video-background">
 
@@ -17,8 +17,7 @@
 
 </div>
 
-<!--  ////////////////////////// ABOUT ////////////////////////// -->
-
+<!--  ////////////////////////// ABOUT /////////////////////////////////// -->
 
 <div class="about">
   <div class="container">
@@ -26,12 +25,14 @@
       <h3>About Us</h3>
     </div>
     <div class="content-right">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam.</p>
+      <br>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam.</p>
     </div>
   </div>
 </div>
 
-<!--  ////////////////////////// SPEAKERS ////////////////////////// -->
+<!--  ////////////////////////// SPEAKERS //////////////////////////////// -->
 
 <div class="speakers">
   <div class="container">
@@ -95,8 +96,20 @@
   </div>
 </div>
 
-<!--  ////////////////////////// TIMETABLE ////////////////////////// -->
+<div class="ae-modal">
+  <div class="modal-content">
+    <div class="ae-image">
 
+    </div>
+    <div class="ae-info">
+      <div class="escape-btn">
+        <p>X</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--  ////////////////////////// TIMETABLE /////////////////////////////// -->
 
 <div class="timetable" id="default">
   <div class="container">
@@ -113,7 +126,6 @@
 
 <!--  ////////////////////////// CALL TO ACTION ////////////////////////// -->
 
-
 <div class="cta">
   <div class="container">
     <div class="left-cta">
@@ -128,8 +140,7 @@
   </div>
 </div>
 
-<!--  ////////////////////////// LOCATION/MAP ////////////////////////// -->
-
+<!--  ////////////////////////// LOCATION/MAP //////////////////////////// -->
 
 <!-- <div class="location">
   <div class="map-holder">
@@ -158,21 +169,10 @@
   </div>
 </div> -->
 
-<!-- Map -->
-
-<!-- <a href="/map">
-  <div class="loc">
-    <p>Location / Map </p>
-  </div>
-</a> -->
-
-<!-- Map -->
-
-<!--  ////////////////////////// AFTER EVENTS ////////////////////////// -->
-
+<!--  ////////////////////////// AFTER EVENTS //////////////////////////// -->
 
 <div class="after-events" id="default">
-  <div class="container">
+  <!-- <div class="container">
     <p>After Events</p>
     <div class="event-holder">
       <div class="event" id="attica">
@@ -200,23 +200,54 @@
         <img src="http://roweshopfitters.com.au/wp-content/uploads/2013/12/grilld-2.jpg" alt="">
       </div>
     </div>
+  </div> -->
+  <div class="container">
+    <p class ="font-ae" >After Events</p>
+    <%= render "partials/after_events" %>
   </div>
-  <!-- <p class ="font-ae" >After Events</p> -->
-  <!-- <%= render "partials/after_events" %> -->
 </div>
 
-<!--  ////////////////////////// SPONSORS ////////////////////////// -->
-
+<!--  ////////////////////////// SPONSORS //////////////////////////////// -->
 
 <div class="sponsors">
   <div class="container">
     <p>Sponsors</p>
+    <div class="sponsor-slider">
+      <div class="logo-holder">
+        <img src="/sponsors/google-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/github-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/slack-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/envato-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/zendesk-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/dropbox-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/ga-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/trello-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/tesla-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/stripe-logo.png" alt="">
+      </div>
+    </div>
   </div>
-  <%= render "partials/sponsors" %>
 </div>
 
-<!--  ////////////////////////// FOOTER ////////////////////////// -->
-
+<!--  ////////////////////////// FOOTER ////////////////////////////////// -->
 
 <footer>
   <div class="container">
@@ -248,8 +279,7 @@
   </div>
 </footer>
 
-<!--  ////////////////////////// STYLE GUIDE ////////////////////////// -->
-
+<!--  ////////////////////////// STYLE GUIDE ///////////////////////////// -->
 
 <!-- <div class="style-guide">
   <h1>Lorem Ipsum</h1>
@@ -301,6 +331,22 @@ src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js">
   var mapNavSticky = document.getElementById('map-nav');
   Stickyfill.add(mapSticky);
   Stickyfill.add(mapNavSticky);
+
+</script>
+
+<script>
+
+  $(document).ready(function(){
+    $('.sponsor-slider').slick({
+      infinite: true,
+      slidesToShow: 5,
+      slidesToScroll: 3,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      arrows: false,
+      speed: 1000
+    });
+  });
 
 </script>
 

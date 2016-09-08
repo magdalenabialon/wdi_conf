@@ -62,17 +62,20 @@
 
           <%if session[:userinfo] %>
             <img id ="user-photo" src="<%= session[:userinfo]['image_url'] %> " alt="user_avatar">
-            <p>Welcome, <%=session[:userinfo]['name'] %></p>
-          <% else %>
-            <i class="fa fa-circle-thin" aria-hidden="true"></i>
-            <p>Welcome back, User</p>
+            <!-- <p>Welcome, <%=session[:userinfo]['name'] %></p> -->
           <% end %>
         </div>
-        <div class="nav-item">
-          <i class="fa fa-user" aria-hidden="true"></i>
-          <p onclick="lock.show();">Your Account</p>
-        </div>
-
+        <% if session[:userinfo] %>
+          <div class="nav-item">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p>Welcome, <%=session[:userinfo]['name'] %></p>
+          </div>
+        <% else %>
+          <div class="nav-item">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p onclick="lock.show();">Login / Signup</p>
+          </div>
+        <% end %>
       </div>
 
     </nav>
