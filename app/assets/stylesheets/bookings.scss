@@ -15,3 +15,8 @@
 //   width: auto;
 //   text-align: center;
 // }
+@media (min-width: 992px) {
+  .col-md-4 {
+    width: 100% !important;
+  }
+}
