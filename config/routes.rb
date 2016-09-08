@@ -19,7 +19,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :quizzes
+    resources :seats
   end
+
+
 
   get '/', to: 'main#index'
   get '/map', to: 'main#map'

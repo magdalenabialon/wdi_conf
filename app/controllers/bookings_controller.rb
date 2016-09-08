@@ -16,6 +16,8 @@ class BookingsController < ApplicationController
     user_id = params[:user_id]
     amount = params[:amount]
     seats = params[:seats]
+    seats.slice!(0)
+
 
     # Create a charge: this will charge the user's card
     begin
@@ -23,7 +25,7 @@ class BookingsController < ApplicationController
         :amount => 89900, # Amount in cents
         :currency => "aud",
         :source => token,
-        :description => "Example charge"
+        :description => "WDI Conference"
       )
     rescue => e
     success = false
@@ -34,7 +36,7 @@ class BookingsController < ApplicationController
     booking.user_id = user_id
     booking.save
     seatArray = seats.split("-")
-    puts seatArray
+    # puts seatArray
 
     seatArray.each do |seat|
         puts seat
@@ -47,7 +49,5 @@ class BookingsController < ApplicationController
     success = true
     render :json => { success: true, :errorText => '', charge: charge } and return
   end
-
-
 
 end
