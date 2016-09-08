@@ -927,3 +927,24 @@ footer {
   }
 
 }
+
+.home-button i {
+  font-size: 1.4em;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 40px 10px 40px;
+  border: 1px solid white;
+  border-radius: 7px;
+  transition: 0.5s;
+  color: white;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+
+}
+
+.home-button i:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
