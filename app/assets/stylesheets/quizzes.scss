@@ -40,7 +40,7 @@
 // }
 
 #submitQuizButton {
-  font-size: 0.5em;
+  font-size: 1em;
   border-radius: 10px;
   background-color: black;
   color: white;
@@ -53,22 +53,27 @@
 #instructionLabelHeader {
   left: 30px;
   position: absolute;
-  top: -25px;
-  line-height: 0.5em;
-  padding-right: 40px;
+  top: 3%;
+  line-height: 1.5em;
 }
 
 #quizResult {
-  font-size: 0.6em;
+  font-size: 0.8em;
   text-align: center;
   padding-top: 12px;
   color: black;
 }
 
+.quizSection {
+  margin-top: 5%;
+
+}
+
 #instructionLabel {
-  font-size: 0.45em;
+  font-size: 1em;
   margin: 0 auto;
   color: black;
+  width:100%;
 }
 
 #editor {
@@ -109,6 +114,7 @@
     width: 500px;
     height: 450px;
     background-color: #f3f3f3;
+    position: relative;
 }
 
 .close-modal {
