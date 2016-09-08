@@ -68,7 +68,9 @@
         <% if session[:userinfo] %>
           <div class="nav-item">
             <i class="fa fa-user" aria-hidden="true"></i>
-            <p>Welcome, <%=session[:userinfo]['name'] %></p>
+            <a href="/logout">
+              <p>Welcome, <%=session[:userinfo]['name'] %></p>
+            </a>
           </div>
         <% else %>
           <div class="nav-item">

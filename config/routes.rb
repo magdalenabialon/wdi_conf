@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
   get '/user/show', to: 'users#show'
   get '/user', to: 'users#index'
+  get '/logout', to: 'users#delete'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
