@@ -1,9 +1,5 @@
 class BookingsController < ApplicationController
 
-  def new
-    @amount = '100';
-  end
-
   def choose_seat
     render :seat_selection
   end
@@ -17,6 +13,9 @@ class BookingsController < ApplicationController
 
     # Get the credit card details submitted by the form
     token = params[:token]
+    user_id = params[:user_id]
+    amount = params[:amount]
+    seats = params[:seats]
 
     # Create a charge: this will charge the user's card
     begin
@@ -32,11 +31,21 @@ class BookingsController < ApplicationController
     end
 
     booking = Booking.new
-    # booking.user_id = User.first.id
+    booking.user_id = user_id
     booking.save
+    seatArray = seats.split("-")
+    puts seatArray
+
+    seatArray.each do |seat|
+        puts seat
+        newSeat = Seat.new
+        newSeat.user_id = user_id
+        newSeat.seatNumber = seat
+        newSeat.save
+    end
 
     success = true
-    render :json => { success: true, :errorText => '' } and return
+    render :json => { success: true, :errorText => '', charge: charge } and return
   end
 
 

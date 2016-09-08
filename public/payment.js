@@ -68,9 +68,13 @@ function payWithStripe(e) {
             console.log(response.id);
             console.log(response.card);
             var token = response.id;
+            var seats = $('.seats-list-string').val();
             // AJAX - you would send 'token' to your server here.
             $.post('/bookings', {
-                    token: token
+                    token: token,
+                    user_id: 15,
+                    amount: 300,
+                    seats: seats
                 })
                 // Assign handlers immediately after making the request,
                 .done(function(data, textStatus, jqXHR) {
