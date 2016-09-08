@@ -17,6 +17,21 @@ body {
 //   background-color: red;
 // }
 
+.loc {
+  height: 300px;
+  background-image: url(/images/map_bg.jpg);
+  background-repeat: none;
+  background-position: center;
+//   // background-color: orange;
+  padding: 50px 30px 50px 100px;
+  color: white;
+}
+
+.loc:hover {
+  opacity: 0.7;
+}
+
+
 .map-holder {
   width: 100%;
   //  position: relative;

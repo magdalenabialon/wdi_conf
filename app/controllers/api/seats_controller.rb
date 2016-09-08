@@ -10,10 +10,10 @@ module Api
         @seatString = @seatString + "-" + seat.seatNumber
       end
       # binding.pry
-      binding.pry
+      # binding.pry
       # User.find_by(image_url: session[:userinfo]["info"]["image_url"] )
 
-      session[:userinfo]["id"]
+      # session[:userinfo]["id"]
       render json: @seatString.to_json
 
       # render json: @seats.to_json
