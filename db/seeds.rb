@@ -2,7 +2,8 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-
+Attendance.destroy_all
+Afterevent.destroy_all
 Quiz.destroy_all
 Booking.destroy_all
 Speech.destroy_all
@@ -47,7 +48,7 @@ q1 = Quiz.create({prompt: 'Please correct the below code',
                   answer1: "function multiply (a, b) { return a * b }",
                   answer2: "function multiply (a, b) { return (a * b) } "});
 
-q2 = Quiz.create({prompt: "Write code to output the string 'hello' to the console",
+q2 = Quiz.create({prompt: "Write code to output the string 'hello' to the console using Javascript",
                   problem: "",
                   answer1: "console.log('hello')",
                   answer2: 'console.log("hello")'});
@@ -57,7 +58,7 @@ q3 = Quiz.create({prompt: "Fix the code below to write the string array to the c
                   answer1: "function outputStringArray(arrayOfStrings) { -n  for (var index = 0; index < arrayOfStrings.length; index++) {-n console.log(arrayOfStrings[index]);-n}-n}",
                   answer2: ''});
 
-q4 = Quiz.create({prompt: "Write code in JQuery to hide all elements with class='test'",
+q4 = Quiz.create({prompt: "Write code in JQuery to hide all elements with a class of 'test'",
                   problem: "",
                   answer1: "$('.test').hide()",
                   answer2: '$(".test").hide()'});
@@ -71,3 +72,14 @@ q6 = Quiz.create({prompt: "Write a HTML p tag with a class of 'greet' and the wo
                   problem: "",
                   answer1: "<p class='greet'>Hello</p>",
                   answer2: '<p class="greet">Hello</p>'});
+
+e1 = Afterevent.create({ user_id: u9.id, name: "Dinner @ Attica", location: "74 Glen Eira Rd, Ripponlea"});
+e2 = Afterevent.create({ user_id: u8.id, name: "Dinner @ Crown", location: "130/8 Whiteman St, Southbank"});
+e3 = Afterevent.create({ user_id: u7.id, name: "Party @ Bond", location: "24 Bond St, CBD"});
+
+l1 = Attendance.create ({ afterevent_id: e1.id, user_id: u9.id });
+l2 = Attendance.create ({ afterevent_id: e1.id, user_id: u7.id });
+l3 = Attendance.create ({ afterevent_id: e2.id, user_id: u11.id });
+l4 = Attendance.create ({ afterevent_id: e3.id, user_id: u10.id });
+l5 = Attendance.create ({ afterevent_id: e3.id, user_id: u8.id });
+l6 = Attendance.create ({ afterevent_id: e3.id, user_id: u12.id });

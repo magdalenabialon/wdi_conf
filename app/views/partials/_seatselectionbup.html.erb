@@ -1,0 +1,123 @@
+<style>
+
+.floorPlan {
+  width: 60%;
+  height: 70vh;
+  margin: 0 auto;
+  background-color: black;
+}
+
+.seat {
+    display: inline-block;
+  background-color: #ECECEC;
+  width: 4.2vw;
+  height: 4.2vw;
+  margin: 0.5vw 0.5vw;
+  border-radius: 6px;
+  vertical-align: top;
+  line-height: 4.2vw;
+  color: transparent;
+  cursor: pointer;
+}
+
+.taken {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/*.seat {
+  width: 10%;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: red;
+}*/
+/*.seat > img {
+  width: 100%;
+  height: auto;
+  transition: 0.8s;
+  padding: 2px;
+}*/
+
+.seat > img:hover {
+  background-color: rgba(255, 4, 4, 0.6);
+  border-radius: 5px;
+}
+
+.seat > img.selected{
+  background-color: rgb(170, 112, 205);
+  color: white;
+}
+</style>
+
+
+
+<div class="floorPlan"></div>
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+  drawPage()}
+);
+
+
+function drawPage() {
+
+  var rowWidth = 10
+  var columnWidth = 6
+
+  // Generating seat row and column for the floorplan
+  for (var i = 0; i < columnWidth; i++) {
+    var $row = $('<div>').addClass('row')
+    for (var j = 0; j < rowWidth; j++) {
+      var image = $('<img>').addClass('img').attr('src', '/seat.png');
+      var div = ($('<div>').addClass('seat').attr("id",[i] +'-'+ [j]))
+      var divImage = div.append(image);
+      $row.append(divImage)
+    }
+  $('.floorPlan').append($row)
+  }
+
+// target each seats clicked on
+  var onClick = function() {
+    var selected = $(event.target);
+    console.log('click working')
+  };
+
+  $('.img').on('click',onClick);
+
+// seat selections, seats taken or not
+  $('.img').on('click',function () {
+  if ($(this).hasClass(settings.selectedSeatCss)){
+    alert('This seat is already reserved');
+  }
+  else{
+    $(this).toggleClass(settings.selectingSeatCss);
+    }
+  });
+
+  $('#btnShow').click(function () {
+    var str = [];
+    $.each($('#place li.' + settings.selectedSeatCss + ' a, #place li.'+ settings.selectingSeatCss + ' a'), function (index, value) {
+      str.push($(this).attr('title'));
+    });
+    alert(str.join(','));
+  })
+
+  $('#btnShowNew').click(function () {
+    var str = [], item;
+    $.each($('#place li.' + settings.selectingSeatCss + ' a'), function (index, value) {
+      item = $(this).attr('title');
+      str.push(item);
+    });
+    alert(str.join(','));
+  })
+
+
+})
+
+}
+
+
+
+</script>

@@ -18,7 +18,6 @@ var questionsPassed = 0;
 $(function(){
 
   $('#booking').click(function(){
-    console.log('hello');
     $('.quizmodal-overlay').css('display', 'flex');
     runIntro();
   });
@@ -37,16 +36,20 @@ function runQuiz() {
 }
 
 function runIntro() {
-  // $("#instructionLabel").typed({
-  //      strings: ["Welcome. Before you can make a booking",
-  //      "You need to pass a simple coding test."],
-  //      typeSpeed: 0,
-  //      callback: function() {
-  //          $('.typed-cursor').show();
-  //        runQuiz();
-  //      }
-  //     }
-  //    );
+  $('#newBooking').hide();
+  $('#submitQuizButton').hide();
+
+  $("#instructionLabel").typed({
+       strings: ["Welcome. Before you can make a booking",
+       "You need to pass a simple coding test."],
+       typeSpeed: 0,
+       callback: function() {
+           $('.typed-cursor').show();
+             $('#submitQuizButton').show();
+         runQuiz();
+       }
+      }
+     );
   runQuiz();
  }
 
@@ -66,19 +69,21 @@ function populateQuestion() {
   method: 'get'
   }).done(function(quiz) {
       currentQuizQuestion = quiz[0];
-      console.log(quiz[0]);
       editor.setValue(replaceAll(quiz[0].problem,'-n','\n'));
       currentQuizQuestion.answer1 = removeWhiteSpace(replaceAll(currentQuizQuestion.answer1,'-n','\n'));
       currentQuizQuestion.answer2 = removeWhiteSpace(replaceAll(currentQuizQuestion.answer2,'-n','\n'));
       $instructionLabel.text(quiz[0].prompt);
       numberOfQuestions += 1;
       editor.focus();
+      var row = editor.session.getLength() - 1
+      var column = editor.session.getLine(row).length // or simply Infinity
+      editor.gotoLine(row + 1, column)
       $('.typed-cursor').hide();
+      $('#submitQuizButton').removeAttr('disabled');
 });
 }
 
 function questionOver() {
-
   $quizResult.text('');
   populateQuestion();
 }
@@ -92,12 +97,6 @@ function quizFailOver() {
   $('.quizmodal-overlay').css('display', 'none');
 }
 $('#submitQuizButton').on('click', function() {
-
-  console.log('rightQuestionsRequired ',rightQuestionsRequired);
-  console.log('no of goes ',numberOfGoes);
-  console.log('numberOfQuestions ', numberOfQuestions);
-  console.log('questions passed ', questionsPassed);
-
     currentGoes++;
     var text = editor.getValue();
     text = removeWhiteSpace(text);
@@ -105,22 +104,26 @@ $('#submitQuizButton').on('click', function() {
       $quizResult.text('Correct!')
       questionsPassed++;
       //set a timeout so they can see the result then move onto showing a new question.
-      if (questionsPassed < rightQuestionsRequired)
-      {
+      if (questionsPassed < rightQuestionsRequired){
           ticket = setTimeout(questionOver, 2000);
       }
       else {
           $quizResult.text('You passed the quiz. Please proceed.')
+          $('#newBooking').show();
       }
 
     }
     else {
       var goesLeft = numberOfGoes - currentGoes;
+      // console.log('goes left ', goesLeft);
+      // console.log('number of goes ', numberOfGoes);
+      // console.log('currentGoes ', currentGoes);
 
       $quizResult.text('Sorry, Incorrect. You have ' + goesLeft + ' attempts remaining.')
       //set a timeout so they can see the result then move onto showing a new question.
 
       if (goesLeft == 0) {
+          $('#submitQuizButton').attr('disabled','disabled');
         //ran out of attempts for this question. do we give them another chance?
 
         if ((numberOfQuestions == 3) || (numberOfQuestions == 2 && questionsPassed == 0)) {
@@ -131,12 +134,8 @@ $('#submitQuizButton').on('click', function() {
         else {
           ticket = setTimeout(questionOver, 2000);
         }
-
       }
-
     }
-
-
 });
 
 

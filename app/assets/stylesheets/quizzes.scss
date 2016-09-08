@@ -54,18 +54,21 @@
   left: 30px;
   position: absolute;
   top: -25px;
+  line-height: 0.5em;
+  padding-right: 40px;
 }
-
-
 
 #quizResult {
   font-size: 0.6em;
   text-align: center;
   padding-top: 12px;
+  color: black;
 }
+
 #instructionLabel {
   font-size: 0.45em;
   margin: 0 auto;
+  color: black;
 }
 
 #editor {
