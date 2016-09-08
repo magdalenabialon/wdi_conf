@@ -2,7 +2,8 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
-
+Attendance.destroy_all
+Afterevent.destroy_all
 Quiz.destroy_all
 Booking.destroy_all
 Speech.destroy_all
@@ -71,3 +72,14 @@ q6 = Quiz.create({prompt: "Write a HTML p tag with a class of 'greet' and the wo
                   problem: "",
                   answer1: "<p class='greet'>Hello</p>",
                   answer2: '<p class="greet">Hello</p>'});
+
+e1 = Afterevent.create({ user_id: u9.id, name: "Dinner @ Attica", location: "74 Glen Eira Rd, Ripponlea"});
+e2 = Afterevent.create({ user_id: u8.id, name: "Dinner @ Crown", location: "130/8 Whiteman St, Southbank"});
+e3 = Afterevent.create({ user_id: u7.id, name: "Party @ Bond", location: "24 Bond St, CBD"});
+
+l1 = Attendance.create ({ afterevent_id: e1.id, user_id: u9.id });
+l2 = Attendance.create ({ afterevent_id: e1.id, user_id: u7.id });
+l3 = Attendance.create ({ afterevent_id: e2.id, user_id: u11.id });
+l4 = Attendance.create ({ afterevent_id: e3.id, user_id: u10.id });
+l5 = Attendance.create ({ afterevent_id: e3.id, user_id: u8.id });
+l6 = Attendance.create ({ afterevent_id: e3.id, user_id: u12.id });
