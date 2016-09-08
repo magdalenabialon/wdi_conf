@@ -15,32 +15,3 @@
 //   width: auto;
 //   text-align: center;
 // }
-.floorPlan {
-  width: 60%;
-  height: 70vh;
-  margin: 0 auto;
-}
-
-.seat {
-  width: 10%;
-  display: inline-block;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.seat > img {
-  width: 100%;
-  height: auto;
-  transition: 0.8s;
-  padding: 2px;
-}
-
-.seat > img:hover {
-  background-color: rgba(255, 4, 4, 0.6);
-  border-radius: 5px;
-}
-
-.seat > img.selected{
-  background-color: rgb(170, 112, 205);
-  color: white;
-}

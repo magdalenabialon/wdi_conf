@@ -18,8 +18,61 @@
   max-width: 350px;
   min-width: 350px !important;
 }
+
+.summaryDivs {
+  display: inline-block;
+  width: 48%;
+  vertical-align: top;
+  color: white;
+}
+
+.summaryNav{
+  width:130px;
+  color:white;
+}
+.summaryBody{
+  /*background:blue;*/
+  color:white;
+}
+#summaryContent{
+  display:table-row;
+}
+
+#summaryContent>div{
+  display:table-cell;
+  font-size: 1.1em;
+      padding-bottom: 10px;
+}
 </style>
 <div class="container">
+
+
+  <div class="summaryDivs">
+    <div id="summaryContent">
+        <div id="summaryBodyTicketQty" class="summaryNav">Event : </div>
+        <div id="summaryBodyTicketPrice" class="summaryBody">GA WDI Conference</div>
+    </div>
+    <div id="summaryContent">
+        <div id="summaryBodyTicketQty" class="summaryNav">Date: </div>
+        <div id="summaryBodyTicketPrice" class="summaryBody">27 Feb 2017</div>
+    </div>
+    <div id="summaryContent">
+        <div id="summaryBodyTicketQty" class="summaryNav">Name: </div>
+        <div id="summaryBodyTicketPrice" class="summaryBody">Dean Cooper</div>
+      </div>
+    <div id="summaryContent">
+        <div id="summaryBodyTicketQty" class="summaryNav">Booking Name: </div>
+        <div id="summaryBodyTicketPrice" class="summaryBody">Dean Cooper</div>
+    </div>
+    <div id="summaryContent">
+        <div id="summaryBodyTicketQty" class="summaryNav">Booking Email: </div>
+        <div id="summaryBodyTicketPrice" class="summaryBody">dean@ga.com</div>
+    </div>
+  </div>
+
+
+  <div class="summaryDivs">
+<!-- credit card section -->
     <div class="row maxSize">
         <!-- You can make it whatever width you want. I'm making it full width
              on <= small devices and 4/12 page width on >= medium devices -->
@@ -96,7 +149,7 @@
                         </div> -->
                         <div class="row">
                             <div class="col-xs-12">
-                                <button class="subscribe btn btn-success btn-lg btn-block" type="button">Start Subscription</button>
+                                <button class="subscribe btn btn-success btn-lg btn-block" type="button">Confirm Booking</button>
                             </div>
                         </div>
                         <input type="hidden" class="form-control" name="couponCode" />
@@ -111,6 +164,7 @@
 
         </div>
     </div>
+</div>
 </div>
 
 <script type="text/javascript">

@@ -1,61 +1,197 @@
+<style>
+
+
+.floorPlan {
+  width: 90%;
+  /*height: 60vh;*/
+  margin: 0 auto;
+  background-color: black;
+  max-width: 800px;
+  padding: 5px;
+}
+
+
+.seatingRow {
+  text-align: center;
+}
+
+.seating-wrap {
+    text-align: center;
+}
+
+.seat {
+  display: inline-block;
+  background-color: #ECECEC;
+  /*width: 6vw;
+  height: 6vw;*/
+  width: 50px;
+  height: 50px;
+  margin: 0.5vw 0.5vw;
+  border-radius: 6px;
+  vertical-align: top;
+  line-height: 6vw;
+  color: transparent;
+  cursor: pointer;
+  min-width: 50px;
+  min-height: 50px;
+}
+
+
+.selected {
+  background-color:#F4757C;
+  color:white;
+}
+
+
+
+.seat:hover {
+  background-color:#F4757C;
+  opacity:0.8;
+  transition:0.5s;
+  color:white
+}
+
+
+
+.taken {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/*.seat {
+  width: 10%;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: red;
+}*/
+/*.seat > img {
+  width: 100%;
+  height: auto;
+  transition: 0.8s;
+  padding: 2px;
+}*/
+
+/*.seat > img:hover {
+  background-color: rgba(255, 4, 4, 0.6);
+  border-radius: 5px;
+}
+
+.seat > img.selected{
+  background-color: rgb(170, 112, 205);
+  color: white;
+}*/
+
+</style>
+
+
+
 <div class="floorPlan"></div>
 
 <script type="text/javascript">
 
 $(document).ready(function(){
 
+  drawPage()
+}
+);
+
+function convertToRow(num) {
+  switch(num) {
+    case 0:
+      return "A";
+    case 1:
+      return "B";
+    case 2:
+      return "C";
+    case 3:
+      return "D";
+    case 4:
+      return "E";
+    case 5:
+      return "F";
+    case 6:
+      return "G";
+    case 7:
+      return "H";
+    case 8:
+      return "I";
+    case 9:
+      return "J";
+    }
+}
+
+function getSelectedSeats() {
+  var seatsArr = [];
+  $('.selected').each(function(index, value) {
+    var seatNum = this.id;
+    seatsArr.push(seatNum);
+  })
+  return seatsArr;
+}
+
+function getSelectedSeatsString() {
+  var returnString = "";
+  $('.selected').each(function(index, value) {
+    var seatNum = this.id;
+    returnString = returnString + '-' + seatNum
+  })
+  return returnString;
+}
+
+
+  // Function for displaying order summary at footer bar of page.
+  function displaySummary() {
+    var ticketCost = 495.00;
+
+    var seats = $('.selected').length
+
+    var selectedTotal = seats * ticketCost;
+    var summary = '';
+
+    if (seats === 0) {
+      summary = '';
+      return summary;
+    } else {
+      summary = seats + '&nbsp;&nbsp;Ticket(s)&nbsp;|&nbsp;&nbsp;&nbsp; Total : &nbsp; $ ' + selectedTotal;
+      return summary;
+    }
+
+    $('.ordersBar').html(displaySummary())
+  }
+
+// seats_list_string
+
+function drawPage() {
 
   var rowWidth = 10
   var columnWidth = 6
 
   // Generating seat row and column for the floorplan
   for (var i = 0; i < columnWidth; i++) {
-    var $row = $('<div>').addClass('row')
+    var $row = $('<div>').addClass('seatingRow')
     for (var j = 0; j < rowWidth; j++) {
-      var image = $('<img>').addClass('img').attr('src', '/seat.png');
-      var div = ($('<div>').addClass('seat').attr("id",[i] + [j]))
-      var divImage = div.append(image);
-      $row.append(divImage)
+      var row = convertToRow(j);
+      var div = ($('<div>').addClass('seat').attr("id",row+[i+1]).text(row+[i+1]))
+      $row.append(div)
     }
   $('.floorPlan').append($row)
   }
 
-// target each seats clicked on
-  var onClick = function() {
-    var selected = $(event.target);
-    console.log('click working')
-  };
+  $(".seat").click(function() {
+    $(this).hasClass("selected") ? $(this).removeClass("selected") : $(this).addClass("selected")
 
-  $('.img').on('click',onClick);
+  $('.seats-list').val(getSelectedSeats());
+  $('.seats-list-string').val(getSelectedSeatsString());
 
-// seat selections, seats taken or not
-  $('.img').on('click',function () {
-  if ($(this).hasClass(settings.selectedSeatCss)){
-    alert('This seat is already reserved');
-  }
-  else{
-    $(this).toggleClass(settings.selectingSeatCss);
-    }
+  // Append summary total to html:
+  $('.orders-bar').html(displaySummary())
+
+
+
   });
 
-  $('#btnShow').click(function () {
-    var str = [];
-    $.each($('#place li.' + settings.selectedSeatCss + ' a, #place li.'+ settings.selectingSeatCss + ' a'), function (index, value) {
-      str.push($(this).attr('title'));
-    });
-    alert(str.join(','));
-  })
-
-  $('#btnShowNew').click(function () {
-    var str = [], item;
-    $.each($('#place li.' + settings.selectingSeatCss + ' a'), function (index, value) {
-      item = $(this).attr('title');
-      str.push(item);
-    });
-    alert(str.join(','));
-  })
 
 
-})
-
+}
 </script>

@@ -47,7 +47,7 @@ q1 = Quiz.create({prompt: 'Please correct the below code',
                   answer1: "function multiply (a, b) { return a * b }",
                   answer2: "function multiply (a, b) { return (a * b) } "});
 
-q2 = Quiz.create({prompt: "Write code to output the string 'hello' to the console",
+q2 = Quiz.create({prompt: "Write code to output the string 'hello' to the console using Javascript",
                   problem: "",
                   answer1: "console.log('hello')",
                   answer2: 'console.log("hello")'});
@@ -57,7 +57,7 @@ q3 = Quiz.create({prompt: "Fix the code below to write the string array to the c
                   answer1: "function outputStringArray(arrayOfStrings) { -n  for (var index = 0; index < arrayOfStrings.length; index++) {-n console.log(arrayOfStrings[index]);-n}-n}",
                   answer2: ''});
 
-q4 = Quiz.create({prompt: "Write code in JQuery to hide all elements with class='test'",
+q4 = Quiz.create({prompt: "Write code in JQuery to hide all elements with a class of 'test'",
                   problem: "",
                   answer1: "$('.test').hide()",
                   answer2: '$(".test").hide()'});
