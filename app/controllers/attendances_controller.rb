@@ -12,7 +12,6 @@ class AttendancesController < ApplicationController
           # @attendance.user_id = current_user.id
           @attendance.user_id = session[:userinfo]["id"]
           @attendance.save
-          binding.pry
       end
     end
     # @afterevent = Afterevent.find_by(name: "Dinner @ Crown");
