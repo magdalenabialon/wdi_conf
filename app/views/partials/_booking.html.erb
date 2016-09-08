@@ -1,17 +1,16 @@
-<h3> booking stuff </h3>
-
+<h4 class="pageHeader">Order Summary and Payment</h4>
 
 
 <%= render "partials/payment" %>
 
 
 
-<form action="/bookings" method="POST" id="payment-form">
+<!-- <form action="/bookings" method="POST" id="payment-form">
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
-  <span class="payment-errors"></span>
+  <span class="payment-errors"></span> -->
 
-  <div class="form-row">
+  <!-- <div class="form-row">
     <label>
       <span>Card Number</span>
       <input type="text" size="20" data-stripe="number" value="4242424242424242">
@@ -25,9 +24,9 @@
     </label>
     <span> / </span>
     <input type="text" size="2" data-stripe="exp_year" value="17">
-  </div>
+  </div> -->
 
-  <div class="form-row">
+  <!-- <div class="form-row">
     <label>
       <span>CVC</span>
       <input type="text" size="4" data-stripe="cvc" value="123">
@@ -39,10 +38,10 @@
       <span>Billing Zip</span>
       <input type="text" size="6" data-stripe="address_zip" value="12345">
     </label>
-  </div>
+  </div> -->
 
-  <input type="submit" class="submit" value="Submit Payment">
-</form>
+  <!-- <input type="submit" class="submit" value="Submit Payment">
+</form> -->
 
 <!-- <script type="text/javascript" src="stripe.js"></script> -->
 
