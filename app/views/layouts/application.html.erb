@@ -48,7 +48,13 @@
         </div>
         <div class="nav-item" id="booking">
           <i class="fa fa-ticket" aria-hidden="true"></i>
-          <p>Booking</p>
+
+          <% if !session[:userinfo] %>
+            <p onclick="lock.show();">Booking</p>
+          <% else %>
+            <p>Booking</p>
+          <% end %>
+
         </div>
         <div class="nav-item" id="sponsors">
           <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
