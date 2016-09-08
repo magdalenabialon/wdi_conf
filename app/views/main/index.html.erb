@@ -1,4 +1,76 @@
+<!-- ///////NAV BAR///////// -->
+<nav>
 
+  <div class="nav-top">
+
+    <div class="nav-item" id="hero">
+      <i class="fa fa-home" aria-hidden="true"></i>
+      <p>Home</p>
+    </div>
+    <div class="nav-item" id="about">
+      <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+      <p>About</p>
+    </div>
+    <div class="nav-item" id="speakers">
+      <i class="fa fa-users" aria-hidden="true"></i>
+      <p>Speakers</p>
+    </div>
+    <div class="nav-item" id="timetable">
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      <p>Timetable</p>
+    </div>
+    <div class="nav-item" id="location">
+      <i class="fa fa-location-arrow" aria-hidden="true"></i>
+      <!-- <p>Location / Map</p> -->
+      <p><a id = "link-to-map" href="/map">Location / Map</a></p>
+    </div>
+    <div class="nav-item" id="after-events">
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+      <p>After Events</p>
+    </div>
+    <div class="nav-item" id="booking">
+      <i class="fa fa-ticket" aria-hidden="true"></i>
+
+      <% if !session[:userinfo] %>
+        <p onclick="lock.show();">Booking</p>
+      <% else %>
+        <p>Booking</p>
+      <% end %>
+
+    </div>
+    <div class="nav-item" id="sponsors">
+      <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
+      <p>Sponsors</p>
+    </div>
+
+  </div>
+
+  <div class="nav-bottom">
+
+    <div class="nav-item no-hover" id="loggedin">
+
+      <%if session[:userinfo] %>
+        <img id ="user-photo" src="<%= session[:userinfo]['image_url'] %> " alt="user_avatar">
+        <!-- <p>Welcome, <%=session[:userinfo]['name'] %></p> -->
+      <% end %>
+    </div>
+    <% if session[:userinfo] %>
+      <div class="nav-item">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <p onclick="lock.show();">Your Account</p>
+        <a href="/logout">
+          <p>Welcome, <%=session[:userinfo]['name'] %></p>
+        </a>
+      </div>
+    <% else %>
+      <div class="nav-item">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <p onclick="lock.show();">Login / Signup</p>
+      </div>
+    <% end %>
+  </div>
+
+</nav>
 
 <!--  ////////////////////////// HEADER ////////////////////////////////// -->
 
@@ -249,6 +321,24 @@
       <div class="escape-btn">
         <p>X</p>
       </div>
+    </div>
+  </div>
+</div>
+
+
+<!--  ////////////////////////// CALL TO ACTION ////////////////////////// -->
+
+<div class="cta">
+  <div class="container">
+    <div class="left-cta">
+      <h3><span>HURRY UP!</span> ONLY <span>42</span> SEATS CURRENTLY REMAINING</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad provident aperiam perferendis et aliquam illum necessitatibus facere nisi debitis voluptate animi distinctio repellendus eius delectus, modi laborum quidem, aspernatur ea.</p>
+    </div>
+    <div class="right-cta">
+      <a href="">
+        <button>GET MY TICKET</button>
+
+      </a>
     </div>
   </div>
 </div>
