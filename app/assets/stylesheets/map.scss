@@ -1,329 +1,329 @@
-// // TEMPORARILY DISABLED DUE TO CONFLICTS WITH MAIN STYLES
-// // STILL NEED TO ADOPT SOME STYLES TO MAIN PAGE
-//
-// body {
-//   margin:0;
-//   padding:0;
+// TEMPORARILY DISABLED DUE TO CONFLICTS WITH MAIN STYLES
+// STILL NEED TO ADOPT SOME STYLES TO MAIN PAGE
+
+body {
+  margin:0;
+  padding:0;
+}
+
+#link-to-map {
+  color: lightgrey;
+}
+
+
+//========================= MAP and MAP Legend
+// .location {
+//   height: 1400px;
+//   background-color: red;
+// }
+
+.map-holder {
+  width: 100%;
+  //  position: relative;
+}
+
+.map-left {
+  float: left;
+  //  position: relative;
+  position: fixed;
+  width: 82vw;
+  margin: 0;
+}
+
+ #map {
+  height: 120vh;
+  top: 0;
+  right: 4.5vw;
+  opacity: 0.4;
+  transition: 1s;
+}
+
+p {
+  padding: 0;
+  margin: 0;
+}
+
+.map-right {
+  // display: inline-block;
+  float: right;
+  position: relative;
+  width: 18vw;
+  background-color: lightgrey;
+  vertical-align: top;
+  margin: 0;
+}
+
+.map-information {
+  // padding: 20px;
+  border-top: 1px solid black;
+  height: 50vh;
+  padding: 15%;
+  text-align: center;
+}
+
+
+.directions-control-directions-container {
+  // display: none;
+  opacity: 0.05;
+  transition: 1s;
+  // margin-right: 10%;
+}
+
+.directions-control-directions-container:hover {
+  // display: none;
+  opacity: 0.9;
+  transition: 1s;
+}
+
+
+
+div.directions-control.directions-control-inputs {
+  left: 8%;
+}
+
+.mapbox-form-label, button.js-reverse-inputs {
+  display: none;
+}
+
+
+#mapbox-directions-origin-input, #mapbox-directions-destination-input {
+  display: none;
+}
+
+//=========================  Legend - right banner ative
+section {
+  opacity: 0.70;
+}
+ .active {
+    opacity: 1;
+}
+// section:last-child {
+//     border-bottom: none;
+//     margin-bottom: 200px;
+// }
+
+
+
+// .filter-ui {
+//   background: #fff;
+//   position: absolute;
+//   top: 10px;
+//   right: 10px;
+//   z-index: 100;
+//   padding: 10px;
+//   border-radius: 3px;
+// }
+// .filter-ui input {
+//   vertical-align: middle;
+// }
+
+
+
+//========================= MAP ICONS
+.parking-icon {
+  border-radius: 100%;
+  width: 17px;
+  height: 17px;
+  text-align: center;
+  line-height: 20px;
+  color: orange;
+}
+.icon-dc {
+  background: yellow;
+  opacity: 0.1;
+  cursor: pointer;
+}
+.icon-dc:hover{
+  background: yellow;
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+
+.ga_icon {
+  opacity: 0.7;
+  border: none;
+  cursor: pointer;
+  // height: 25px;
+  // width: 25px;
+  // background-image: url(/images/ga_logo.png);
+  // background-image: url(/images/event_icon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-color: rgba(0, 0, 0, 0);
+  // transform: translate(28px, 56px, 0);
+}
+
+.ga_icon:hover {
+  opacity: 1;
+  border: none;
+  cursor: pointer;
+  // height: 25px;
+  // width: 25px;
+  // background-image: url(/images/ga_logo.png);
+  background-color: rgba(0, 0, 0, 0);
+  z-index: 1;
+  // transform: translate(28px, 56px, 0);
+}
+
+
+
+/* ======================  Popup container - for wdi conf and GA logo */
+.popup {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  font-size: 1.4em;
+   visibility: hidden;
+   width: 450px;
+   background-color: tomato;
+   color: black;
+   text-align: center;
+   border-radius: 6px;
+   padding: 8px 0;
+   position: absolute;
+   z-index: 1;
+   bottom: 125%;
+   left: 50%;
+   margin-left: -80px;
+}
+
+/* Popup arrow */
+.popup .popuptext::after {
+   content: "";
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   margin-left: -5px;
+   border-width: 5px;
+   border-style: solid;
+   border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+   visibility: visible;
+   -webkit-animation: fadeIn 1s;
+   animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+   from {opacity: 0;}
+   to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+   from {opacity: 0;}
+   to {opacity:1 ;}
+}
+
+
+
+/* ======================  Popup container - for parkings */
+.popupParking {
+   position: relative;
+   display: inline-block;
+   cursor: pointer;
+   -webkit-user-select: none;
+   -moz-user-select: none;
+   -ms-user-select: none;
+   user-select: none;
+}
+
+/* The actual popup */
+.popupParking .popuptextParking {
+   visibility: hidden;
+   width: 180px;
+   background-color: yellow;
+   color: black;
+   text-align: center;
+   border-radius: 6px;
+   padding: 8px 0;
+   position: absolute;
+   z-index: 1;
+   bottom: 125%;
+   left: 50%;
+   margin-left: -80px;
+}
+
+/* Popup arrow */
+.popupParking .popuptextParking::after {
+   content: "";
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   margin-left: -5px;
+   border-width: 5px;
+   border-style: solid;
+   border-color: #555 transparent transparent transparent;
+}
+
+/* Toggle this class - hide and show the popup */
+.popupParking .show {
+   visibility: visible;
+   -webkit-animation: fadeIn 1s;
+   animation: fadeIn 1s;
+   z-index: 1;
+}
+
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+   from {opacity: 0;}
+   to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+   from {opacity: 0;}
+   to {opacity:1 ;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+//======================= map from google maps
+// .distanceMap {
+//   width: 90%;
+//   text-align: center;
+//   margin: 90px auto;
 // }
 //
-// #link-to-map {
-//   color: lightgrey;
-// }
-//
-//
-// //========================= MAP and MAP Legend
-// // .location {
-// //   height: 1400px;
-// //   background-color: red;
-// // }
-//
-// .map-holder {
+// #mapDis {
+//   height: 350px;
 //   width: 100%;
-//   //  position: relative;
+//   border: 1px solid grey;
 // }
 //
-// .map-left {
-//   float: left;
-//   //  position: relative;
-//   position: fixed;
-//   width: 82vw;
-//   margin: 0;
-// }
-//
-//  #map {
-//   height: 120vh;
-//   top: 0;
-//   right: 4.5vw;
-//   opacity: 0.4;
-//   transition: 1s;
-// }
-//
-// p {
-//   padding: 0;
-//   margin: 0;
-// }
-//
-// .map-right {
-//   // display: inline-block;
-//   float: right;
-//   position: relative;
-//   width: 18vw;
-//   background-color: lightgrey;
-//   vertical-align: top;
-//   margin: 0;
-// }
-//
-// .map-information {
-//   // padding: 20px;
-//   border-top: 1px solid black;
-//   height: 50vh;
-//   padding: 15%;
+// #floating-panel {
+//   /*position: absolute;*/
+//   /*top: 10px;
+//   left: 25%;
+//   z-index: 5;*/
+//   width: 100%;
+//   background-color: #fff;
+//   padding: 5px;
+//   border: 1px solid #999;
 //   text-align: center;
+//   font-family: 'Roboto','sans-serif';
+//   line-height: 30px;
+//   padding-left: 10px;
 // }
-//
-//
-// .directions-control-directions-container {
-//   // display: none;
-//   opacity: 0.05;
-//   transition: 1s;
-//   // margin-right: 10%;
-// }
-//
-// .directions-control-directions-container:hover {
-//   // display: none;
-//   opacity: 0.9;
-//   transition: 1s;
-// }
-//
-//
-//
-// div.directions-control.directions-control-inputs {
-//   left: 8%;
-// }
-//
-// .mapbox-form-label, button.js-reverse-inputs {
-//   display: none;
-// }
-//
-//
-// #mapbox-directions-origin-input, #mapbox-directions-destination-input {
-//   display: none;
-// }
-//
-// //=========================  Legend - right banner ative
-// section {
-//   opacity: 0.70;
-// }
-//  .active {
-//     opacity: 1;
-// }
-// // section:last-child {
-// //     border-bottom: none;
-// //     margin-bottom: 200px;
-// // }
-//
-//
-//
-// // .filter-ui {
-// //   background: #fff;
-// //   position: absolute;
-// //   top: 10px;
-// //   right: 10px;
-// //   z-index: 100;
-// //   padding: 10px;
-// //   border-radius: 3px;
-// // }
-// // .filter-ui input {
-// //   vertical-align: middle;
-// // }
-//
-//
-//
-// //========================= MAP ICONS
-// .parking-icon {
-//   border-radius: 100%;
-//   width: 17px;
-//   height: 17px;
-//   text-align: center;
-//   line-height: 20px;
-//   color: orange;
-// }
-// .icon-dc {
-//   background: yellow;
-//   opacity: 0.1;
-//   cursor: pointer;
-// }
-// .icon-dc:hover{
-//   background: yellow;
-//   opacity: 0.7;
-//   cursor: pointer;
-// }
-//
-//
-// .ga_icon {
-//   opacity: 0.7;
-//   border: none;
-//   cursor: pointer;
-//   // height: 25px;
-//   // width: 25px;
-//   // background-image: url(/images/ga_logo.png);
-//   // background-image: url(/images/event_icon.png);
-//   background-repeat: no-repeat;
-//   background-size: contain;
-//   background-color: rgba(0, 0, 0, 0);
-//   // transform: translate(28px, 56px, 0);
-// }
-//
-// .ga_icon:hover {
-//   opacity: 1;
-//   border: none;
-//   cursor: pointer;
-//   // height: 25px;
-//   // width: 25px;
-//   // background-image: url(/images/ga_logo.png);
-//   background-color: rgba(0, 0, 0, 0);
-//   z-index: 1;
-//   // transform: translate(28px, 56px, 0);
-// }
-//
-//
-//
-// /* ======================  Popup container - for wdi conf and GA logo */
-// .popup {
-//    position: relative;
-//    display: inline-block;
-//    cursor: pointer;
-//    -webkit-user-select: none;
-//    -moz-user-select: none;
-//    -ms-user-select: none;
-//    user-select: none;
-// }
-//
-// /* The actual popup */
-// .popup .popuptext {
-//   font-size: 1.4em;
-//    visibility: hidden;
-//    width: 450px;
-//    background-color: tomato;
-//    color: black;
-//    text-align: center;
-//    border-radius: 6px;
-//    padding: 8px 0;
-//    position: absolute;
-//    z-index: 1;
-//    bottom: 125%;
-//    left: 50%;
-//    margin-left: -80px;
-// }
-//
-// /* Popup arrow */
-// .popup .popuptext::after {
-//    content: "";
-//    position: absolute;
-//    top: 100%;
-//    left: 50%;
-//    margin-left: -5px;
-//    border-width: 5px;
-//    border-style: solid;
-//    border-color: #555 transparent transparent transparent;
-// }
-//
-// /* Toggle this class - hide and show the popup */
-// .popup .show {
-//    visibility: visible;
-//    -webkit-animation: fadeIn 1s;
-//    animation: fadeIn 1s;
-// }
-//
-// /* Add animation (fade in the popup) */
-// @-webkit-keyframes fadeIn {
-//    from {opacity: 0;}
-//    to {opacity: 1;}
-// }
-//
-// @keyframes fadeIn {
-//    from {opacity: 0;}
-//    to {opacity:1 ;}
-// }
-//
-//
-//
-// /* ======================  Popup container - for parkings */
-// .popupParking {
-//    position: relative;
-//    display: inline-block;
-//    cursor: pointer;
-//    -webkit-user-select: none;
-//    -moz-user-select: none;
-//    -ms-user-select: none;
-//    user-select: none;
-// }
-//
-// /* The actual popup */
-// .popupParking .popuptextParking {
-//    visibility: hidden;
-//    width: 180px;
-//    background-color: yellow;
-//    color: black;
-//    text-align: center;
-//    border-radius: 6px;
-//    padding: 8px 0;
-//    position: absolute;
-//    z-index: 1;
-//    bottom: 125%;
-//    left: 50%;
-//    margin-left: -80px;
-// }
-//
-// /* Popup arrow */
-// .popupParking .popuptextParking::after {
-//    content: "";
-//    position: absolute;
-//    top: 100%;
-//    left: 50%;
-//    margin-left: -5px;
-//    border-width: 5px;
-//    border-style: solid;
-//    border-color: #555 transparent transparent transparent;
-// }
-//
-// /* Toggle this class - hide and show the popup */
-// .popupParking .show {
-//    visibility: visible;
-//    -webkit-animation: fadeIn 1s;
-//    animation: fadeIn 1s;
-//    z-index: 1;
-// }
-//
-//
-// /* Add animation (fade in the popup) */
-// @-webkit-keyframes fadeIn {
-//    from {opacity: 0;}
-//    to {opacity: 1;}
-// }
-//
-// @keyframes fadeIn {
-//    from {opacity: 0;}
-//    to {opacity:1 ;}
-// }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-// //======================= map from google maps
-// // .distanceMap {
-// //   width: 90%;
-// //   text-align: center;
-// //   margin: 90px auto;
-// // }
-// //
-// // #mapDis {
-// //   height: 350px;
-// //   width: 100%;
-// //   border: 1px solid grey;
-// // }
-// //
-// // #floating-panel {
-// //   /*position: absolute;*/
-// //   /*top: 10px;
-// //   left: 25%;
-// //   z-index: 5;*/
-// //   width: 100%;
-// //   background-color: #fff;
-// //   padding: 5px;
-// //   border: 1px solid #999;
-// //   text-align: center;
-// //   font-family: 'Roboto','sans-serif';
-// //   line-height: 30px;
-// //   padding-left: 10px;
-// // }
-// //======================= map from google maps
+//======================= map from google maps
