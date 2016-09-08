@@ -144,6 +144,11 @@ nav {
 
   }
 
+  a {
+    text-decoration: none;
+    color: white;
+  }
+
   .nav-item:hover {
     background-color: rgb(60, 60, 60);
   }
@@ -158,6 +163,11 @@ nav {
 #user-photo {
   width: 50px;
   border-radius: 50px;
+  margin-top: -15px;
+}
+
+#loggedin {
+  text-align: center;
 }
 
 footer {
@@ -165,7 +175,7 @@ footer {
   background-color: #2b2b2b;
   height: auto;
   margin: 0;
-  padding: 80px 0px 80px 0px;
+  padding: 50px 0px 0px 0px;
 }
 
 // Global Columns
@@ -264,8 +274,9 @@ footer {
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0px auto 0px auto;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 
@@ -286,96 +297,633 @@ footer {
 }
 
 .about {
-  height: 500px;
   background-color: linen;
-  padding: 50px 30px 50px 100px;
+  padding: 50px 0px 50px 0px;
+
+  .title-left {
+    display: inline-block;
+    width: 33%;
+    vertical-align: top;
+    text-align: center;
+  }
+
+  .content-right {
+    display: inline-block;
+    width: 65%;
+    vertical-align: top;
+  }
 
 }
 
 .speakers {
-  background-color: blue;
-  padding: 50px 30px 50px 100px;
+  background-color: white;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding: 80px auto 80px auto;
+  text-align: center;
+
+  .speaker {
+    display: inline-block;
+    width: 31%;
+    margin: 1%;
+    text-align: center;
+    vertical-align: top;
+    padding: 15px;
+  }
+
+  .avatar-holder {
+    width: 175px;
+    height: 175px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 100%;
+  }
+
+  img {
+    width: 100%;
+    // display: none;
+  }
 
 }
 
 .timetable {
-  height: 890px;
-  background-color: #232528;
-  padding: 50px 30px 50px 100px;
+  background-color: plum;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  padding: 50px 80px 50px 80px;
+
+  .timetable-container {
+    border: 1px solid grey;
+    // height: 1501px;
+    position: relative;
+    overflow: auto;
+
+  }
+
+  .timetable-timeline {
+    border-left: 1px solid grey;
+    width: 90%;
+    float: right;
+    // position: absolute;
+    // top: 0;
+    // right: 0;
+    padding-bottom: 20px;
+  }
+
+  .listing {
+    display: flex;
+    margin-left: -40px;
+    width: 100%;
+    height: 100%;
+    // background-color: red;
+    margin-bottom: 10px;
+    margin-top: 10px;
+
+
+    .t-image-col {
+      display: inline-block;
+      width: 80px;
+      height: 100px;
+
+      .image-circle {
+        width: 50px;
+        height: 50px;
+        border: 2px solid #73fbd3;
+        border-radius: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+        margin-top: 30px;
+
+        img {
+          width: 100%;
+        }
+
+      }
+
+    }
+
+    .t-info {
+      display: inline-block;
+      width: calc(100% - 80px);
+      // background-color: red;
+      // padding: 40px;
+      padding-top: 0px;
+
+      i {
+        display: inline-block;
+        color: grey;
+
+      }
+
+      h4 {
+        display: inline-block;
+        color: #73fbd3;
+
+      }
+
+      h3 {
+        font-size: 1.5em;
+        margin-top: 0px;
+        margin-bottom: 15px;
+      }
+
+      .t-info-bottom {
+        border-top: 1px solid black;
+
+        p {
+          margin-top: 20px;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+.cta {
+  background-color: #1f2022;
+  color: #767676;
+  padding: 80px 0px 80px 0px;
+
+  span {
+    color: #73fbd3;
+  }
+
+  .left-cta {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+
+    h3 {
+      padding-top: 0;
+      margin-top: 0;
+      color: white;
+    }
+  }
+
+  .right-cta {
+    display: inline-block;
+    width: 29%;
+    vertical-align: top;
+    text-align: center;
+
+    button {
+      background-color: #73fbd3;
+      padding: 15px 25px 15px 25px;
+      border: 0px;
+      color: #1f2022;
+      transition: 0.5s;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    button:hover {
+      background-color: #48b896;
+
+    }
+
+  }
+
+}
+
+.location {
+//   // padding: 10px;
+//   overflow: auto;
+//
+//   .map-holder {
+//     width: 100%;
+//     position: relative;
+//
+//     .map-left {
+//       // display: inline-block;
+//       float: left;
+//       position: relative;
+//       width: 60%;
+//       background-color: orange;
+//       margin: 0;
+//     }
+//
+//     #map-jordan {
+//       width: 100%;
+//       height: 100vh;
+//       background-color: grey;
+//       position: -webkit-sticky;
+//       position: sticky;
+//       top: 0;
+//       // Temporary CSS
+//       // margin: 0 auto;
+//       // width: 90%;
+//       // height: 80vh;
+//
+//       p {
+//         padding: 0;
+//         margin: 0;
+//       }
+//
+//     }
+//
+//     .map-right {
+//       // display: inline-block;
+//       float: left;
+//       position: relative;
+//       width: 40%;
+//       background-color: #f7f7f7;
+//       vertical-align: top;
+//       margin: 0;
+//     }
+//
+//     .map-information {
+//       padding: 20px;
+//       border-top: 1px solid black;
+//       height: -webkit-calc(100vh - 60px);
+//       height:    -moz-calc(100vh - 60px);
+//       height:         calc(100vh - 60px);
+//       padding: 50px;
+//     }
+//
+//     #event-location {
+//       margin-top: 60px;
+//     }
+//
+//     .map-nav-holder {
+//       height: -webkit-calc(200vh - 60px);
+//       height:    -moz-calc(200vh - 60px);
+//       height:         calc(200vh - 60px);
+//       width: 100%;
+//       position: absolute;
+//       top: 0;
+//       right: 0;
+//     }
+//
+//     .map-nav {
+//       height: 60px;
+//       background-color: green;
+//       position: -webkit-sticky;
+//       position: sticky;
+//       top: 0;
+//     }
+//
+//   }
+
+  // MAGDAS MAP STYLING ???
+
+  // height: 890px;
+  // background-color: #232528;
+  // padding: 50px 30px 50px 100px;
+
+  .loc {
+    height: 300px;
+    background-image: url(/images/map_bg.jpg);
+    background-repeat: none;
+    background-position: center;
+  //   // background-color: orange;
+    padding: 50px 30px 50px 100px;
+    color: white;
+  }
+
+  .loc:hover {
+    opacity: 0.7;
+  }
+
+  #link-to-map {
+    height: 300px;
+  }
 
 }
 
 
-.loc {
-  height: 300px;
-  background-image: url(/images/map_bg.jpg);
-  background-repeat: none;
-  background-position: center;
-//   // background-color: orange;
-  padding: 50px 30px 50px 100px;
-  color: white;
-}
-
-.loc:hover {
-  opacity: 0.7;
-}
-
-// #link-to-map {
-//   height: 300px;
-// }
-
+// Commented Out in Place of Magda's
 
 .after-events {
-  height: 700px;
   background-color: #333333;
-  padding: 50px 30px 50px 100px;
+  padding: 50px 0px 50px 0px;
+//
+//   .event-holder {
+//     display: flex;
+//     flex-wrap: wrap;
+//   }
+//
+//   .event {
+//     height: 150px;
+//     width: 48%;
+//     display: inline-block;
+//     overflow: none;
+//     margin: 1%;
+//     overflow: hidden;
+//     position: relative;
+//     cursor: pointer;
+//     text-align: center;
+//   }
+//
+//   .event .title-holder {
+//     color: white;
+//     position: absolute;
+//     width: 100%;
+//     height: 100%;
+//     top: 0;
+//     left: 0;
+//     z-index: 5;
+//   }
+//
+//   .title-holder h4 {
+//     margin-top: 0;
+//     line-height: 150px;
+//   }
+//
+//   .event img {
+//     -webkit-filter: brightness(50%);
+//     filter: brightness(50%);
+//     transition: 0.7s;
+//     width: 100%;
+//   }
+//
+//   .event:hover img {
+//     -webkit-filter: brightness(100%);
+//     filter: brightness(100%);
+//   }
+//
+//   #attica > img {
+//     position: absolute;
+//     width: 100%;
+//     margin-top: -150px;
+//     margin-left: -50%;
+//   }
+//
+//   #crown > img {
+//     position: absolute;
+//     width: 100%;
+//     margin-top: -150px;
+//     margin-left: -50%;
+//   }
+//
+//   #bond > img {
+//     position: absolute;
+//     width: 100%;
+//     margin-top: -150px;
+//     margin-left: -50%;
+//   }
+//
+//   #grilld > img {
+//     position: absolute;
+//     width: 100%;
+//     margin-top: -150px;
+//     margin-left: -50%;
+//   }
+//
+//   // .event-odd {
+//   //   -webkit-clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+//   //   clip-path: polygon(0 20%, 100% 0, 100% 80%, 0 100%);
+//   // }
+//
+//   // .event-odd:hover {
+//   //   -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+//   //   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+//   //   width: 40%;
+//   //
+//   //   .event-even {
+//   //     width: 19%;
+//   //   }
+//   //
+//   // }
+//   //
+//   // .event-odd:hover + .event-even {
+//   //   width: 19%;
+//   // }
+//
+//   // .event-even {
+//   //   background-color: green;
+//   //   -webkit-clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+//   //   clip-path: polygon(0 0, 100% 20%, 100% 100%, 0 80%);
+//   // }
+//
+//   // #attica {
+//   //   background: url('/images/events/attica-front.jpg');
+//   //   background-repeat: no-repeat;
+//   //   background-size: cover;
+//   //   transition: 1.5s;
+//   //
+//   // }
+//   //
+//   // #crown {
+//   //   background: url('/images/events/crown_hest.jpg');
+//   //   background-repeat: no-repeat;
+//   //   background-size: cover;
+//   //   transition: 1.5s;
+//   // }
+//   //
+//   // #bond {
+//   //   background: url('/images/events/bond3.jpg');
+//   //   background-repeat: no-repeat;
+//   //   background-size: cover;
+//   //   transition: 1.5s;
+//   // }
+//   //
+//   // #grilld {
+//   //   background: url('http://roweshopfitters.com.au/wp-content/uploads/2013/12/grilld-2.jpg');
+//   //   background-repeat: no-repeat;
+//   //   background-size: cover;
+//   //   transition: 1.5s;
+//   // }
+//
 }
 
-.booking {
-  height: 300px;
-  background-color: violet;
-  padding: 50px 30px 50px 100px;
+.ae-modal {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  // background-color: red;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.modal-content {
+  width: 800px;
+  height: 650px;
+  background-color: white;
+  border-radius: 15px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+
+  .ae-image {
+    width: 40%;
+    height: 100%;
+    display: inline-block;
+    background-color: green;
+  }
+
+  .ae-info {
+    width: 70%;
+    height: 100%;
+    display: inline-block;
+    background-color: purple;
+    position: relative;
+
+    .escape-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      background-color: white;
+      height: 50px;
+      width: 50px;
+      font-weight: bold;
+      font-size: 1.3em;
+      vertical-align: center;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 5px;
+
+      p {
+        line-height: 50px;
+      }
+
+    }
+
+
+
+  }
 
 }
+
+
+
 
 .sponsors {
-  height: 500px;
   background-color: white;
-  padding: 50px 30px 50px 100px;
+  padding: 125px 0px 125px 0px;
+  background: url('/sponsors/background.png');
+  background-size: cover;
+  background-repeat: repeat;
+
+  .container {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 30px;
+  }
+
+  // .sponsors-div{
+  //   width: 100%;
+  //   display: flex;
+  // }
+  //
+  // .sponsors-logos {
+  //   // width: 35%;
+  // }
+  //
+  // .sponsor10:hover {
+  //   opacity: 0.7;
+  // }
+  //
+  // .sponsor11:hover {
+  //   opacity: 0.7;
+  // }
+  //
+  // #firstDiv-sponsors, #secondDiv-sponsors, #thirdDiv-sponsors {
+  //   width: 33%;
+  //   text-align: center;
+  // }
+
+  .logo-holder {
+    // background-color: red;
+    margin: 5px;
+    // height: 100px;
+    padding: 10px;
+  }
+
+  .logo-holder img {
+    width: 100%;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .logo-holder img:hover {
+    -webkit-filter: grayscale(0%);
+    filter: grayscale(0%);
+  }
 
 }
 
+
 footer {
+  background-color: #1f2022;
+  color: #767676;
+
+  .info {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0px 0px 25px 0px;
+
+
+    .info-box {
+      display: inline-block;
+      margin: 0px 30px 0px 30px;
+    }
+
+    .info-box * {
+      display: inline-block;
+      color: #767676;
+    }
+
+    .info-box > i {
+      padding-right: 15px;
+      font-size: 1.7em;
+      line-height: 1.7em;
+      vertical-align: middle;
+    }
+
+    .info-box p {
+      line-height: 1.7em;
+      vertical-align: middle;
+    }
+
+  }
+
+  .disclaimer {
+
+    border-top: 1px solid #504e4e;
+    padding: 25px 0px 40px 0px;
+
+    p {
+      display: inline-block;
+      line-height: 25px;
+      vertical-align: top;
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .right50 {
+      text-align: right;
+    }
+
+    .right50 img {
+      height: 27px;
+      -webkit-filter: brightness(200%);
+      filter: brightness(200%);
+      padding: 2.5px 16px 2.5px 16px;
+      transition: 0.5s;
+      cursor: pointer;
+    }
+
+    .right50 img:hover {
+      -webkit-filter: brightness(300%);
+      filter: brightness(300%);
+    }
+
+  }
 
   #footer-logo {
     display: inline-block;
     height: 25px;
   }
 
-  .disclaimer p {
-    display: inline-block;
-    line-height: 25px;
-    vertical-align: top;
-    margin: 0;
-    padding-left: 20px;
-  }
-
-  .disclaimer .right50 {
-    text-align: right;
-  }
-
-  .disclaimer > .right50 img {
-    height: 25px;
-    padding: 2.5px 7.5px 2.5px 7.5px;
-  }
-
-}
-
-
-#loggedin {
-  text-align: center;
-
-  img {
-    margin-bottom: 10px;
-  }
 }

@@ -1,5 +1,7 @@
 
 
+<!--  ////////////////////////// HEADER ////////////////////////////////// -->
+
 <div class="video-background">
 
   <div class="video-foreground">
@@ -15,49 +17,362 @@
 
 </div>
 
-<div class="about">
-  <p>About Us</p>
+<!--  ////////////////////////// ABOUT /////////////////////////////////// -->
 
+<div class="about">
+  <div class="container">
+    <div class="title-left">
+      <h3>About Us</h3>
+    </div>
+    <div class="content-right">
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam.</p>
+      <br>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam.</p>
+    </div>
+  </div>
 </div>
+
+<!--  ////////////////////////// SPEAKERS //////////////////////////////// -->
 
 <div class="speakers">
-  <p>Speakers</p>
-  <%= render "partials/speakers" %>
-</div>
-
-<div class="timetable">
-  <%= render "partials/timetable" %>
-</div>
-
-
-<!-- Map -->
-<a href="/map">
-  <div class="loc">
-    <p>Location / Map </p>
+  <div class="container">
+    <i class="fa fa-3x fa-users" aria-hidden="true"></i>
+    <h3>Speakers</h3>
+    <p>See the <span>timetable.</span></p>
+    <div class="speaker">
+      <div class="avatar-holder">
+        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+      </div>
+      <div class="speaker-info">
+        <h4>Maggie McCain</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+      </div>
+    </div>
+    <div class="speaker">
+      <div class="avatar-holder">
+        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAkjAAAAJDJkN2FiYzY4LTY2NjgtNDJmNy05MTNkLWM5NjVhNWNhZjg5MA.jpg" alt="">
+      </div>
+      <div class="speaker-info">
+        <h4>Denis Ng</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+      </div>
+    </div>
+    <div class="speaker">
+      <div class="avatar-holder">
+        <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/404221_513974315297240_1963769705_n.jpg?oh=1ce0fff7ac0bff93ada60ed5e2d11a80&oe=588262F8&__gda__=1480161137_92c0642de93420613d3973757b4eac5d" alt="">
+      </div>
+      <div class="speaker-info">
+        <h4>Jordan Etzler</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+      </div>
+    </div>
+    <div class="speaker">
+      <div class="avatar-holder">
+        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAhtAAAAJDUyYWM2NmFmLWQzZTItNGJhNS04NWQwLWFiMzcyMmZhYTU2MA.jpg" alt="">
+      </div>
+      <div class="speaker-info">
+        <h4>Dean Cooper</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+      </div>
+    </div>
+    <div class="speaker">
+      <div class="avatar-holder">
+        <img src="https://media.licdn.com/media/p/7/005/08d/3f8/012c694.jpg" alt="">
+      </div>
+      <div class="speaker-info">
+        <h4>Magda Bialon</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+      </div>
+    </div>
+    <div class="speaker">
+      <div class="avatar-holder">
+        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAlQAAAAJGU1NzU0YmU3LTRkMTAtNGNhOS1hN2FlLTcwOGFmMWNlZDQ1NQ.jpg" alt="">
+      </div>
+      <div class="speaker-info">
+        <h4>Harry Aydin</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+      </div>
+    </div>
   </div>
-</a>
-
-<!-- Map -->
-
-
-<div class="after-events">
-  <p class ="font-ae" >After Events</p>
-  <%= render "partials/after_events" %>
 </div>
 
-<div class="booking">
-  <p>Booking</p>
+<!--  ////////////////////////// TIMETABLE /////////////////////////////// -->
+
+<div class="timetable" id="default">
+  <div class="container">
+    <i class="fa fa-3x fa-list" aria-hidden="true"></i>
+    <h3>Timetable</h3>
+    <p>Explore the vast timetable of <span>speeches.</span></p>
+    <div class="timetable-container">
+      <div class="timetable-timeline">
+        <div class="listing">
+          <div class="t-image-col">
+            <div class="image-circle">
+              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+            </div>
+          </div>
+          <div class="t-info">
+            <div class="t-info-top">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>2:20PM</h4>
+              <h3>How to organise great events</h3>
+            </div>
+            <div class="t-info-bottom">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint libero beatae praesentium amet. Facilis culpa, sit asperiores porro explicabo debitis tempora minima similique excepturi neque adipisci, doloribus deserunt veniam dicta.</p>
+              <h4>Maggie McCain</h4>
+            </div>
+          </div>
+        </div>
+        <div class="listing">
+          <div class="t-image-col">
+            <div class="image-circle">
+              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+            </div>
+          </div>
+          <div class="t-info">
+            <div class="t-info-top">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>2:20PM</h4>
+              <h3>How to organise great events</h3>
+            </div>
+            <div class="t-info-bottom">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint libero beatae praesentium amet. Facilis culpa, sit asperiores porro explicabo debitis tempora minima similique excepturi neque adipisci, doloribus deserunt veniam dicta.</p>
+              <h4>Maggie McCain</h4>
+            </div>
+          </div>
+        </div>
+        <div class="listing">
+          <div class="t-image-col">
+            <div class="image-circle">
+              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+            </div>
+          </div>
+          <div class="t-info">
+            <div class="t-info-top">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>2:20PM</h4>
+              <h3>How to organise great events</h3>
+            </div>
+            <div class="t-info-bottom">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint libero beatae praesentium amet. Facilis culpa, sit asperiores porro explicabo debitis tempora minima similique excepturi neque adipisci, doloribus deserunt veniam dicta.</p>
+              <h4>Maggie McCain</h4>
+            </div>
+          </div>
+        </div>
+        <div class="listing">
+          <div class="t-image-col">
+            <div class="image-circle">
+              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+            </div>
+          </div>
+          <div class="t-info">
+            <div class="t-info-top">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>2:20PM</h4>
+              <h3>How to organise great events</h3>
+            </div>
+            <div class="t-info-bottom">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint libero beatae praesentium amet. Facilis culpa, sit asperiores porro explicabo debitis tempora minima similique excepturi neque adipisci, doloribus deserunt veniam dicta.</p>
+              <h4>Maggie McCain</h4>
+            </div>
+          </div>
+        </div>
+        <div class="listing">
+          <div class="t-image-col">
+            <div class="image-circle">
+              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+            </div>
+          </div>
+          <div class="t-info">
+            <div class="t-info-top">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>2:20PM</h4>
+              <h3>How to organise great events</h3>
+            </div>
+            <div class="t-info-bottom">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint libero beatae praesentium amet. Facilis culpa, sit asperiores porro explicabo debitis tempora minima similique excepturi neque adipisci, doloribus deserunt veniam dicta.</p>
+              <h4>Maggie McCain</h4>
+            </div>
+          </div>
+        </div>
+        <div class="listing">
+          <div class="t-image-col">
+            <div class="image-circle">
+              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+            </div>
+          </div>
+          <div class="t-info">
+            <div class="t-info-top">
+              <i class="fa fa-clock-o" aria-hidden="true"></i>
+              <h4>2:20PM</h4>
+              <h3>How to organise great events</h3>
+            </div>
+            <div class="t-info-bottom">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint libero beatae praesentium amet. Facilis culpa, sit asperiores porro explicabo debitis tempora minima similique excepturi neque adipisci, doloribus deserunt veniam dicta.</p>
+              <h4>Maggie McCain</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+
+<div class="ae-modal">
+  <div class="modal-content">
+    <div class="ae-image">
+
+    </div>
+    <div class="ae-info">
+      <div class="escape-btn">
+        <p>X</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--  ////////////////////////// CALL TO ACTION ////////////////////////// -->
+
+<div class="cta">
+  <div class="container">
+    <div class="left-cta">
+      <h3><span>HURRY UP!</span> ONLY <span>42</span> SEATS CURRENTLY REMAINING</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad provident aperiam perferendis et aliquam illum necessitatibus facere nisi debitis voluptate animi distinctio repellendus eius delectus, modi laborum quidem, aspernatur ea.</p>
+    </div>
+    <div class="right-cta">
+      <a href="">
+        <button>GET MY TICKET</button>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!--  ////////////////////////// LOCATION/MAP //////////////////////////// -->
+
+<!-- <div class="location">
+  <div class="map-holder">
+    <div class="map-left">
+      <div id='map-jordan'></div>
+    </div>
+    <div class="map-right">
+      <div class="map-nav-holder">
+        <div class="map-nav" id="map-nav">
+
+        </div>
+      </div>
+      <section class="map-information active" id="event-location">
+        <h3>Location</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium doloremque reprehenderit modi libero ratione. Consectetur sit architecto sed dignissimos laudantium fuga sapiente molestias doloremque distinctio, esse, quos odio aliquam pariatur.</p>
+      </section>
+      <section class="map-information" id="route">
+        <h3>Routes</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque eius quia eum quidem provident recusandae neque ut, a soluta harum quod repellendus magni consequuntur, laboriosam eaque officia ea necessitatibus accusamus.</p>
+      </section>
+      <section class="map-information" id="parking">
+        <h3>Parking</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis aut nam, adipisci laborum amet libero. Eligendi error consectetur molestias sit vel voluptates autem officia tempore dicta, odit. Iure, maxime, ea.</p>
+      </section>
+    </div>
+  </div>
+</div> -->
+
+<!--  ////////////////////////// AFTER EVENTS //////////////////////////// -->
+
+<div class="after-events" id="default">
+  <!-- <div class="container">
+    <p>After Events</p>
+    <div class="event-holder">
+      <div class="event" id="attica">
+        <div class="title-holder">
+          <h4>Dinner @ Attica</h4>
+        </div>
+        <img src="/images/events/attica-front.jpg" alt="">
+      </div>
+      <div class="event" id="crown">
+        <div class="title-holder">
+          <h4>Dinner @ Crown</h4>
+        </div>
+        <img src="/images/events/crown_hest.jpg" alt="">
+      </div>
+      <div class="event" id="bond">
+        <div class="title-holder">
+          <h4>Party @ Bond</h4>
+        </div>
+        <img src="/images/events/bond3.jpg" alt="">
+      </div>
+      <div class="event" id="grilld">
+        <div class="title-holder">
+          <h4>Burgers @ Grill'd</h4>
+        </div>
+        <img src="http://roweshopfitters.com.au/wp-content/uploads/2013/12/grilld-2.jpg" alt="">
+      </div>
+    </div>
+  </div> -->
+  <div class="container">
+    <p class ="font-ae" >After Events</p>
+    <!-- PUT AFTER EVENT PARTIAL HERE -->
+  </div>
+</div>
+
+<!--  ////////////////////////// SPONSORS //////////////////////////////// -->
 
 <div class="sponsors">
-  <p>Sponsors</p>
-  <%= render "partials/sponsors" %>
+  <div class="container">
+    <p>Sponsors</p>
+    <div class="sponsor-slider">
+      <div class="logo-holder">
+        <img src="/sponsors/google-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/github-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/slack-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/envato-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/zendesk-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/dropbox-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/ga-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/trello-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/tesla-logo.png" alt="">
+      </div>
+      <div class="logo-holder">
+        <img src="/sponsors/stripe-logo.png" alt="">
+      </div>
+    </div>
+  </div>
 </div>
+
+<!--  ////////////////////////// FOOTER ////////////////////////////////// -->
 
 <footer>
   <div class="container">
     <div class="info">
-
+      <div class="info-box">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <p>12A/45 William Street Melbourne, Victoria</p>
+      </div>
+      <div class="info-box">
+        <i class="fa fa-mobile" aria-hidden="true"></i>
+        <p>(03) 8592 7303</p>
+      </div>
+      <div class="info-box">
+        <i class="fa fa-envelope" aria-hidden="true"></i>
+        <p>melbourne@ga.co</p>
+      </div>
     </div>
     <div class="disclaimer">
       <div class="left50">
@@ -73,7 +388,9 @@
   </div>
 </footer>
 
-<div class="style-guide">
+<!--  ////////////////////////// STYLE GUIDE ///////////////////////////// -->
+
+<!-- <div class="style-guide">
   <h1>Lorem Ipsum</h1>
   <h2>Lorem Ipsum</h2>
   <h3>Lorem Ipsum</h3>
@@ -91,10 +408,20 @@
 
 
   <p>Style Guide</p>
-</div>
+</div> -->
 
 <%= render "partials/quiz" %>
 
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
 <script
 src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js"></script>
@@ -105,5 +432,45 @@ src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js">
   iframeMute = $('.video-foreground')
   iframeMute.muted = true;
 
+  // Map Container, same height as information div
+  $(".map-left").css("height", $(".map-right").height());
+
+  // Map / Map Nav becomes fixed for period during scroll
+  var mapSticky = document.getElementById('map-jordan');
+  var mapNavSticky = document.getElementById('map-nav');
+  Stickyfill.add(mapSticky);
+  Stickyfill.add(mapNavSticky);
 
 </script>
+
+<script>
+
+  $(document).ready(function(){
+    $('.sponsor-slider').slick({
+      infinite: true,
+      slidesToShow: 5,
+      slidesToScroll: 3,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      arrows: false,
+      speed: 1000
+    });
+  });
+
+</script>
+
+
+
+<!-- MAP SCRIPT -->
+
+<!-- <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.js'></script>
+
+ <script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'></script>
+
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.23.0/mapbox-gl.css' rel='stylesheet' />
+
+ <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.js'></script>
+
+ <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
+
+<script src="map_index.js"></script> -->

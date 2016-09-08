@@ -9,7 +9,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
 
+    <script src="https://cdn.auth0.com/js/lock/10.0/lock.min.js"></script>
   </head>
 
   <body>
@@ -36,11 +38,8 @@
         </div>
         <div class="nav-item" id="location">
           <i class="fa fa-location-arrow" aria-hidden="true"></i>
-
           <!-- <p>Location / Map</p> -->
-
           <p><a id = "link-to-map" href="/map">Location / Map</a></p>
-
         </div>
         <div class="nav-item" id="after-events">
           <i class="fa fa-calendar" aria-hidden="true"></i>
@@ -69,16 +68,23 @@
 
           <%if session[:userinfo] %>
             <img id ="user-photo" src="<%= session[:userinfo]['image_url'] %> " alt="user_avatar">
-            <p>Welcome, <%=session[:userinfo]['name'] %></p>
-          <% else %>
-            <i class="fa fa-circle-thin" aria-hidden="true"></i>
-            <p>Welcome back, User</p>
+            <!-- <p>Welcome, <%=session[:userinfo]['name'] %></p> -->
           <% end %>
         </div>
-        <div class="nav-item">
-          <i class="fa fa-user" aria-hidden="true"></i>
-          <p onclick="lock.show();">Your Account</p>
-        </div>
+        <% if session[:userinfo] %>
+          <div class="nav-item">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p onclick="lock.show();">Your Account</p>
+            <a href="/logout">
+              <p>Welcome, <%=session[:userinfo]['name'] %></p>
+            </a>
+          </div>
+        <% else %>
+          <div class="nav-item">
+            <i class="fa fa-user" aria-hidden="true"></i>
+            <p onclick="lock.show();">Login / Signup</p>
+          </div>
+        <% end %>
       </div>
 
     </nav>
