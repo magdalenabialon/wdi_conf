@@ -52,8 +52,8 @@ q1 = Quiz.create({prompt: 'Please correct the below code',
 
 q2 = Quiz.create({prompt: "Write code to output the string 'hello' to the console using Javascript",
                   problem: "",
-                  answer1: "console.log('hello')",
-                  answer2: 'console.log("hello")'});
+                  answer1: "console.log('hello');",
+                  answer2: 'console.log("hello");'});
 
 q3 = Quiz.create({prompt: "Fix the code below to write the string array to the console.",
                   problem: "function outputStringArray(arrayOfStrings) { -n  for (index = 0; index < arrayOfStrings.length; ) {-n console.log(arrayOfStrings[]);-n}-n}",
@@ -62,8 +62,8 @@ q3 = Quiz.create({prompt: "Fix the code below to write the string array to the c
 
 q4 = Quiz.create({prompt: "Write code in JQuery to hide all elements with a class of 'test'",
                   problem: "",
-                  answer1: "$('.test').hide()",
-                  answer2: '$(".test").hide()'});
+                  answer1: "$('.test').hide();",
+                  answer2: '$(".test").hide();'});
 
 q5 = Quiz.create({prompt: "Write a JQuery selector to select list items that are in unordered lists",
                   problem: "",
