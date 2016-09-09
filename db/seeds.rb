@@ -2,6 +2,8 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
 # Examples:
+Seat.destroy_all
+Booking.destroy_all
 Attendance.destroy_all
 Afterevent.destroy_all
 Quiz.destroy_all
