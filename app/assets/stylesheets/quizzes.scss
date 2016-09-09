@@ -40,7 +40,7 @@
 // }
 
 #submitQuizButton {
-  font-size: 0.5em;
+  font-size: 1em;
   border-radius: 10px;
   background-color: black;
   color: white;
@@ -53,22 +53,28 @@
 #instructionLabelHeader {
   left: 30px;
   position: absolute;
-  top: -25px;
-  line-height: 0.5em;
-  padding-right: 40px;
+  top: 3%;
+  line-height: 1.5em;
+  // color: white;
 }
 
 #quizResult {
-  font-size: 0.6em;
+  font-size: 0.8em;
   text-align: center;
   padding-top: 12px;
-  color: black;
+  color: white;
+}
+
+.quizSection {
+  margin-top: 5%;
+
 }
 
 #instructionLabel {
-  font-size: 0.45em;
+  font-size: 1em;
   margin: 0 auto;
-  color: black;
+  color: white;
+  width:100%;
 }
 
 #editor {
@@ -92,29 +98,33 @@
 }
 
 .quizmodal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.9);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: black; /* For browsers that do not support gradients */
+  background: -webkit-radial-gradient(#424143, #1E1E1F, black); /* Safari 5.1 to 6.0 */
+  background: -o-radial-gradient(#424143, #1E1E1F, black); /* For Opera 11.6 to 12.0 */
+  background: -moz-radial-gradient(#424143, #1E1E1F, black); /* For Firefox 3.6 to 15 */
+  background: radial-gradient(#424143, #1E1E1F, black); /* Standard syntax */
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
 }
 
 .quizmodal-info {
-    border-radius: 10px;
-    width: 500px;
-    height: 450px;
-    background-color: #f3f3f3;
+  border-radius: 10px;
+  width: 500px;
+  height: 450px;
+  position: relative;
 }
 
 .close-modal {
-  background-color: rgb(230, 230, 230);
+  opacity: .5;
+  color: white;
   width: 45px;
-  // height: 45px;
   float: right;
   margin: 0;
   padding: 0;
