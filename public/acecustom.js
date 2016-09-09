@@ -17,10 +17,19 @@ var questionsPassed = 0;
 
 $(function(){
 
+
   $('#booking').click(function(){
+
+    if ( $( "#user-photo" ).length ) {
+
+
+
     $('.quizmodal-overlay').css('display', 'flex');
     console.log('calling run intro');
     runIntro();
+  }
+
+
   });
 
   $('.close-modal').click(function(){
