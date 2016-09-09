@@ -24,10 +24,20 @@ THE SOFTWARE.
 var $form = $('#payment-form');
 $form.find('.subscribe').on('click', payWithStripe);
 
+
+
+
 /* If you're using Stripe for payments */
 function payWithStripe(e) {
   console.log('payWithStripe start');
     e.preventDefault();
+
+
+    //check they have selected at least one seat.
+    if ($('.seats-list-string').val() == "") {
+      alert('Please select at least one seat.');
+      return;
+    }
 
     /* Abort if invalid form data */
     if (!validator.form()) {
@@ -68,21 +78,26 @@ function payWithStripe(e) {
             console.log(response.id);
             console.log(response.card);
             var token = response.id;
-            var seats = $('.seats-list-string').val();
+            var seats =   $('.seats-list-string').val();
+            var user_id = $('#user_id').val()
+            var amount =  $('#paymentAmount').val();
             // AJAX - you would send 'token' to your server here.
             $.post('/bookings', {
                     token: token,
-                    user_id: 15,
-                    amount: 300,
+                    user_id: user_id,
+                    amount: amount,
                     seats: seats
                 })
                 // Assign handlers immediately after making the request,
                 .done(function(data, textStatus, jqXHR) {
                     if (jqXHR.responseJSON.success) {
+                      $('#summaryContentStripe').show();
+                      $('#summaryVal').text(jqXHR.responseJSON.charge.balance_transaction);
+
                       $form.find('.subscribe').html('Payment successful <i class="fa fa-check"></i>');
                     }
                     else {
-
+                      $('.summaryContentStripe').hide();
                       $form.find('.subscribe').html('There was a problem').removeClass('success').addClass('error');
                       /* Show Stripe errors on the form */
                       $form.find('.payment-errors').text(jqXHR.responseJSON.errorText.error.message);

@@ -49,24 +49,28 @@
 
   <div class="summaryDivs">
     <div id="summaryContent">
-        <div id="summaryBodyTicketQty" class="summaryNav">Event : </div>
-        <div id="summaryBodyTicketPrice" class="summaryBody">GA WDI Conference</div>
+        <div id="" class="summaryNav">Event: </div>
+        <div id="" class="summaryBody">GA WDI Conference</div>
     </div>
     <div id="summaryContent">
-        <div id="summaryBodyTicketQty" class="summaryNav">Date: </div>
-        <div id="summaryBodyTicketPrice" class="summaryBody">27 Feb 2017</div>
+        <div id="" class="summaryNav">Date: </div>
+        <div id="" class="summaryBody">27 Feb 2017</div>
     </div>
     <div id="summaryContent">
-        <div id="summaryBodyTicketQty" class="summaryNav">Name: </div>
-        <div id="summaryBodyTicketPrice" class="summaryBody">Dean Cooper</div>
-      </div>
-    <div id="summaryContent">
-        <div id="summaryBodyTicketQty" class="summaryNav">Booking Name: </div>
-        <div id="summaryBodyTicketPrice" class="summaryBody">Dean Cooper</div>
+        <div id="" class="summaryNav">Booking Name: </div>
+        <div id="" class="summaryBody"><%= session[:userinfo]['name'] %></div>
     </div>
     <div id="summaryContent">
-        <div id="summaryBodyTicketQty" class="summaryNav">Booking Email: </div>
-        <div id="summaryBodyTicketPrice" class="summaryBody">dean@ga.com</div>
+        <div id="" class="summaryNav">Booking Email: </div>
+        <% if session[:userinfo]['email']  == "" %>
+            <div id="" class="summaryBody">dean@hotmail.com</div>
+        <% else %>
+            <div id="" class="summaryBody"><%= session[:userinfo]['email'] %></div>
+        <%end%>
+    </div>
+    <div id="summaryContentStripe">
+        <div class="summaryNav">Confirmation: </div>
+        <div id="summaryVal" class="summaryBody"></div>
     </div>
   </div>
 
@@ -169,6 +173,7 @@
 
 <script type="text/javascript">
   Stripe.setPublishableKey('pk_test_yojSr1TOZyi7eMOOwCox9qhA');
+    $('#summaryContentStripe').hide();
 </script>
 
 
