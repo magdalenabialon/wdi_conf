@@ -38,10 +38,11 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 
 body {
-  background-color: white;
+  background-color: black;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -83,6 +84,7 @@ h5 {
 
 p {
   font-family: $sans-serif;
+  line-height: 1.5em;
 
 }
 
@@ -333,13 +335,13 @@ footer {
 
   p {
     text-align: justify;
+    color: #abaaaa;
   }
 
 }
 
 .speakers {
   background-color: #323336;
-  color: #e2e2e2;
   padding-top: 80px;
   padding-bottom: 80px;
   padding: 80px auto 80px auto;
@@ -366,6 +368,7 @@ footer {
     margin: 0 auto;
     overflow: hidden;
     border-radius: 100%;
+    border: 3px solid #73fbd3;
   }
 
   img {
@@ -374,19 +377,20 @@ footer {
   }
 
   h4 {
-    color: #73fbd3;
+    // color: #73fbd3;
+    color: white;
     font-size: 1.3em;
     margin-bottom: 15px;
   }
 
   p {
-    color: #767676;
+    color: #abaaaa;
+    line-height: 1.5em;
   }
 
 }
 
 .timetable {
-  // background-color: #323336;
   background: $pattern;
   padding-top: 150px;
   padding-bottom: 150px;
@@ -414,7 +418,7 @@ footer {
     // height: 1501px;
     position: relative;
     overflow: auto;
-
+    background-color: rgba(#ffffff, 0.03);
   }
 
   .timetable-timeline {
@@ -547,6 +551,10 @@ footer {
       padding-top: 0;
       margin-top: 0;
       color: white;
+    }
+
+    p {
+      color: #abaaaa;
     }
   }
 
@@ -901,7 +909,7 @@ footer {
   text-align: center;
 
   .container {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.3);
     padding: 30px;
   }
 
@@ -934,11 +942,9 @@ footer {
   // }
 
   .logo-holder {
-    // background-color: red;
     margin: 15px;
-    // height: 100px;
+    // height: 90px;
     padding: 10px;
-    vertical-align: top;
 
     .color {
       display: none;
