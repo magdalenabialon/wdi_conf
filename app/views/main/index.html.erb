@@ -30,13 +30,11 @@
     </div>
     <div class="nav-item" id="booking">
       <i class="fa fa-ticket" aria-hidden="true"></i>
-
       <% if !session[:userinfo] %>
         <p onclick="lock.show();">Booking</p>
       <% else %>
         <p>Booking</p>
       <% end %>
-
     </div>
     <div class="nav-item" id="sponsors">
       <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
@@ -51,13 +49,12 @@
 
       <%if session[:userinfo] %>
         <img id ="user-photo" src="<%= session[:userinfo]['image_url'] %> " alt="user_avatar">
-        <!-- <p>Welcome, <%=session[:userinfo]['name'] %></p> -->
       <% end %>
     </div>
     <% if session[:userinfo] %>
       <div class="nav-item">
         <i class="fa fa-user" aria-hidden="true"></i>
-        <p onclick="lock.show();">Your Account</p>
+        <!-- <p onclick="lock.show();">Your Account</p> -->
         <a href="/logout">
           <p>Welcome, <%=session[:userinfo]['name'] %></p>
         </a>
@@ -334,52 +331,62 @@
     <div class="sponsor-slider">
       <div class="logo-holder">
         <a href="https://www.google.com.au">
-          <img src="/sponsors/google-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0009_Google.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0009_Google.png" class="no-color">
         </a>
       </div>
       <div class="logo-holder">
         <a href="https://github.com/">
-          <img src="/sponsors/github-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0008_Github.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0008_Github.png" class="no-color">
         </a>
       </div>
       <div class="logo-holder">
         <a href="https://slack.com/">
-          <img src="/sponsors/slack-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0007_Slack.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0007_Slack.png" class="no-color">
         </a>
       </div>
       <div class="logo-holder">
         <a href="https://envato.com/">
-          <img src="/sponsors/envato-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0006_Envato.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0006_Envato.png" class="no-color">
         </a>
       </div>
       <div class="logo-holder">
         <a href="https://www.zendesk.com/">
-          <img src="/sponsors/zendesk-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0005_Zendesk.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0005_Zendesk.png" class="no-color">
         </a>
       </div>
       <div class="logo-holder">
         <a href="https://www.dropbox.com/">
-          <img src="/sponsors/dropbox-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0003_Dropbox.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0003_Dropbox.png" class="no-color">
         </a>
       </div>
       <div class="logo-holder">
         <a href="https://generalassemb.ly/">
-          <img src="/sponsors/ga-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0004_GA.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0004_GA.png" class="no-color">
         </a>
       </div>
       <div class="logo-holder">
         <a href="https://trello.com/">
-          <img src="/sponsors/trello-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0002_Trello.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0002_Trello.png" class="no-color">
         </a>
       </div>
       <div class="logo-holder">
         <a href="https://www.tesla.com/">
-          <img src="/sponsors/tesla-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0001_Tesla.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0001_Tesla.png" class="no-color">
         </a>
       </div>
       <div class="logo-holder">
         <a href="https://stripe.com/au">
-          <img src="/sponsors/stripe-logo.png" alt="">
+          <img src="/sponsors/Logos_color_0000_Stripe.png" class="color">
+          <img src="/sponsors/Grey Versions/logo_grey_0000_Stripe.png" class="no-color">
         </a>
       </div>
     </div>
@@ -532,9 +539,11 @@ src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js">
     var elemToHide = clickedTimetableElem.closest( $('.t-info') ).find( $('.t-info-bottom') );
 
     if ( elemToHide.hasClass('t-closed') ) {
+      // elemToHide.show(800);
       elemToHide.removeClass('t-closed');
       elemToHide.addClass('t-open');
     } else {
+      // elemToHide.hide(800);
       elemToHide.removeClass('t-open');
       elemToHide.addClass('t-closed');
     }
