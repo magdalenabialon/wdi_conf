@@ -78,7 +78,7 @@
 
       var lock = new Auth0Lock("<%=Rails.application.secrets.auth_o_clientid%>", 'maggiemccain.au.auth0.com', {
         auth: {
-          redirectUrl: 'http://localhost:3000/auth/auth0/callback',
+          redirectUrl: 'https://wdiconfhtml5s.herokuapp.com/auth/auth0/callback',
           responseType: 'code',
           params: {
             scope: 'openid email'
