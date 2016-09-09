@@ -28,26 +28,30 @@ h4.pageHeader {
 
 </style>
 
-<div class="home-button">
-  <a href="/">
-    <i class="fa fa-home" aria-hidden="true"></i>
-  </a>
-</div>
+<div class="wrapper" id="wrapper-noM">
 
-<div class="bookingMainDiv">
+  <div class="home-button">
+    <a href="/">
+      <i class="fa fa-home" aria-hidden="true"></i>
+    </a>
+  </div>
 
-<h4 class="pageHeader">Seat Selection</h4>
-<%= render "partials/seatselection" %>
+  <div class="bookingMainDiv">
 
-<div class="orders-bar"></div>
+  <h4 class="pageHeader">Seat Selection</h4>
+  <%= render "partials/seatselection" %>
 
-<%= render "partials/booking" %>
+  <div class="orders-bar"></div>
 
-<input type="hidden" name="seats_list" value="" class="seats-list">
-<input type="hidden" name="seats_list_string" value="" class="seats-list-string">
-<input type="hidden" id="user_id" name="user_id" value="<%= session[:userinfo]['id'] %>" class="">
-<input type="hidden" id="username" name="username" value="<%= session[:userinfo]['name'] %>" class="">
-<input type="hidden" id="useremail" name="useremail" value="<%= session[:userinfo]['email'] %>" class="">
-<input type="hidden" id="paymentAmount">
+  <%= render "partials/booking" %>
+
+  <input type="hidden" name="seats_list" value="" class="seats-list">
+  <input type="hidden" name="seats_list_string" value="" class="seats-list-string">
+  <input type="hidden" id="user_id" name="user_id" value="<%= session[:userinfo]['id'] %>" class="">
+  <input type="hidden" id="username" name="username" value="<%= session[:userinfo]['name'] %>" class="">
+  <input type="hidden" id="useremail" name="useremail" value="<%= session[:userinfo]['email'] %>" class="">
+  <input type="hidden" id="paymentAmount">
+
+  </div>
 
 </div>
