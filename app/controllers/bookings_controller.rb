@@ -18,11 +18,15 @@ class BookingsController < ApplicationController
     seats = params[:seats]
     seats.slice!(0)
 
-
+    # If we reseed we need to log out and change the user id
+     u = User.find_by(id: user_id)
+     if u == nil
+       user_id = User.first.id
+     end
     # Create a charge: this will charge the user's card
     begin
       charge = Stripe::Charge.create(
-        :amount => 89900, # Amount in cents
+        :amount => amount, # Amount in cents
         :currency => "aud",
         :source => token,
         :description => "WDI Conference"
@@ -36,10 +40,8 @@ class BookingsController < ApplicationController
     booking.user_id = user_id
     booking.save
     seatArray = seats.split("-")
-    # puts seatArray
 
     seatArray.each do |seat|
-        puts seat
         newSeat = Seat.new
         newSeat.user_id = user_id
         newSeat.seatNumber = seat
