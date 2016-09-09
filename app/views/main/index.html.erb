@@ -1,8 +1,80 @@
+<!-- ///////NAV BAR///////// -->
+<nav>
 
+  <div class="nav-top">
+
+    <div class="nav-item" id="hero">
+      <i class="fa fa-home" aria-hidden="true"></i>
+      <p>Home</p>
+    </div>
+    <div class="nav-item" id="about">
+      <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+      <p>About</p>
+    </div>
+    <div class="nav-item" id="speakers">
+      <i class="fa fa-users" aria-hidden="true"></i>
+      <p>Speakers</p>
+    </div>
+    <div class="nav-item" id="timetable">
+      <i class="fa fa-clock-o" aria-hidden="true"></i>
+      <p>Timetable</p>
+    </div>
+    <div class="nav-item" id="location">
+      <i class="fa fa-location-arrow" aria-hidden="true"></i>
+      <!-- <p>Location / Map</p> -->
+      <p><a id = "link-to-map" href="/map">Location / Map</a></p>
+    </div>
+    <div class="nav-item" id="after-events">
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+      <p>After Events</p>
+    </div>
+    <div class="nav-item" id="booking">
+      <i class="fa fa-ticket" aria-hidden="true"></i>
+
+      <% if !session[:userinfo] %>
+        <p onclick="lock.show();">Booking</p>
+      <% else %>
+        <p>Booking</p>
+      <% end %>
+
+    </div>
+    <div class="nav-item" id="sponsors">
+      <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
+      <p>Sponsors</p>
+    </div>
+
+  </div>
+
+  <div class="nav-bottom">
+
+    <div class="nav-item no-hover" id="loggedin">
+
+      <%if session[:userinfo] %>
+        <img id ="user-photo" src="<%= session[:userinfo]['image_url'] %> " alt="user_avatar">
+        <!-- <p>Welcome, <%=session[:userinfo]['name'] %></p> -->
+      <% end %>
+    </div>
+    <% if session[:userinfo] %>
+      <div class="nav-item">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <p onclick="lock.show();">Your Account</p>
+        <a href="/logout">
+          <p>Welcome, <%=session[:userinfo]['name'] %></p>
+        </a>
+      </div>
+    <% else %>
+      <div class="nav-item">
+        <i class="fa fa-user" aria-hidden="true"></i>
+        <p onclick="lock.show();">Login / Signup</p>
+      </div>
+    <% end %>
+  </div>
+
+</nav>
 
 <!--  ////////////////////////// HEADER ////////////////////////////////// -->
 
-<div class="video-background">
+<div class="video-background hero">
 
   <div class="video-foreground">
       <iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ?modestbranding=1" allowfullscreen>
@@ -96,6 +168,22 @@
   </div>
 </div>
 
+<!--  ////////////////////////// CALL TO ACTION ////////////////////////// -->
+
+<div class="cta">
+  <div class="container">
+    <div class="left-cta">
+      <h3><span>HURRY UP!</span> ONLY <span>42</span> SEATS CURRENTLY REMAINING</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad provident aperiam perferendis et aliquam illum necessitatibus facere nisi debitis voluptate animi distinctio repellendus eius delectus, modi laborum quidem, aspernatur ea.</p>
+    </div>
+    <div class="right-cta">
+      <a href="">
+        <button>GET MY TICKET</button>
+      </a>
+    </div>
+  </div>
+</div>
+
 <!--  ////////////////////////// TIMETABLE /////////////////////////////// -->
 
 <div class="timetable" id="default">
@@ -116,8 +204,9 @@
               <i class="fa fa-clock-o" aria-hidden="true"></i>
               <h4>Saturday, 9am AEST</h4>
               <h3>Welcome and Introduction</h3>
+              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
             </div>
-            <div class="t-info-bottom">
+            <div class="t-info-bottom t-closed">
               <p>We welcome you to the 5th Annual WDIConf.  We'll give you an overview of the conference, logistics, and some motivational nuggets of knowledge to kick off a fun, inspiring weekend of learning and connecting with your peers.</p>
               <h4>Maggie McCain</h4>
             </div>
@@ -134,8 +223,9 @@
               <i class="fa fa-clock-o" aria-hidden="true"></i>
               <h4>Saturday, 11am AEST</h4>
               <h3>Achieving Maximum Efficiency with Agile</h3>
+              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
             </div>
-            <div class="t-info-bottom">
+            <div class="t-info-bottom t-closed">
               <p>The Ultimate Scrum Master gives us a crash course in optimizing efficiency for your team by implementing Agile methodologies in your organization.  Learn how to free your team of the sequential waterfall development by improving your workflow and team reaction to unpredictability in the workplace.</p>
               <h4>Denis Ng</h4>
             </div>
@@ -152,8 +242,9 @@
               <i class="fa fa-clock-o" aria-hidden="true"></i>
               <h4>Saturday, 1:30pm AEST</h4>
               <h3>Getting SASSy</h3>
+              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
             </div>
-            <div class="t-info-bottom">
+            <div class="t-info-bottom t-closed">
               <p>Jordan is a SASS wizard who will give us a deep dive into all the features SASS offers to make your styling that much easier.</p>
               <h4>Jordan Etzler</h4>
             </div>
@@ -170,8 +261,9 @@
               <i class="fa fa-clock-o" aria-hidden="true"></i>
               <h4>Saturday, 3:00pm AEST</h4>
               <h3>Node-torious B.I.G</h3>
+              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
             </div>
-            <div class="t-info-bottom">
+            <div class="t-info-bottom t-closed">
               <p>Dean will be teaching Javascript newbies how to use the language beyond the browser with nodeJS, as an alternative to Sinatra and Rails.</p>
               <h4>Dean Cooper</h4>
             </div>
@@ -188,8 +280,9 @@
               <i class="fa fa-clock-o" aria-hidden="true"></i>
               <h4>Sunday, 9am AEST</h4>
               <h3>Harnassing the Full Power of Your API</h3>
+              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
             </div>
-            <div class="t-info-bottom">
+            <div class="t-info-bottom t-closed">
               <p>This session focuses on the highest performing, most reliable API's.  Magda walks us through how to cut through the noise, to serve users the most relevant data from third party API's.</p>
               <h4>Magda Bialon</h4>
             </div>
@@ -206,8 +299,9 @@
               <i class="fa fa-clock-o" aria-hidden="true"></i>
               <h4>Sunday, 1:30pm AEST</h4>
               <h3>What a-Bot it?</h3>
+              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
             </div>
-            <div class="t-info-bottom">
+            <div class="t-info-bottom t-closed">
               <p>Ever wondered how to better organize team communications and queues?  There's a bot for that.</p>
               <h4>Harry Aydin</h4>
             </div>
@@ -232,7 +326,6 @@
 </div>
 
 
-
 <!--  ////////////////////////// CALL TO ACTION ////////////////////////// -->
 
 <div class="cta">
@@ -244,30 +337,19 @@
     <div class="right-cta">
       <a href="">
         <button>GET MY TICKET</button>
+
       </a>
     </div>
   </div>
 </div>
 
-
 <!--  ////////////////////////// LOCATION/MAP //////////////////////////// -->
 
-<a href="/map">
+<!-- <a href="/map">
   <div class="loc">
     <p>Location / Map </p>
   </div>
-</a>
-
-<!--  ////////////////////////// AFTER EVENTS //////////////////////////// -->
-
-<div class="after-events" id="default">
-
-  <div class="container">
-    <p class ="font-ae" >After Events</p>
-      <%= render "partials/after_events" %>
-  </div>
-
-</div>
+</a> -->
 
 <!--  ////////////////////////// SPONSORS //////////////////////////////// -->
 
@@ -307,6 +389,19 @@
       </div>
     </div>
   </div>
+</div>
+
+<!--  ////////////////////////// AFTER EVENTS //////////////////////////// -->
+
+<div class="after-events" id="default">
+
+  <div class="container">
+    <p class ="font-ae" >After Events</p>
+    <div>
+      <%= render "partials/after_events" %>
+    </div>
+  </div>
+
 </div>
 
 <!--  ////////////////////////// FOOTER ////////////////////////////////// -->
@@ -427,3 +522,21 @@ src="https://cdnjs.cloudflare.com/ajax/libs/stickyfill/1.1.4/stickyfill.min.js">
  <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v2.2.0/mapbox-gl-directions.css' type='text/css' />
 
 <script src="map_index.js"></script> -->
+
+<script>
+
+  $('.timetable-speaker-open').on('click', function(event) {
+    var clickedTimetableElem = $(event.target);
+    var elemToHide = clickedTimetableElem.closest( $('.t-info') ).find( $('.t-info-bottom') );
+
+    if ( elemToHide.hasClass('t-closed') ) {
+      elemToHide.removeClass('t-closed');
+      elemToHide.addClass('t-open');
+    } else {
+      elemToHide.removeClass('t-open');
+      elemToHide.addClass('t-closed');
+    }
+
+  })
+
+</script>

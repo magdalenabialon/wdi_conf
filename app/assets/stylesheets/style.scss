@@ -57,35 +57,43 @@ body {
 }
 
 h1 {
+  font-family: $serif;
 
 }
 
 h2 {
+  font-family: $serif;
 
 }
 
 h3 {
+  font-family: $serif;
 
 }
 
 h4 {
+  font-family: $serif;
 
 }
 
 h5 {
+  font-family: $serif;
 
 }
 
 p {
+  font-family: $sans-serif;
 
 }
 
 a {
   text-decoration: none;
+  font-family: $sans-serif;
+
 }
 
 button {
-
+  font-family: $sans-serif;
 }
 
 
@@ -276,7 +284,7 @@ footer {
 .container {
   max-width: 1100px;
   margin: 0px auto 0px auto;
-  background-color: rgba(0, 0, 0, 0.1);
+  // background-color: rgba(0, 0, 0, 0.1);
 }
 
 
@@ -316,7 +324,8 @@ footer {
 }
 
 .speakers {
-  background-color: white;
+  background-color: #323336;
+  color: #e2e2e2;
   padding-top: 80px;
   padding-bottom: 80px;
   padding: 80px auto 80px auto;
@@ -344,16 +353,34 @@ footer {
     // display: none;
   }
 
+  h4 {
+    color: #73fbd3;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: #767676;
+  }
+
 }
 
 .timetable {
-  background-color: plum;
-  padding-top: 80px;
-  padding-bottom: 80px;
+  background-color: #323336;
+  padding-top: 150px;
+  padding-bottom: 150px;
   padding: 50px 80px 50px 80px;
+  color: rgb(226, 226, 226);
+
+  .container {
+    background-color: inherit;
+    margin-top: 75px;
+    margin-bottom: 75px;
+
+  }
 
   .timetable-container {
-    border: 1px solid grey;
+    border: 2px solid #414345;
     // height: 1501px;
     position: relative;
     overflow: auto;
@@ -361,7 +388,7 @@ footer {
   }
 
   .timetable-timeline {
-    border-left: 1px solid grey;
+    border-left: 2px solid #414345;
     width: 90%;
     float: right;
     // position: absolute;
@@ -376,7 +403,7 @@ footer {
     width: 100%;
     height: 100%;
     // background-color: red;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     margin-top: 10px;
 
 
@@ -386,8 +413,8 @@ footer {
       height: 100px;
 
       .image-circle {
-        width: 50px;
-        height: 50px;
+        width: 65px;
+        height: 65px;
         border: 2px solid #73fbd3;
         border-radius: 100%;
         overflow: hidden;
@@ -408,6 +435,7 @@ footer {
       // background-color: red;
       // padding: 40px;
       padding-top: 0px;
+      padding-left: 50px;
 
       i {
         display: inline-block;
@@ -418,6 +446,7 @@ footer {
       h4 {
         display: inline-block;
         color: #73fbd3;
+        margin-bottom: 10px;
 
       }
 
@@ -428,12 +457,41 @@ footer {
       }
 
       .t-info-bottom {
-        border-top: 1px solid black;
+        // border-top: 1px solid black;
 
         p {
           margin-top: 20px;
+          color: rgb(157, 153, 153);
+
         }
 
+      }
+
+      .t-info-top {
+        position: relative;
+        border-bottom: 2px solid #414345;
+
+      }
+
+      .timetable-speaker-open {
+        font-size: 2em;
+        color: #73fbd3;
+        position: absolute;
+        right: 20px;
+        bottom: 10px;
+        transition: 1s;
+        cursor: pointer;
+      }
+
+      .t-open {
+        height: auto;
+        display: block;
+      }
+
+      .t-closed {
+        height: 0px;
+        background-color: red;
+        display: none;
       }
 
     }
@@ -926,4 +984,25 @@ footer {
     height: 25px;
   }
 
+}
+
+.home-button i {
+  font-size: 1.4em;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 40px 10px 40px;
+  border: 1px solid white;
+  border-radius: 7px;
+  transition: 0.5s;
+  color: white;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 100;
+
+}
+
+.home-button i:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
 }
