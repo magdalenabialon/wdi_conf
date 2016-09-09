@@ -1,475 +1,477 @@
-<!-- ///////NAV BAR///////// -->
-<nav>
+<div class="wrapper">
 
-  <div class="nav-top">
+  <!-- ///////NAV BAR///////// -->
+  <nav>
 
-    <div class="nav-item" id="hero">
-      <i class="fa fa-home" aria-hidden="true"></i>
-      <p>Home</p>
+    <div class="nav-top">
+
+      <div class="nav-item" id="hero">
+        <i class="fa fa-home" aria-hidden="true"></i>
+        <p>Home</p>
+      </div>
+      <div class="nav-item" id="about">
+        <i class="fa fa-newspaper-o" aria-hidden="true"></i>
+        <p>About</p>
+      </div>
+      <div class="nav-item" id="speakers">
+        <i class="fa fa-users" aria-hidden="true"></i>
+        <p>Speakers</p>
+      </div>
+      <div class="nav-item" id="timetable">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <p>Timetable</p>
+      </div>
+      <div class="nav-item" id="location">
+        <i class="fa fa-location-arrow" aria-hidden="true"></i>
+        <!-- <p>Location / Map</p> -->
+        <p><a id = "link-to-map" href="/map">Location / Map</a></p>
+      </div>
+      <div class="nav-item" id="after-events">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+        <p>After Events</p>
+      </div>
+      <div class="nav-item" id="booking">
+        <i class="fa fa-ticket" aria-hidden="true"></i>
+        <% if !session[:userinfo] %>
+          <p onclick="lock.show();">Booking</p>
+        <% else %>
+          <p>Booking</p>
+        <% end %>
+      </div>
+      <div class="nav-item" id="sponsors">
+        <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
+        <p>Sponsors</p>
+      </div>
+
     </div>
-    <div class="nav-item" id="about">
-      <i class="fa fa-newspaper-o" aria-hidden="true"></i>
-      <p>About</p>
-    </div>
-    <div class="nav-item" id="speakers">
-      <i class="fa fa-users" aria-hidden="true"></i>
-      <p>Speakers</p>
-    </div>
-    <div class="nav-item" id="timetable">
-      <i class="fa fa-clock-o" aria-hidden="true"></i>
-      <p>Timetable</p>
-    </div>
-    <div class="nav-item" id="location">
-      <i class="fa fa-location-arrow" aria-hidden="true"></i>
-      <!-- <p>Location / Map</p> -->
-      <p><a id = "link-to-map" href="/map">Location / Map</a></p>
-    </div>
-    <div class="nav-item" id="after-events">
-      <i class="fa fa-calendar" aria-hidden="true"></i>
-      <p>After Events</p>
-    </div>
-    <div class="nav-item" id="booking">
-      <i class="fa fa-ticket" aria-hidden="true"></i>
-      <% if !session[:userinfo] %>
-        <p onclick="lock.show();">Booking</p>
+
+    <div class="nav-bottom">
+
+      <div class="nav-item no-hover" id="loggedin">
+
+        <%if session[:userinfo] %>
+          <img id ="user-photo" src="<%= session[:userinfo]['image_url'] %> " alt="user_avatar">
+        <% end %>
+      </div>
+      <% if session[:userinfo] %>
+        <div class="nav-item">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <!-- <p onclick="lock.show();">Your Account</p> -->
+          <a href="/logout">
+            <p>Welcome, <%=session[:userinfo]['name'] %></p>
+          </a>
+        </div>
       <% else %>
-        <p>Booking</p>
+        <div class="nav-item">
+          <i class="fa fa-user" aria-hidden="true"></i>
+          <p onclick="lock.show();">Login / Signup</p>
+        </div>
       <% end %>
     </div>
-    <div class="nav-item" id="sponsors">
-      <i class="fa fa-hand-peace-o" aria-hidden="true"></i>
-      <p>Sponsors</p>
+
+  </nav>
+
+  <!--  ////////////////////////// HEADER ////////////////////////////////// -->
+
+  <div class="video-background hero">
+
+    <div class="video-foreground">
+        <iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ?modestbranding=1" allowfullscreen>
+        </iframe>
+    </div>
+
+    <div class="overlay">
+      <div class="title">
+        <img src="images/logo.png" alt="">
+      </div>
     </div>
 
   </div>
 
-  <div class="nav-bottom">
+  <!--  ////////////////////////// ABOUT /////////////////////////////////// -->
 
-    <div class="nav-item no-hover" id="loggedin">
-
-      <%if session[:userinfo] %>
-        <img id ="user-photo" src="<%= session[:userinfo]['image_url'] %> " alt="user_avatar">
-      <% end %>
+  <div class="about">
+    <div class="container">
+      <div class="title-left">
+        <h3>About Us</h3>
+      </div>
+      <div class="content-right">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam.</p>
+        <br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam.</p>
+      </div>
     </div>
-    <% if session[:userinfo] %>
-      <div class="nav-item">
-        <i class="fa fa-user" aria-hidden="true"></i>
-        <!-- <p onclick="lock.show();">Your Account</p> -->
-        <a href="/logout">
-          <p>Welcome, <%=session[:userinfo]['name'] %></p>
+  </div>
+
+  <!--  ////////////////////////// SPEAKERS //////////////////////////////// -->
+
+  <div class="speakers">
+    <div class="container">
+      <img src="/images/icons/horse.png" class="title-icons">
+      <h3>Amazing Speakers</h3>
+      <div class="speaker">
+        <div class="avatar-holder">
+          <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+        </div>
+        <div class="speaker-info">
+          <h4>Maggie McCain</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+        </div>
+      </div>
+      <div class="speaker">
+        <div class="avatar-holder">
+          <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAkjAAAAJDJkN2FiYzY4LTY2NjgtNDJmNy05MTNkLWM5NjVhNWNhZjg5MA.jpg" alt="">
+        </div>
+        <div class="speaker-info">
+          <h4>Denis Ng</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+        </div>
+      </div>
+      <div class="speaker">
+        <div class="avatar-holder">
+          <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/404221_513974315297240_1963769705_n.jpg?oh=1ce0fff7ac0bff93ada60ed5e2d11a80&oe=588262F8&__gda__=1480161137_92c0642de93420613d3973757b4eac5d" alt="">
+        </div>
+        <div class="speaker-info">
+          <h4>Jordan Etzler</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+        </div>
+      </div>
+      <div class="speaker">
+        <div class="avatar-holder">
+          <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAhtAAAAJDUyYWM2NmFmLWQzZTItNGJhNS04NWQwLWFiMzcyMmZhYTU2MA.jpg" alt="">
+        </div>
+        <div class="speaker-info">
+          <h4>Dean Cooper</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+        </div>
+      </div>
+      <div class="speaker">
+        <div class="avatar-holder">
+          <img src="https://media.licdn.com/media/p/7/005/08d/3f8/012c694.jpg" alt="">
+        </div>
+        <div class="speaker-info">
+          <h4>Magda Bialon</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+        </div>
+      </div>
+      <div class="speaker">
+        <div class="avatar-holder">
+          <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAlQAAAAJGU1NzU0YmU3LTRkMTAtNGNhOS1hN2FlLTcwOGFmMWNlZDQ1NQ.jpg" alt="">
+        </div>
+        <div class="speaker-info">
+          <h4>Harry Aydin</h4>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--  ////////////////////////// CALL TO ACTION ////////////////////////// -->
+
+  <div class="cta">
+    <div class="container">
+      <div class="left-cta">
+        <h3><span>HURRY UP!</span> ONLY <span>42</span> SEATS CURRENTLY REMAINING</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad provident aperiam perferendis et aliquam illum necessitatibus facere nisi debitis voluptate animi distinctio repellendus eius delectus, modi laborum quidem, aspernatur ea.</p>
+      </div>
+      <div class="right-cta">
+        <a href="">
+          <button>GET MY TICKET</button>
         </a>
       </div>
-    <% else %>
-      <div class="nav-item">
-        <i class="fa fa-user" aria-hidden="true"></i>
-        <p onclick="lock.show();">Login / Signup</p>
-      </div>
-    <% end %>
-  </div>
-
-</nav>
-
-<!--  ////////////////////////// HEADER ////////////////////////////////// -->
-
-<div class="video-background hero">
-
-  <div class="video-foreground">
-      <iframe src="https://www.youtube.com/embed/W0LHTWG-UmQ?controls=0&showinfo=0&rel=0&autoplay=1&loop=1&playlist=W0LHTWG-UmQ?modestbranding=1" allowfullscreen>
-      </iframe>
-  </div>
-
-  <div class="overlay">
-    <div class="title">
-      <img src="images/logo.png" alt="">
     </div>
   </div>
 
-</div>
+  <!--  ////////////////////////// TIMETABLE /////////////////////////////// -->
 
-<!--  ////////////////////////// ABOUT /////////////////////////////////// -->
-
-<div class="about">
-  <div class="container">
-    <div class="title-left">
-      <h3>About Us</h3>
-    </div>
-    <div class="content-right">
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam.</p>
-      <br>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quas veritatis quisquam rem iste porro! Maiores ut vel unde molestias temporibus mollitia ea ipsam inventore quis hic, itaque tempora consequatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel, sapiente incidunt commodi error quam nostrum, enim deleniti expedita eos, fugiat ipsum ducimus? Delectus odio eum ipsa ab ad, odit aliquam.</p>
-    </div>
-  </div>
-</div>
-
-<!--  ////////////////////////// SPEAKERS //////////////////////////////// -->
-
-<div class="speakers">
-  <div class="container">
-    <img src="/images/icons/horse.png" class="title-icons">
-    <h3>Amazing Speakers</h3>
-    <div class="speaker">
-      <div class="avatar-holder">
-        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+  <div class="timetable" id="default">
+    <div class="container">
+      <div class="t-holder-stuff">
+        <img src="/images/icons/mask.png" class="title-icons">
+        <h3>Conf Timetable</h3>
       </div>
-      <div class="speaker-info">
-        <h4>Maggie McCain</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
-      </div>
-    </div>
-    <div class="speaker">
-      <div class="avatar-holder">
-        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAkjAAAAJDJkN2FiYzY4LTY2NjgtNDJmNy05MTNkLWM5NjVhNWNhZjg5MA.jpg" alt="">
-      </div>
-      <div class="speaker-info">
-        <h4>Denis Ng</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
-      </div>
-    </div>
-    <div class="speaker">
-      <div class="avatar-holder">
-        <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/404221_513974315297240_1963769705_n.jpg?oh=1ce0fff7ac0bff93ada60ed5e2d11a80&oe=588262F8&__gda__=1480161137_92c0642de93420613d3973757b4eac5d" alt="">
-      </div>
-      <div class="speaker-info">
-        <h4>Jordan Etzler</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
-      </div>
-    </div>
-    <div class="speaker">
-      <div class="avatar-holder">
-        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAhtAAAAJDUyYWM2NmFmLWQzZTItNGJhNS04NWQwLWFiMzcyMmZhYTU2MA.jpg" alt="">
-      </div>
-      <div class="speaker-info">
-        <h4>Dean Cooper</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
-      </div>
-    </div>
-    <div class="speaker">
-      <div class="avatar-holder">
-        <img src="https://media.licdn.com/media/p/7/005/08d/3f8/012c694.jpg" alt="">
-      </div>
-      <div class="speaker-info">
-        <h4>Magda Bialon</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
-      </div>
-    </div>
-    <div class="speaker">
-      <div class="avatar-holder">
-        <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAlQAAAAJGU1NzU0YmU3LTRkMTAtNGNhOS1hN2FlLTcwOGFmMWNlZDQ1NQ.jpg" alt="">
-      </div>
-      <div class="speaker-info">
-        <h4>Harry Aydin</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tenetur dignissimos minima tempora aliquid minus, nemo, sequi cumque.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!--  ////////////////////////// CALL TO ACTION ////////////////////////// -->
-
-<div class="cta">
-  <div class="container">
-    <div class="left-cta">
-      <h3><span>HURRY UP!</span> ONLY <span>42</span> SEATS CURRENTLY REMAINING</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad provident aperiam perferendis et aliquam illum necessitatibus facere nisi debitis voluptate animi distinctio repellendus eius delectus, modi laborum quidem, aspernatur ea.</p>
-    </div>
-    <div class="right-cta">
-      <a href="">
-        <button>GET MY TICKET</button>
-      </a>
-    </div>
-  </div>
-</div>
-
-<!--  ////////////////////////// TIMETABLE /////////////////////////////// -->
-
-<div class="timetable" id="default">
-  <div class="container">
-    <div class="t-holder-stuff">
-      <img src="/images/icons/mask.png" class="title-icons">
-      <h3>Conf Timetable</h3>
-    </div>
-    <div class="timetable-container">
-      <div class="timetable-timeline">
-        <div class="listing">
-          <div class="t-image-col">
-            <div class="image-circle">
-              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+      <div class="timetable-container">
+        <div class="timetable-timeline">
+          <div class="listing">
+            <div class="t-image-col">
+              <div class="image-circle">
+                <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAcwAAAAJGU2N2RlMThlLTk1MTMtNDhhZS05MjRiLWM4YzZjMTIyZjk3MQ.jpg" alt="">
+              </div>
+            </div>
+            <div class="t-info">
+              <div class="t-info-top">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>Saturday, 9am AEST</h4>
+                <h3>Welcome and Introduction</h3>
+                <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
+              </div>
+              <div class="t-info-bottom t-closed">
+                <p>We welcome you to the 5th Annual WDIConf.  We'll give you an overview of the conference, logistics, and some motivational nuggets of knowledge to kick off a fun, inspiring weekend of learning and connecting with your peers.</p>
+                <h4>Maggie McCain</h4>
+              </div>
             </div>
           </div>
-          <div class="t-info">
-            <div class="t-info-top">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              <h4>Saturday, 9am AEST</h4>
-              <h3>Welcome and Introduction</h3>
-              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
+          <div class="listing">
+            <div class="t-image-col">
+              <div class="image-circle">
+                <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAkjAAAAJDJkN2FiYzY4LTY2NjgtNDJmNy05MTNkLWM5NjVhNWNhZjg5MA.jpg" alt="">
+              </div>
             </div>
-            <div class="t-info-bottom t-closed">
-              <p>We welcome you to the 5th Annual WDIConf.  We'll give you an overview of the conference, logistics, and some motivational nuggets of knowledge to kick off a fun, inspiring weekend of learning and connecting with your peers.</p>
-              <h4>Maggie McCain</h4>
-            </div>
-          </div>
-        </div>
-        <div class="listing">
-          <div class="t-image-col">
-            <div class="image-circle">
-              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAkjAAAAJDJkN2FiYzY4LTY2NjgtNDJmNy05MTNkLWM5NjVhNWNhZjg5MA.jpg" alt="">
-            </div>
-          </div>
-          <div class="t-info">
-            <div class="t-info-top">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              <h4>Saturday, 11am AEST</h4>
-              <h3>Achieving Maximum Efficiency with Agile</h3>
-              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
-            </div>
-            <div class="t-info-bottom t-closed">
-              <p>The Ultimate Scrum Master gives us a crash course in optimizing efficiency for your team by implementing Agile methodologies in your organization.  Learn how to free your team of the sequential waterfall development by improving your workflow and team reaction to unpredictability in the workplace.</p>
-              <h4>Denis Ng</h4>
+            <div class="t-info">
+              <div class="t-info-top">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>Saturday, 11am AEST</h4>
+                <h3>Achieving Maximum Efficiency with Agile</h3>
+                <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
+              </div>
+              <div class="t-info-bottom t-closed">
+                <p>The Ultimate Scrum Master gives us a crash course in optimizing efficiency for your team by implementing Agile methodologies in your organization.  Learn how to free your team of the sequential waterfall development by improving your workflow and team reaction to unpredictability in the workplace.</p>
+                <h4>Denis Ng</h4>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="listing">
-          <div class="t-image-col">
-            <div class="image-circle">
-              <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/404221_513974315297240_1963769705_n.jpg?oh=1ce0fff7ac0bff93ada60ed5e2d11a80&oe=588262F8&__gda__=1480161137_92c0642de93420613d3973757b4eac5d" alt="">
+          <div class="listing">
+            <div class="t-image-col">
+              <div class="image-circle">
+                <img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xfa1/v/t1.0-9/404221_513974315297240_1963769705_n.jpg?oh=1ce0fff7ac0bff93ada60ed5e2d11a80&oe=588262F8&__gda__=1480161137_92c0642de93420613d3973757b4eac5d" alt="">
+              </div>
+            </div>
+            <div class="t-info">
+              <div class="t-info-top">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>Saturday, 1:30pm AEST</h4>
+                <h3>Getting SASSy</h3>
+                <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
+              </div>
+              <div class="t-info-bottom t-closed">
+                <p>Jordan is a SASS wizard who will give us a deep dive into all the features SASS offers to make your styling that much easier.</p>
+                <h4>Jordan Etzler</h4>
+              </div>
             </div>
           </div>
-          <div class="t-info">
-            <div class="t-info-top">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              <h4>Saturday, 1:30pm AEST</h4>
-              <h3>Getting SASSy</h3>
-              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
+          <div class="listing">
+            <div class="t-image-col">
+              <div class="image-circle">
+                <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAhtAAAAJDUyYWM2NmFmLWQzZTItNGJhNS04NWQwLWFiMzcyMmZhYTU2MA.jpg" alt="">
+              </div>
             </div>
-            <div class="t-info-bottom t-closed">
-              <p>Jordan is a SASS wizard who will give us a deep dive into all the features SASS offers to make your styling that much easier.</p>
-              <h4>Jordan Etzler</h4>
-            </div>
-          </div>
-        </div>
-        <div class="listing">
-          <div class="t-image-col">
-            <div class="image-circle">
-              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAhtAAAAJDUyYWM2NmFmLWQzZTItNGJhNS04NWQwLWFiMzcyMmZhYTU2MA.jpg" alt="">
-            </div>
-          </div>
-          <div class="t-info">
-            <div class="t-info-top">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              <h4>Saturday, 3:00pm AEST</h4>
-              <h3>Node-torious B.I.G</h3>
-              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
-            </div>
-            <div class="t-info-bottom t-closed">
-              <p>Dean will be teaching Javascript newbies how to use the language beyond the browser with nodeJS, as an alternative to Sinatra and Rails.</p>
-              <h4>Dean Cooper</h4>
+            <div class="t-info">
+              <div class="t-info-top">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>Saturday, 3:00pm AEST</h4>
+                <h3>Node-torious B.I.G</h3>
+                <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
+              </div>
+              <div class="t-info-bottom t-closed">
+                <p>Dean will be teaching Javascript newbies how to use the language beyond the browser with nodeJS, as an alternative to Sinatra and Rails.</p>
+                <h4>Dean Cooper</h4>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="listing">
-          <div class="t-image-col">
-            <div class="image-circle">
-              <img src="https://media.licdn.com/media/p/7/005/08d/3f8/012c694.jpg" alt="">
+          <div class="listing">
+            <div class="t-image-col">
+              <div class="image-circle">
+                <img src="https://media.licdn.com/media/p/7/005/08d/3f8/012c694.jpg" alt="">
+              </div>
+            </div>
+            <div class="t-info">
+              <div class="t-info-top">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>Sunday, 9am AEST</h4>
+                <h3>Harnassing the Full Power of Your API</h3>
+                <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
+              </div>
+              <div class="t-info-bottom t-closed">
+                <p>This session focuses on the highest performing, most reliable API's.  Magda walks us through how to cut through the noise, to serve users the most relevant data from third party API's.</p>
+                <h4>Magda Bialon</h4>
+              </div>
             </div>
           </div>
-          <div class="t-info">
-            <div class="t-info-top">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              <h4>Sunday, 9am AEST</h4>
-              <h3>Harnassing the Full Power of Your API</h3>
-              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
+          <div class="listing">
+            <div class="t-image-col">
+              <div class="image-circle">
+                <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAlQAAAAJGU1NzU0YmU3LTRkMTAtNGNhOS1hN2FlLTcwOGFmMWNlZDQ1NQ.jpg" alt="">
+              </div>
             </div>
-            <div class="t-info-bottom t-closed">
-              <p>This session focuses on the highest performing, most reliable API's.  Magda walks us through how to cut through the noise, to serve users the most relevant data from third party API's.</p>
-              <h4>Magda Bialon</h4>
-            </div>
-          </div>
-        </div>
-        <div class="listing">
-          <div class="t-image-col">
-            <div class="image-circle">
-              <img src="https://media.licdn.com/media/AAEAAQAAAAAAAAlQAAAAJGU1NzU0YmU3LTRkMTAtNGNhOS1hN2FlLTcwOGFmMWNlZDQ1NQ.jpg" alt="">
-            </div>
-          </div>
-          <div class="t-info">
-            <div class="t-info-top">
-              <i class="fa fa-clock-o" aria-hidden="true"></i>
-              <h4>Sunday, 1:30pm AEST</h4>
-              <h3>What a-Bot it?</h3>
-              <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
-            </div>
-            <div class="t-info-bottom t-closed">
-              <p>Ever wondered how to better organize team communications and queues?  There's a bot for that.</p>
-              <h4>Harry Aydin</h4>
+            <div class="t-info">
+              <div class="t-info-top">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                <h4>Sunday, 1:30pm AEST</h4>
+                <h3>What a-Bot it?</h3>
+                <i class="fa fa-angle-down timetable-speaker-open" aria-hidden="true"></i>
+              </div>
+              <div class="t-info-bottom t-closed">
+                <p>Ever wondered how to better organize team communications and queues?  There's a bot for that.</p>
+                <h4>Harry Aydin</h4>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<div class="ae-modal">
-  <div class="modal-content">
-    <div class="ae-image">
+  <div class="ae-modal">
+    <div class="modal-content">
+      <div class="ae-image">
 
-    </div>
-    <div class="ae-info">
-      <div class="escape-btn">
-        <p>X</p>
       </div>
-    </div>
-  </div>
-</div>
-
-<!--  ////////////////////////// SPONSORS //////////////////////////////// -->
-
-<div class="sponsors">
-  <div class="container">
-    <img src="/images/icons/ufo.png" class="title-icons">
-    <h3>Our Sponsors</h3>
-    <div class="sponsor-slider">
-      <div class="logo-holder">
-        <a href="https://www.google.com.au">
-          <img src="/sponsors/Logos_color_0009_Google.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0009_Google.png" class="no-color">
-        </a>
-      </div>
-      <div class="logo-holder">
-        <a href="https://github.com/">
-          <img src="/sponsors/Logos_color_0008_Github.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0008_Github.png" class="no-color">
-        </a>
-      </div>
-      <div class="logo-holder">
-        <a href="https://slack.com/">
-          <img src="/sponsors/Logos_color_0007_Slack.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0007_Slack.png" class="no-color">
-        </a>
-      </div>
-      <div class="logo-holder">
-        <a href="https://envato.com/">
-          <img src="/sponsors/Logos_color_0006_Envato.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0006_Envato.png" class="no-color">
-        </a>
-      </div>
-      <div class="logo-holder">
-        <a href="https://www.zendesk.com/">
-          <img src="/sponsors/Logos_color_0005_Zendesk.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0005_Zendesk.png" class="no-color">
-        </a>
-      </div>
-      <div class="logo-holder">
-        <a href="https://www.dropbox.com/">
-          <img src="/sponsors/Logos_color_0003_Dropbox.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0003_Dropbox.png" class="no-color">
-        </a>
-      </div>
-      <div class="logo-holder">
-        <a href="https://generalassemb.ly/">
-          <img src="/sponsors/Logos_color_0004_GA.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0004_GA.png" class="no-color">
-        </a>
-      </div>
-      <div class="logo-holder">
-        <a href="https://trello.com/">
-          <img src="/sponsors/Logos_color_0002_Trello.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0002_Trello.png" class="no-color">
-        </a>
-      </div>
-      <div class="logo-holder">
-        <a href="https://www.tesla.com/">
-          <img src="/sponsors/Logos_color_0001_Tesla.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0001_Tesla.png" class="no-color">
-        </a>
-      </div>
-      <div class="logo-holder">
-        <a href="https://stripe.com/au">
-          <img src="/sponsors/Logos_color_0000_Stripe.png" class="color">
-          <img src="/sponsors/Grey Versions/logo_grey_0000_Stripe.png" class="no-color">
-        </a>
+      <div class="ae-info">
+        <div class="escape-btn">
+          <p>X</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!--  ////////////////////////// AFTER EVENTS //////////////////////////// -->
+  <!--  ////////////////////////// SPONSORS //////////////////////////////// -->
 
-<div class="after-events" id="default">
-
-  <div class="container">
-    <img src="/images/icons/glasses.png" class="title-icons">
-    <h3>Socialise</h3>
-    <div>
-      <%= render "partials/after_events" %>
+  <div class="sponsors">
+    <div class="container">
+      <img src="/images/icons/ufo.png" class="title-icons">
+      <h3>Our Sponsors</h3>
+      <div class="sponsor-slider">
+        <div class="logo-holder">
+          <a href="https://www.google.com.au">
+            <img src="/sponsors/Logos_color_0009_Google.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0009_Google.png" class="no-color">
+          </a>
+        </div>
+        <div class="logo-holder">
+          <a href="https://github.com/">
+            <img src="/sponsors/Logos_color_0008_Github.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0008_Github.png" class="no-color">
+          </a>
+        </div>
+        <div class="logo-holder">
+          <a href="https://slack.com/">
+            <img src="/sponsors/Logos_color_0007_Slack.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0007_Slack.png" class="no-color">
+          </a>
+        </div>
+        <div class="logo-holder">
+          <a href="https://envato.com/">
+            <img src="/sponsors/Logos_color_0006_Envato.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0006_Envato.png" class="no-color">
+          </a>
+        </div>
+        <div class="logo-holder">
+          <a href="https://www.zendesk.com/">
+            <img src="/sponsors/Logos_color_0005_Zendesk.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0005_Zendesk.png" class="no-color">
+          </a>
+        </div>
+        <div class="logo-holder">
+          <a href="https://www.dropbox.com/">
+            <img src="/sponsors/Logos_color_0003_Dropbox.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0003_Dropbox.png" class="no-color">
+          </a>
+        </div>
+        <div class="logo-holder">
+          <a href="https://generalassemb.ly/">
+            <img src="/sponsors/Logos_color_0004_GA.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0004_GA.png" class="no-color">
+          </a>
+        </div>
+        <div class="logo-holder">
+          <a href="https://trello.com/">
+            <img src="/sponsors/Logos_color_0002_Trello.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0002_Trello.png" class="no-color">
+          </a>
+        </div>
+        <div class="logo-holder">
+          <a href="https://www.tesla.com/">
+            <img src="/sponsors/Logos_color_0001_Tesla.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0001_Tesla.png" class="no-color">
+          </a>
+        </div>
+        <div class="logo-holder">
+          <a href="https://stripe.com/au">
+            <img src="/sponsors/Logos_color_0000_Stripe.png" class="color">
+            <img src="/sponsors/Grey Versions/logo_grey_0000_Stripe.png" class="no-color">
+          </a>
+        </div>
+      </div>
     </div>
   </div>
 
-</div>
+  <!--  ////////////////////////// AFTER EVENTS //////////////////////////// -->
 
-<!--  ////////////////////////// FOOTER ////////////////////////////////// -->
+  <div class="after-events" id="default">
 
-<footer>
-  <div class="container">
-    <div class="info">
-      <div class="info-box">
-        <i class="fa fa-map-marker" aria-hidden="true"></i>
-        <p>12A/45 William Street Melbourne, Victoria</p>
-      </div>
-      <div class="info-box">
-        <i class="fa fa-mobile" aria-hidden="true"></i>
-        <p>(03) 8592 7303</p>
-      </div>
-      <div class="info-box">
-        <i class="fa fa-envelope" aria-hidden="true"></i>
-        <p>melbourne@ga.co</p>
+    <div class="container">
+      <img src="/images/icons/glasses.png" class="title-icons">
+      <h3>Socialise</h3>
+      <div>
+        <%= render "partials/after_events" %>
       </div>
     </div>
-    <div class="disclaimer">
-      <div class="left50">
-        <img src="images/temp logo.png" alt="" id='footer-logo'>
-        <p>&copy; 2016 All rights reservered by the <span>HTML5's</span></p>
-      </div>
-      <div class="right50">
-        <a href="https://www.facebook.com/">
-          <img src="images/social/social-facebook.png" alt="">
-        </a>
-        <a href="https://twitter.com/">
-          <img src="images/social/social-twitter.png" alt="">
-        </a>
-        <a href="https://www.meetup.com/">
-          <img src="images/social/social-meetup.png" alt="">
-        </a>
-      </div>
-    </div>
+
   </div>
-</footer>
 
-<!--  ////////////////////////// STYLE GUIDE ///////////////////////////// -->
+  <!--  ////////////////////////// FOOTER ////////////////////////////////// -->
 
-<!-- <div class="style-guide">
-  <h1>Lorem Ipsum</h1>
-  <h2>Lorem Ipsum</h2>
-  <h3>Lorem Ipsum</h3>
-  <h4>Lorem Ipsum</h4>
-  <h5>Lorem Ipsum</h5>
-  <p>Lorem Ipsum</p>
-  <a href="">Lorem Ipsum</a>
-  <button>Lorem Ipsum</button>
-  <form action="">
-    <input type="text">
-    <input type="text">
-    <input type="text">
+  <footer>
+    <div class="container">
+      <div class="info">
+        <div class="info-box">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <p>12A/45 William Street Melbourne, Victoria</p>
+        </div>
+        <div class="info-box">
+          <i class="fa fa-mobile" aria-hidden="true"></i>
+          <p>(03) 8592 7303</p>
+        </div>
+        <div class="info-box">
+          <i class="fa fa-envelope" aria-hidden="true"></i>
+          <p>melbourne@ga.co</p>
+        </div>
+      </div>
+      <div class="disclaimer">
+        <div class="left50">
+          <img src="images/temp logo.png" alt="" id='footer-logo'>
+          <p>&copy; 2016 All rights reservered by the <span>HTML5's</span></p>
+        </div>
+        <div class="right50">
+          <a href="https://www.facebook.com/">
+            <img src="images/social/social-facebook.png" alt="">
+          </a>
+          <a href="https://twitter.com/">
+            <img src="images/social/social-twitter.png" alt="">
+          </a>
+          <a href="https://www.meetup.com/">
+            <img src="images/social/social-meetup.png" alt="">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!--  ////////////////////////// STYLE GUIDE ///////////////////////////// -->
+
+  <!-- <div class="style-guide">
+    <h1>Lorem Ipsum</h1>
+    <h2>Lorem Ipsum</h2>
+    <h3>Lorem Ipsum</h3>
+    <h4>Lorem Ipsum</h4>
+    <h5>Lorem Ipsum</h5>
+    <p>Lorem Ipsum</p>
+    <a href="">Lorem Ipsum</a>
     <button>Lorem Ipsum</button>
-  </form>
+    <form action="">
+      <input type="text">
+      <input type="text">
+      <input type="text">
+      <button>Lorem Ipsum</button>
+    </form>
 
 
-  <p>Style Guide</p>
-</div> -->
+    <p>Style Guide</p>
+  </div> -->
 
-<%= render "partials/quiz" %>
+  <%= render "partials/quiz" %>
 
-
+</div>
 
 
 
