@@ -23,14 +23,14 @@ Things you may want to cover:
 
 * ...
 
-###Project #3: Building Your Own API
+###Project #3: WDIConf
 
-![](http://i.imgur.com/j2uHG3x.gif)
+<!-- ![](http://i.imgur.com/j2uHG3x.gif) -->
 
 Assignment instructions :page_facing_up::
-https://gist.github.com/epoch/437cb84bfcef85f4a09f#file-wdi_project3-md
+https://gist.github.com/epoch/b90d4f4edb1c0693b98da3ed5dfbb754#file-wdiconf_code_dependent-md
 
-## Title: The Hair Projekt :scissors:
+## Title: WDIConference
 
 1.  Description
 2.  Wireframes
@@ -41,17 +41,17 @@ https://gist.github.com/epoch/437cb84bfcef85f4a09f#file-wdi_project3-md
 
 ##1.  Description :page_with_curl:
 
-The Hair Projekt(THP) is a web application by which registered users can post and share their most recent haircut/styling experience. Finding the right barber/hairdresser can be a hassle sometimes, THP helps users narrow down their choices and assists them in making a decision as the user has a better overall view of the respective salon. They can view posts containing the price, location, barber/hairdresser name, and overall experience from other users.
+WDIConference is a Melbourne-based tech conference for mid to senior level developers to network with each other and attend lectures from leading experts in the field.  Guests can peruse the site to view speakers, lecture topics, social events, and sponsors. Because the lectures are geared towards a more advanced audience, those interested in attending must pass a basic coding test to confirm their experience level prior to booking their seats.  After successfully passing the coding test and choosing seats we take payment via credit or debit card and you're in!  
 
 ##2.  Wireframes :pencil:
 
 Please view our Trello board below :wink:
 
-https://trello.com/b/2aTSiKi0
+https://trello.com/b/PZhA3mp6/wdi-conference
 
 ##3.  Technologies :iphone:
 
-Technologies used to build this app include: Ruby on Rails(v2.3.1), HTML, CSS and AJAX. In addition, PostgreSQL was used in the formation of the database. Trello was used for our group project management and workflow assistance. Heroku is being used as a cloud platform to host our application (below). GoogleMaps API was included to assist out location base functionality (location auto complete and mode of travel/distance)
+Technologies used to build this app include: Ruby on Rails(v2.3.1), HTML, CSS Javascript, AJAX and APIs (including Auth0, Stripe, MapBox using City of Melbourne API & Weather.com API, AceEditor, Bootstrap, Typed.js, slick.js).  Trello was used for our group project management and workflow assistance. Heroku is being used as a cloud platform to host our application (below).
 
 ##4. Deployment :gemini:
 
@@ -61,17 +61,18 @@ https://gist.github.com/HMAN1911/07dbef3b02d38161b93b867bb676e754
 
 ##5.  Installation/Startup Instructions :book:
 
-https://thehairprojekt.herokuapp.com
-
 Direct your browser by clicking on the application URL above and load the page.
 
-* As a user you can log in and log out of the website. If you are not a user, create your account by clicking the 'sign up' button
-* Once you are a user you can post a review about your recent hair cut in which you can upload 3 photos(Front Back Side), add shop name/location of hair salon, Stylist name, Price (stars/5). The app will automatically map out your distance between your current location and the hair salon. This functionality keeps you, the user within the app instead of you going out of it to use GoogleMaps.
-* As a user you can add comments on other posts
-* As a user you can bookmark/like your favourite/potential hair cut on the site, which will then be listed in your favourites
-* As a user you can delete comments/posts you have created
+If you want to install on your  computer, fork this repository.  
+Additional gems to install: omniauth, omniauth-auth0, and stripe.  
+Login and payment functionality require a Stripe and Auth0 account.  
 
 
+* As a user, I click on the website and will end up on the landing page where I will be impressed by the cool visuals.
+* I would be able to log in using my social network accounts including Facebook , Google and LinkedIn.  I can also sign up if I don't utilize any of these platforms.  
+* As a user and a developer interested in attending the world re-nowned WDI Conference, I will have to attempt a coding test pre-requisite prior to me securing my booking/ticket.
+* Upon completion of coding test page , I will be redirected to the booking page to pick my seats for the WDI Conference followed by the payment page.  
+* Upon completing my credit/debit  card payment, I will receive a confirmation and be able to RSVP to social events made possible by our sponsors.  
 
 
-*This Web Site is brought to you by the 3 Nuggets :tm:*
+*This Web Site is brought to you by the HTML5's :tm:*
