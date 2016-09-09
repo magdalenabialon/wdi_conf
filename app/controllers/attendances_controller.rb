@@ -3,9 +3,10 @@ class AttendancesController < ApplicationController
   def create
   # make sure the user hasnt already attended to event
 
-   if session[:userinfo]["id"] != nil
-    @attendance = Attendance.find_by({user_id: session[:userinfo]["id"], afterevent: params[:afterevent]})
 
+   if session[:userinfo]["id"] != nil
+    @attendance = Attendance.find_by({user_id: session[:userinfo]["id"], afterevent: params[:afterevent_id]})
+    # binding.pry
       if @attendance == nil then
           @attendance = Attendance.new
           @attendance.afterevent_id = params[:afterevent_id]
