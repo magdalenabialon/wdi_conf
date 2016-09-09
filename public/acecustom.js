@@ -19,6 +19,7 @@ $(function(){
 
   $('#booking').click(function(){
     $('.quizmodal-overlay').css('display', 'flex');
+    console.log('calling run intro');
     runIntro();
   });
 
@@ -30,12 +31,23 @@ $(function(){
 
 
 function runQuiz() {
+  console.log('running quiz');
   numberOfQuestions = 0;
   questionsPassed = 0;
   populateQuestion();
 }
 
+
+// function runQuiz() {
+//   console.log('run quiz');
+//   $quizResult.text('');
+//   populateQuestion();
+// }
+
 function runIntro() {
+
+  console.log('run intro');
+  $quizResult.text('');
   $('#newBooking').hide();
   $('#submitQuizButton').hide();
 
@@ -46,11 +58,11 @@ function runIntro() {
        callback: function() {
            $('.typed-cursor').show();
              $('#submitQuizButton').show();
+             console.log('running quiz from typed callback');
          runQuiz();
        }
       }
      );
-  runQuiz();
  }
 
 function replaceAll(str, find, replace) {
@@ -62,12 +74,14 @@ function removeWhiteSpace(string) {
 }
 
 function populateQuestion() {
+  console.log('populate question');
   currentGoes = 0;
 
   $.ajax({
   url: 'api/quizzes',
   method: 'get'
   }).done(function(quiz) {
+      console.log('ajax quiz return');
       currentQuizQuestion = quiz[0];
       editor.setValue(replaceAll(quiz[0].problem,'-n','\n'));
       currentQuizQuestion.answer1 = removeWhiteSpace(replaceAll(currentQuizQuestion.answer1,'-n','\n'));
@@ -84,32 +98,43 @@ function populateQuestion() {
 }
 
 function questionOver() {
+  console.log('question over');
   $quizResult.text('');
   populateQuestion();
 }
 
-function runQuiz() {
-  $quizResult.text('');
-  populateQuestion();
-}
+
 
 function quizFailOver() {
+  console.log('quiz fail over');
   $('.quizmodal-overlay').css('display', 'none');
 }
+
+function quizSuccess() {
+  console.log('quiz success');
+  window.location.href = "/bookings/new";
+}
+
 $('#submitQuizButton').on('click', function() {
+    console.log('submit quiz button');
+
+
     currentGoes++;
     var text = editor.getValue();
     text = removeWhiteSpace(text);
     if ((text == currentQuizQuestion.answer1) || (text == currentQuizQuestion.answer2)) {
       $quizResult.text('Correct!')
+      $('#submitQuizButton').attr('disabled','disabled');
+      console.log('disable quiz button');
       questionsPassed++;
       //set a timeout so they can see the result then move onto showing a new question.
       if (questionsPassed < rightQuestionsRequired){
+          console.log('set timeout for question over');
           ticket = setTimeout(questionOver, 2000);
       }
       else {
-          $quizResult.text('You passed the quiz. Please proceed.')
-          $('#newBooking').show();
+          $quizResult.text('You passed the quiz. Redirecting you to the booking page.')
+          ticket = setTimeout(quizSuccess, 3000);
       }
 
     }
@@ -123,15 +148,23 @@ $('#submitQuizButton').on('click', function() {
       //set a timeout so they can see the result then move onto showing a new question.
 
       if (goesLeft == 0) {
-          $('#submitQuizButton').attr('disabled','disabled');
+        $('#submitQuizButton').attr('disabled','disabled');
+        console.log('disable quiz button');
+          // $('#submitQuizButton').attr('disabled','disabled');
+          // console.log('disable quiz button');
         //ran out of attempts for this question. do we give them another chance?
 
         if ((numberOfQuestions == 3) || (numberOfQuestions == 2 && questionsPassed == 0)) {
-        //already hit the limit, you fail at life.
+
+          console.log('numberOfQuestions ', numberOfQuestions);
+          console.log('questionsPassed', questionsPassed);
+
           $quizResult.text('Sorry, you fail the quiz. Please come back next year.')
+          console.log('set timeout for quizFailOver');
           ticket = setTimeout(quizFailOver, 2000);
         }
         else {
+          console.log('set timeout for question over');
           ticket = setTimeout(questionOver, 2000);
         }
       }
@@ -205,7 +238,6 @@ $('#submitQuizButton').on('click', function() {
 //   populateQuestion();
 // }
 //
-
 
 // $('#submitQuizButton').on('click', function() {
 //     var text = editor.getValue();
